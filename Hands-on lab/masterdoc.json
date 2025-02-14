@@ -3,8 +3,12 @@
   "Language": "English",
   "Files": [
     {
-      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/HOL%20step-by-step%20-%20Enterprise-class%20networking%20in%20Azure.md",
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/Getting-started.md",
       "Order": 1
-    } 
+    },
+    {
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/HOL%20step-by-step%20-%20Enterprise-class%20networking%20in%20Azure.md",
+      "Order": 2
+    }
   ]
 } ]

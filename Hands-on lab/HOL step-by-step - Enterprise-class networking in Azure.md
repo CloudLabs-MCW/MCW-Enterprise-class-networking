@@ -1,16 +1,6 @@
-![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/main/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+# Enterprise-class networking in Azure hands-on lab step-by-step
 
-<div class="MCWHeader1">
-Enterprise-class networking in Azure
-</div>
-
-<div class="MCWHeader2">
-Hands-on lab step-by-step
-</div>
-
-<div class="MCWHeader3">
-December 2022
-</div>
+## Lab Scenario
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -18,118 +8,22 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2022 Microsoft Corporation. All rights reserved.
+## Lab Objective: 
 
-Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners
+You will be able to complete the following tasks:
 
-**Contents**
-
-<!-- TOC -->
-
-- [Enterprise-class networking in Azure hands-on lab step-by-step](#enterprise-class-networking-in-azure-hands-on-lab-step-by-step)
-  - [Abstract and learning objectives](#abstract-and-learning-objectives)
-  - [Overview](#overview)
-  - [Solution architecture](#solution-architecture)
-  - [Requirements](#requirements)
-  - [Help references](#help-references)
-  - [Exercise 1: Create a Virtual Network and provision subnets](#exercise-1-create-a-virtual-network-and-provision-subnets)
-    - [Task 1: Create a Virtual Network](#task-1-create-a-virtual-network)
-    - [Task 2: Configure subnets](#task-2-configure-subnets)
-  - [Exercise 2: Virtual Network Peering](#exercise-2-virtual-network-peering)
-    - [Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa](#task-1-configure-vnet-peering-wgvnet1-to-wgvnet2-and-vice-versa)
-  - [Exercise 3: Configure Network Security Groups and Application Security Groups](#exercise-3-configure-network-security-groups-and-application-security-groups)
-    - [Task 1: Create application security groups](#task-1-create-application-security-groups)
-    - [Task 2: Configure application security groups](#task-2-configure-application-security-groups)
-    - [Task 3: Create network security group](#task-3-create-network-security-group)
-  - [Exercise 4: Create route tables with required routes](#exercise-4-create-route-tables-with-required-routes)
-    - [Task 1: Create route tables](#task-1-create-route-tables)
-    - [Task 2: Add routes to each route table](#task-2-add-routes-to-each-route-table)
-  - [Exercise 5: Configure n-tier application and validate functionality](#exercise-5-configure-n-tier-application-and-validate-functionality)
-    - [Task 1: Create a load balancer to distribute load between the web servers](#task-1-create-a-load-balancer-to-distribute-load-between-the-web-servers)
-    - [Task 2: Configure the load balancer](#task-2-configure-the-load-balancer)
-  - [Exercise 6: Provision and configure Azure firewall solution](#exercise-6-provision-and-configure-azure-firewall-solution)
-    - [Task 1: Provision the Azure firewall](#task-1-provision-the-azure-firewall)
-    - [Task 2: Create Firewall Rules](#task-2-create-firewall-rules)
-    - [Task 3: Associate route tables to subnets](#task-3-associate-route-tables-to-subnets)
-  - [Exercise 7: Configure Site-to-Site connectivity](#exercise-7-configure-site-to-site-connectivity)
-    - [Task 1: Create OnPrem Virtual Network](#task-1-create-onprem-virtual-network)
-    - [Task 2: Configure gateway subnets for on premise Virtual Network](#task-2-configure-gateway-subnets-for-on-premise-virtual-network)
-    - [Task 3: Create the first gateway](#task-3-create-the-first-gateway)
-    - [Task 4: Create the second gateway](#task-4-create-the-second-gateway)
-    - [Task 5: Connect the gateways](#task-5-connect-the-gateways)
-    - [Task 6: Update VNet peerings to use gateway](#task-6-update-vnet-peerings-to-use-gateway)  
-  - [Exercise 8: Validate connectivity from 'on-premises' to Azure](#exercise-8-validate-connectivity-from-on-premises-to-azure)
-    - [Task 1: Create a virtual machine to validate connectivity](#task-1-create-a-virtual-machine-to-validate-connectivity)
-    - [Task 2: Configure routing for simulated 'on-premises' to Azure traffic](#task-2-configure-routing-for-simulated-on-premises-to-azure-traffic)
-  - [Exercise 9: Create a Network Monitoring Solution](#exercise-9-create-a-network-monitoring-solution)
-    - [Task 1: Create a Log Analytics Workspace](#task-1-create-a-log-analytics-workspace)
-    - [Task 2: Configure Network Watcher](#task-2-configure-network-watcher)
-  - [Exercise 10: Using Network Watcher to Test and Validate Connectivity](#exercise-10-using-network-watcher-to-test-and-validate-connectivity)
-    - [Task 1: Configuring the Storage Account for the NSG Flow Logs](#task-1-configuring-the-storage-account-for-the-nsg-flow-logs)
-    - [Task 2: Configuring Diagnostic Logs](#task-2-configuring-diagnostic-logs)
-    - [Task 3: Reviewing Network Traffic](#task-3-reviewing-network-traffic)
-    - [Task 4: Network Connection Troubleshooting](#task-4-network-connection-troubleshooting)
-  - [After the hands-on lab](#after-the-hands-on-lab)
-
-<!-- /TOC -->
-
-# Enterprise-class networking in Azure hands-on lab step-by-step
-
-## Abstract and learning objectives
-
-In this hands-on lab, you will setup and configure virtual networks in a secure hub-and-spoke design. You will also learn how to secure virtual networks by implementing Azure Firewall, network security groups and application security groups, as well as configure route tables on the subnets in your virtual network. Additionally, you will set up access to the virtual network via a jump box and provision a site-to-site VPN connection from another virtual network, providing emulation of hybrid connectivity from an on-premises environment.
-
-At the end of this hands-on lab, you will be better able to configure Azure networking components.
-
-## Overview
-
-You have been asked by Woodgrove Financial Services to provision a proof of concept deployment that will be used by the Woodgrove team to gain familiarity with a complex Virtual Networking deployment, including all of the components that enable the solution. Specifically, the Woodgrove team will be learning:
-
-- How to bypass system routing to accomplish custom routing scenarios.
-
-- How to capitalize on load balancers to distribute load and ensure service availability.
-
-- How to implement Azure Firewall to control hybrid and cross-virtual network traffic flow based on policies.
-
-- How to implement a combination of Network Security Groups (NSGs) and Application Security Groups (ASGs) to control traffic flow within virtual networks.
-
-- How to monitor network traffic for proper route configuration and trouble shooting.
-
-The result of this proof of concept will be an environment resembling this diagram:
-
-## Solution architecture
-
-![This image represents an entire overview of an environment for the result of this proof of concept. On the left is the OnPremVNetRG resource group, in the middle is the WGVNetRG1 resource group, and on the right is the WGVNetRG2 resource group. In the lower right is the MonitoringRG resource group.](images/hol-architecture.png "Solution Architecture")
-
-## Requirements
-
-You must have a working Azure subscription with Owner or Contributor access to carry out this hands-on lab step-by-step. Complete the steps given in the [Before the HOL - Enterprise-class networking in Azure](https://github.com/microsoft/MCW-Enterprise-class-networking/blob/main/Hands-on%20lab/Before%20the%20HOL%20-%20Enterprise-class%20networking.md) guide before starting this lab.
-
-## Help references
-
-|    |            |
-|----------|:-------------:|
-| **Description** | **Links** |
-| IP Addressing and Subnetting for New Users                | <http://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html>  |
-| ExpressRoute documentation                                | <https://learn.microsoft.com/en-us/azure/expressroute/>                                       |
-| ExpressRoute Routing requirements                         | <https://learn.microsoft.com/en-us/azure/expressroute/expressroute-routing/>                  |
-| ExpressRoute NAT requirements                             | <https://learn.microsoft.com/en-us/azure/expressroute/expressroute-nat>                       |
-| ExpressRoute workflows                                    | <https://learn.microsoft.com/en-us/azure/expressroute/expressroute-workflows>                 |
-| ExpressRoute Global Reach                                 | <https://learn.microsoft.com/azure/expressroute/expressroute-global-reach>                    |
-| Site-to-Site VPN documentation                            | <https://learn.microsoft.com/en-us/azure/vpn-gateway/>                                        |
-| Virtual Network documentation                             | <https://learn.microsoft.com/en-us/azure/virtual-network/>                                    |
-| Plan Virtual Networks                                     | <https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm>|
-| Virtual Network Traffic Routing                           | <https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview>       |
-| Load Balancer                                             | <https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview>                |
-| Microsoft Azure Virtual Datacenter: A Network Perspective | <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/resources/networking-vdc>   |
-| Deploy highly available network virtual appliances        | <https://learn.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha>           |
-| Azure Firewall Documentation                              | <https://learn.microsoft.com/azure/firewall/>                                                 |
-| Virtual Network Service Endpoints                         | <https://learn.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview>|
-| Azure Bastion                                             | <https://learn.microsoft.com/azure/bastion/bastion-overview>                                  |
+- Exercise 1: Create a Virtual Network and provision subnets
+- Exercise 2: Virtual Network Peering
+- Exercise 3: Configure Network Security Groups and Application Security Groups
+- Exercise 4: Create route tables with required routes
+- Exercise 5: Configure n-tier application and validate functionality
+- Exercise 6: Provision and configure Azure firewall solution
+- Exercise 7: Configure Site-to-Site connectivity
+- Exercise 8: Validate connectivity from 'on-premises' to Azure
+- Exercise 9: Create a Network Monitoring Solution
+- Exercise 10: Using Network Watcher to Test and Validate Connectivity
 
 ## Exercise 1: Create a Virtual Network and provision subnets
-
-Duration: 15 minutes
 
 ### Task 1: Create a Virtual Network
 
@@ -225,8 +119,6 @@ This virtual network will have a gateway subnet named `GatewaySubnet` provisione
 
 ## Exercise 2: Virtual Network Peering
 
-Duration: 20 Minutes
-
 ### Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa
 
 1. Select the resource group **WGVNetRG1**, and select the configuration blade for **WGVNet1**. Select **Peerings** under **Settings** on the left.
@@ -264,8 +156,6 @@ Duration: 20 Minutes
         ![In this screenshot, the 'Add peering' blade of the Azure portal is depicted with the required settings specified above highlighted for this virtual network.](images/hol-ex2-task1-add-peering-blade-2.png "WGVNet1 add peering blade - this virtual network")
 
 ## Exercise 3: Configure Network Security Groups and Application Security Groups
-
-Duration: 20 minutes
 
 In this exercise, you will restrict traffic between tiers of an n-tier application by using network security groups and application security groups.
 
@@ -483,8 +373,6 @@ This task will create a network security group with the following rules:
 
 ## Exercise 4: Create route tables with required routes
 
-Duration: 15 minutes
-
 Route Tables are containers for User Defined Routes (UDRs). The route table is created and associated with a subnet. UDRs allow you to direct traffic in ways other than normal system routes would. In this case, UDRs will direct outbound traffic via the Azure firewall.
 
 ### Task 1: Create route tables
@@ -602,8 +490,6 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
     >**Note:** The route tables and routes you have just created are not associated with any subnets yet, so they are not impacting any traffic flow yet. This will be accomplished later in the lab.
 
 ## Exercise 5: Configure n-tier application and validate functionality
-
-Duration: 20 minutes
 
 In this exercise, you will create and configure a load balancer to distribute the load between the web servers.
 
@@ -732,8 +618,6 @@ In this exercise, you will create and configure a load balancer to distribute th
     ![In this screenshot, the 'ipconfig1' blade of the web server NIC is depicted with the 'Public IP address' set to 'Disassociate' and the Save button selected.](images/hol-ex5-task2-ipconfig1-dissociate.png "IP configuration blade")
 
 ## Exercise 6: Provision and configure Azure firewall solution
-
-Duration: 15 minutes
 
 In this exercise, you will provision and configure an Azure firewall in your network.
 
@@ -884,8 +768,6 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 8. Select **OK** at the bottom of the **Associate subnet** blade.
 
 ## Exercise 7: Configure Site-to-Site connectivity
-
-Duration: 60 minutes
 
 In this exercise, we will simulate an on-premises connection to the internal web application. To do this, we will first set up another Virtual Network in a separate Azure region followed by the Site-to-Site connection of the 2 Virtual Networks Finally, we will set up a virtual machine in the new Virtual Network to simulate on-premises connectivity to the internal load-balancer.
 
@@ -1093,8 +975,6 @@ The change to the gateway setting for the virtual network peerings may take a fe
 
 ## Exercise 8: Validate connectivity from 'on-premises' to Azure
 
-Duration: 30 minutes
-
 In this exercise, you will validate connectivity from your simulated on-premises environment to Azure.
 
 ### Task 1: Create a virtual machine to validate connectivity
@@ -1225,8 +1105,6 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 ## Exercise 9: Create a Network Monitoring Solution
 
-Duration: 15 minutes
-
 ### Task 1: Create a Log Analytics Workspace
 
 1. Connect to the Azure portal. Select **+ Create a resource**, and in the **Search the Marketplace** box, search for and select **Log Analytics Workspace**. Select **Create**.
@@ -1258,8 +1136,6 @@ Duration: 15 minutes
    ![In this screenshot, the 'Overview' blade of the 'Network Watcher' service is depicted with the available regions listed and the '+ Add' button selected.](images/hol-ex9-task2-network-watcher.png "Network Watcher Overview blade")
 
 ## Exercise 10: Using Network Watcher to Test and Validate Connectivity
-
-Duration: 60 minutes
 
 In this exercise, you will collect the flow log and perform connectivity from your simulated on-premises environment to Azure. This will be accomplished by using the Network Watcher Service in the Azure Platform.
 
@@ -1397,18 +1273,7 @@ In this exercise, you will collect the flow log and perform connectivity from yo
 
     ![In this screenshot, the results of the connection troubleshoot operation performed in the previous step is depicted with a grid view showing the Name, IP address, Status, and Next hop IP address.](images/hol-ex10-task4-network-watcher-connection-troubleshoot.png "Connection Troubleshoot")
 
-## After the hands-on lab
+### Summary
+In this lab, you configured a hybrid cloud environment by connecting an on-premises network to Azure using secure connectivity. You deployed virtual networks, an Azure Firewall, Bastion for secure access, application and database servers, a load balancer for traffic distribution, and a monitoring solution for performance tracking.
 
-Duration: 10 minutes
-
-After you have successfully completed the Enterprise-class networking in Azure hands-on lab step-by-step, you will want to delete the Resource Groups created. This will free up your subscription from future charges.
-
-The resource groups that were called out in this lab include:
-
-- MonitoringRG
-- OnPremVMRG
-- OnPremVNetRG
-- WGVNetRG1
-- WGVNetRG2
-
-You should follow all steps provided *after* attending the Hands-on lab.
+### You have successfully completed this lab.
