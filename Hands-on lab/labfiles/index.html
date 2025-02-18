@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudShop Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Cloud Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Checkout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <h2>CloudShop Demo - Products - running on <span id="server-name"></span></h2>
+        <button onclick="updateHostname()">Refresh</button>
+    </section>
+
+    <section class="content">
+        <p>Select a product from the list:</p>
+        <input type="text" placeholder="Search">
+    </section>
+
+    <script>
+        function updateHostname() {
+            document.getElementById("server-name").textContent = window.location.hostname.toUpperCase();
+        }
+        updateHostname(); // Set hostname on load
+    </script>
+</body>
+</html>
