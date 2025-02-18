@@ -8,33 +8,39 @@ $path=$path.Path
 $commonscriptpath = "$path" + "\cloudlabs-common\cloudlabs-windows-functions.ps1"
 . $commonscriptpath
 
-# Define variables
-$sitePath = "C:\inetpub\wwwroot\CloudShop"
-$repoUrl = "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab"
+WindowsServerCommon
+sleep 10
 
-# Install IIS if not already installed
+# Define variables
+$SiteName = "CloudShop"
+$SitePath = "C:\inetpub\wwwroot\$SiteName"
+$GitHubRepo = "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab"
+$IndexFile = "$GitHubRepo/index.html"
+$StylesFile = "$GitHubRepo/styles.css"
+
+# Ensure IIS is installed
 Write-Host "Installing IIS..." -ForegroundColor Green
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
-# Create a new folder for the website
-if (-Not (Test-Path $sitePath)) {
-    New-Item -ItemType Directory -Path $sitePath
-}
+# Create the website folder
+Write-Host "Creating website directory..." -ForegroundColor Green
+New-Item -Path $SitePath -ItemType Directory -Force
 
 # Download index.html and styles.css from GitHub
-Write-Host "Downloading web files from GitHub..." -ForegroundColor Green
-Invoke-WebRequest "$repoUrl/index.html" -OutFile "$sitePath\index.html"
-Invoke-WebRequest "$repoUrl/styles.css" -OutFile "$sitePath\styles.css"
+Write-Host "Downloading web files..." -ForegroundColor Green
+Invoke-WebRequest -Uri $IndexFile -OutFile "$SitePath\index.html"
+Invoke-WebRequest -Uri $StylesFile -OutFile "$SitePath\styles.css"
 
-# Configure IIS to serve the website
+# Update index.html with server name
+$ServerName = $env:COMPUTERNAME
+(Get-Content "$SitePath\index.html") -replace "running on <span id=`"server-name`"></span>", "running on <span style='font-weight:bold; background:white; color:#6ab0de; padding:5px 10px; border-radius:5px;'>$ServerName</span>" | Set-Content "$SitePath\index.html"
+
+# Configure IIS website
 Write-Host "Configuring IIS site..." -ForegroundColor Green
-Import-Module WebAdministration
-if (-Not (Get-Website -Name "CloudShop" -ErrorAction SilentlyContinue)) {
-    New-WebSite -Name "CloudShop" -Port 80 -PhysicalPath $sitePath
-}
+New-WebSite -Name $SiteName -PhysicalPath $SitePath -Port 80
 
 # Restart IIS to apply changes
 Write-Host "Restarting IIS..." -ForegroundColor Green
-iisreset
+Restart-Service W3SVC
 
-Write-Host "Deployment Complete!"
+Write-Host "Deployment completed! Visit http://localhost to view the site." -ForegroundColor Cyan
