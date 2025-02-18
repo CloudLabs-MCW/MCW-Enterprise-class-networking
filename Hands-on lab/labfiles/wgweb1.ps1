@@ -1,41 +1,40 @@
-# Install IIS if not already installed
-Install-WindowsFeature -Name Web-Server -IncludeManagementTools
-Write-Host "IIS installed successfully."
+Start-Transcript -Path C:\WindowsAzure\Logs\CloudLabsCustomScriptExtension-wgweb1.txt -Append
+[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls" 
 
-# Ensure the wwwroot folder exists
-$wwwrootPath = "C:\inetpub\wwwroot"
-if (!(Test-Path $wwwrootPath)) {
-    New-Item -Path $wwwrootPath -ItemType Directory -Force
-    Write-Host "Created missing wwwroot folder."
+#Import Common Functions
+$path = pwd
+$path=$path.Path
+$commonscriptpath = "$path" + "\cloudlabs-common\cloudlabs-windows-functions.ps1"
+. $commonscriptpath
+
+# Define variables
+$sitePath = "C:\inetpub\wwwroot\CloudShop"
+$repoUrl = "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab"
+
+# Install IIS if not already installed
+Write-Host "Installing IIS..." -ForegroundColor Green
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+
+# Create a new folder for the website
+if (-Not (Test-Path $sitePath)) {
+    New-Item -ItemType Directory -Path $sitePath
 }
 
-# Create the IIS Welcome Page with Custom Content
-$customHTML = @"
-<html>
-<head>
-    <title>CloudShop Demo</title>
-    <style>
-        body {
-            background-color: blue;
-            color: white;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            padding-top: 20%;
-        }
-        h1 {
-            font-size: 36px;
-        }
-    </style>
-</head>
-<body>
-    <h1>CloudShop Demo - Products - running on WGWEB1</h1>
-</body>
-</html>
-"@
+# Download index.html and styles.css from GitHub
+Write-Host "Downloading web files from GitHub..." -ForegroundColor Green
+Invoke-WebRequest "$repoUrl/index.html" -OutFile "$sitePath\index.html"
+Invoke-WebRequest "$repoUrl/styles.css" -OutFile "$sitePath\styles.css"
 
-Set-Content -Path "$wwwrootPath\iisstart.htm" -Value $customHTML -Force
-Write-Host "IIS Welcome Page updated successfully."
+# Configure IIS to serve the website
+Write-Host "Configuring IIS site..." -ForegroundColor Green
+Import-Module WebAdministration
+if (-Not (Get-Website -Name "CloudShop" -ErrorAction SilentlyContinue)) {
+    New-WebSite -Name "CloudShop" -Port 80 -PhysicalPath $sitePath
+}
 
-# Restart IIS to Apply Changes
+# Restart IIS to apply changes
+Write-Host "Restarting IIS..." -ForegroundColor Green
 iisreset
-Write-Host "IIS restarted successfully."
+
+Write-Host "Deployment Complete!"
