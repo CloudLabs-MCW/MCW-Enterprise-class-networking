@@ -14,7 +14,7 @@ sleep 10
 # Define variables
 $SiteName = "CloudShop"
 $SitePath = "C:\inetpub\wwwroot\$SiteName"
-$GitHubRepo = "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab"
+$GitHubRepo = "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/labfiles"
 $IndexFile = "$GitHubRepo/index.html"
 $StylesFile = "$GitHubRepo/styles.css"
 
