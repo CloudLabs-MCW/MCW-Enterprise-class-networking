@@ -37,7 +37,17 @@ $ServerName = $env:COMPUTERNAME
 
 # Configure IIS website
 Write-Host "Configuring IIS site..." -ForegroundColor Green
-New-WebSite -Name $SiteName -PhysicalPath $SitePath -Port 80
+# New-WebSite -Name $SiteName -PhysicalPath $SitePath -Port 80
+# Remove existing files in the IIS root folder
+Write-Host "Removing existing files in IIS root folder..." -ForegroundColor Green
+Get-ChildItem -Path "C:\inetpub\wwwroot\" -Exclude "CloudShop" | Remove-Item -Recurse -Force
+
+# Create a new IIS website
+# New-WebSite -Name $SiteName -PhysicalPath $SitePath -Port 80
+
+# Copy index.html and styles.css to the IIS root folder
+Copy-Item -Path "$SitePath\index.html" -Destination "C:\inetpub\wwwroot\"
+Copy-Item -Path "$SitePath\styles.css" -Destination "C:\inetpub\wwwroot\"
 
 # Restart IIS to apply changes
 Write-Host "Restarting IIS..." -ForegroundColor Green
