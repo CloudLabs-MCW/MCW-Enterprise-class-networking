@@ -45,7 +45,6 @@ Get-ChildItem -Path "C:\inetpub\wwwroot\" -Exclude "CloudShop" | Remove-Item -Re
 
 # Copy index.html and styles.css to the IIS root folder
 Copy-Item -Path "$SitePath\index.html" -Destination "C:\inetpub\wwwroot\"
-Copy-Item -Path "$SitePath\styles.css" -Destination "C:\inetpub\wwwroot\"
 
 # Restart IIS to apply changes
 Write-Host "Restarting IIS..." -ForegroundColor Green
