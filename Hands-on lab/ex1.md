@@ -8,13 +8,12 @@ This virtual network will have a gateway subnet named `GatewaySubnet` provisione
 
 2. On the **Create virtual network** blade, on the **Basic** tab, enter the following information:
 
-    - Subscription: **Select your subscription**.
-
-    - Resource group: Select **Create new**, and enter the name **WGVNetRG1**.
-
-    - Name: **WGVNet1**
-
-    - Location: **South Central US**
+    | Setting | Action |
+    | -- | -- |
+    | **Subscription** | Keep it as default **(1)** |
+    | **Resource Group** | WGVNetRG1 **(2)** |
+    | **Name** | **WGVNet1 (3)** |
+    | **Location** | **South Central US (4)** |
 
 3. Select **Next: IP Addresses**
 
