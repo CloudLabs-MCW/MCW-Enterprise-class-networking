@@ -15,8 +15,7 @@ sleep 10
 $SiteName = "CloudShop"
 $SitePath = "C:\inetpub\wwwroot\$SiteName"
 $GitHubRepo = "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/labfiles"
-$IndexFile = "$GitHubRepo/index.html"
-$StylesFile = "$GitHubRepo/styles.css"
+$IndexFile = "$GitHubRepo/index1.html"
 
 # Ensure IIS is installed
 Write-Host "Installing IIS..." -ForegroundColor Green
@@ -29,7 +28,6 @@ New-Item -Path $SitePath -ItemType Directory -Force
 # Download index.html and styles.css from GitHub
 Write-Host "Downloading web files..." -ForegroundColor Green
 Invoke-WebRequest -Uri $IndexFile -OutFile "$SitePath\index.html"
-Invoke-WebRequest -Uri $StylesFile -OutFile "$SitePath\styles.css"
 
 # Update index.html with server name
 $ServerName = $env:COMPUTERNAME
@@ -37,10 +35,21 @@ $ServerName = $env:COMPUTERNAME
 
 # Configure IIS website
 Write-Host "Configuring IIS site..." -ForegroundColor Green
-New-WebSite -Name $SiteName -PhysicalPath $SitePath -Port 80
+# New-WebSite -Name $SiteName -PhysicalPath $SitePath -Port 80
+# Remove existing files in the IIS root folder
+Write-Host "Removing existing files in IIS root folder..." -ForegroundColor Green
+Get-ChildItem -Path "C:\inetpub\wwwroot\" -Exclude "CloudShop" | Remove-Item -Recurse -Force
+
+# Create a new IIS website
+# New-WebSite -Name $SiteName -PhysicalPath $SitePath -Port 80
+
+# Copy index.html and styles.css to the IIS root folder
+Copy-Item -Path "$SitePath\index.html" -Destination "C:\inetpub\wwwroot\"
+Copy-Item -Path "$SitePath\styles.css" -Destination "C:\inetpub\wwwroot\"
 
 # Restart IIS to apply changes
 Write-Host "Restarting IIS..." -ForegroundColor Green
 Restart-Service W3SVC
 
 Write-Host "Deployment completed! Visit http://localhost to view the site." -ForegroundColor Cyan
+

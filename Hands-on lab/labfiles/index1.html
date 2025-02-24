@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+        nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #666;
+        }
+        .banner {
+            background-color: #a8e0ec;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .product-section {
+            margin-bottom: 30px;
+        }
+        .product-selection {
+            margin-bottom: 20px;
+        }
+        select {
+            width: 250px;
+            padding: 5px;
+            margin-top: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            margin-top: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
+        .cpu-spike-demo {
+            background-color: #f0f0f0;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .cpu-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .input-group {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .input-group label {
+            flex: 1;
+            text-align: left;
+        }
+        .input-group input {
+            width: 60px;
+            padding: 3px;
+        }
+        #spikeCpu {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            width: 100%;
+        }
+        #spikeCpu:hover {
+            background-color: #e68a00;
+        }
+        #cpuStatus {
+            margin-top: 10px;
+            font-weight: bold;
+            height: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #999;
+            margin-top: 40px;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #ddd;
+            margin-top: 10px;
+            height: 20px;
+            position: relative;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #4CAF50;
+            position: absolute;
+            transition: width 1s;
+        }
+        .progress-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Cloud Shop</h1>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Checkout</a>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <h2>CloudShop Demo - Products - running on <span id="server-name"></span></h2>
+    </div>
+
+    <div class="container">
+        <div class="product-section">
+            <h3>Select a product from the list:</h3>
+            <div class="product-selection">
+                <select id="productList" size="15">
+                    <option>Adjustable Flow</option>
+                    <option>All-Purpose File Stand</option>
+                    <option>Aluminum Plate</option>
+                    <option>Air Ball Bearing</option>
+                    <option>Bearing Belt</option>
+                    <option>Bearing Shaft Supporter</option>
+                    <option>Blade</option>
+                    <option>Chain Lock</option>
+                    <option>Chain</option>
+                    <option>Charging</option>
+                    <option>Charging Box</option>
+                    <option>Classic Volt S</option>
+                    <option>Classic Volt L</option>
+                    <option>Classic Volt M</option>
+                </select>
+            </div>
+            <button id="addToCart">Add item to cart</button>
+        </div>
+
+        <div class="cpu-demo-section">
+            <h3>CPU Spike Demo</h3>
+            <div class="cpu-spike-demo">
+                <div id="cpuUsage">CPU: 0%</div>
+                <div class="cpu-controls">
+                    <div class="input-group">
+                        <label for="cpuPercentage">CPU Percentage:</label>
+                        <input type="number" id="cpuPercentage" min="10" max="100" value="70">
+                    </div>
+                    <div class="input-group">
+                        <label for="durationMinutes">Duration (minutes):</label>
+                        <input type="number" id="durationMinutes" min="0.1" max="60" value="1" step="0.1">
+                    </div>
+                    <button id="spikeCpu">Spike CPU</button>
+                    <div id="cpuStatus"></div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                        <div class="progress-text" id="progressText">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 CloudShop Demo Application</p>
+    </footer>
+
+    <script>
+        // Shopping cart functionality
+        document.getElementById('addToCart').addEventListener('click', function() {
+            const select = document.getElementById('productList');
+            const selectedProduct = select.options[select.selectedIndex]?.text;
+            
+            if (selectedProduct) {
+                alert(`Added ${selectedProduct} to cart`);
+            } else {
+                alert('Please select a product first');
+            }
+        });
+
+        // CPU Spike implementation with web workers
+        let cpuWorkers = [];
+        let isSpikingCpu = false;
+        let startTime;
+        let duration;
+        let progressInterval;
+        
+        // Create a worker string as a blob
+        const workerCode = `
+            function spinCPU(percentage) {
+                const start = Date.now();
+                const cycleTime = 10; // ms
+                
+                while (true) {
+                    // Busy work for percentage% of the time
+                    const busyEnd = start + (cycleTime * percentage / 100);
+                    while (Date.now() < busyEnd) {
+                        // Intensive calculations to consume CPU
+                        for (let i = 0; i < 10000; i++) {
+                            Math.sqrt(Math.random() * 999999) * Math.random();
+                        }
+                    }
+                    
+                    // Sleep for the rest of the cycle
+                    const sleepTime = start + cycleTime - Date.now();
+                    if (sleepTime > 0) {
+                        // Sleep by checking message queue
+                        const checkEnd = Date.now() + sleepTime;
+                        while (Date.now() < checkEnd) {
+                            // Check for termination message
+                            if (self.interrupted) return;
+                        }
+                    }
+                    
+                    // Check for termination message
+                    if (self.interrupted) return;
+                }
+            }
+            
+            self.onmessage = function(e) {
+                if (e.data.command === 'start') {
+                    spinCPU(e.data.percentage);
+                } else if (e.data.command === 'stop') {
+                    self.interrupted = true;
+                    self.close();
+                }
+            };
+        `;
+        
+        const workerBlob = new Blob([workerCode], { type: 'application/javascript' });
+        const workerUrl = URL.createObjectURL(workerBlob);
+        
+        document.getElementById('spikeCpu').addEventListener('click', function() {
+            if (isSpikingCpu) {
+                stopCpuSpike();
+                return;
+            }
+            
+            const cpuPercentage = parseInt(document.getElementById('cpuPercentage').value) || 70;
+            const durationMinutes = parseFloat(document.getElementById('durationMinutes').value) || 1;
+            
+            // Validate inputs
+            if (cpuPercentage < 10 || cpuPercentage > 100) {
+                alert('CPU percentage must be between 10 and 100');
+                return;
+            }
+            
+            if (durationMinutes < 0.1 || durationMinutes > 60) {
+                alert('Duration must be between 0.1 and 60 minutes');
+                return;
+            }
+            
+            startCpuSpike(cpuPercentage, durationMinutes);
+        });
+        
+        function startCpuSpike(percentage, durationMinutes) {
+            if (isSpikingCpu) return;
+            
+            isSpikingCpu = true;
+            document.getElementById('spikeCpu').textContent = 'Stop CPU Spike';
+            document.getElementById('cpuStatus').textContent = `Running at ${percentage}% CPU`;
+            document.getElementById('cpuUsage').textContent = `CPU: ${percentage}%`;
+            
+            // Create workers based on CPU cores (using navigator.hardwareConcurrency or fallback to 4)
+            const cpuCores = navigator.hardwareConcurrency || 4;
+            const workerCount = Math.max(1, Math.floor(cpuCores * 0.75)); // Use 75% of available cores
+            
+            // Calculate duration in milliseconds
+            duration = durationMinutes * 60 * 1000;
+            startTime = Date.now();
+            
+            // Create and start workers
+            for (let i = 0; i < workerCount; i++) {
+                const worker = new Worker(workerUrl);
+                worker.postMessage({ command: 'start', percentage: percentage });
+                cpuWorkers.push(worker);
+            }
+            
+            // Setup progress tracking
+            updateProgress();
+            progressInterval = setInterval(updateProgress, 1000);
+            
+            // Set timeout to stop the spike after the specified duration
+            setTimeout(() => {
+                if (isSpikingCpu) {
+                    stopCpuSpike();
+                }
+            }, duration);
+        }
+        
+        function stopCpuSpike() {
+            if (!isSpikingCpu) return;
+            
+            // Terminate all workers
+            cpuWorkers.forEach(worker => {
+                worker.postMessage({ command: 'stop' });
+            });
+            
+            cpuWorkers = [];
+            isSpikingCpu = false;
+            
+            // Reset UI
+            document.getElementById('spikeCpu').textContent = 'Spike CPU';
+            document.getElementById('cpuStatus').textContent = 'Stopped';
+            document.getElementById('cpuUsage').textContent = 'CPU: 0%';
+            
+            // Clear progress interval
+            clearInterval(progressInterval);
+            
+            // Set progress to 100% if it was a normal completion
+            const elapsed = Date.now() - startTime;
+            if (elapsed >= duration) {
+                document.getElementById('progressBar').style.width = '100%';
+                document.getElementById('progressText').textContent = '100%';
+            }
+        }
+        
+        function updateProgress() {
+            if (!isSpikingCpu) return;
+            
+            const elapsed = Date.now() - startTime;
+            const progressPercent = Math.min(100, Math.round((elapsed / duration) * 100));
+            
+            document.getElementById('progressBar').style.width = `${progressPercent}%`;
+            document.getElementById('progressText').textContent = `${progressPercent}%`;
+            
+            // If completed, stop the spike
+            if (elapsed >= duration) {
+                stopCpuSpike();
+            }
+        }
+        
+        // Clean up workers when leaving the page
+        window.addEventListener('beforeunload', function() {
+            if (isSpikingCpu) {
+                stopCpuSpike();
+            }
+            URL.revokeObjectURL(workerUrl);
+        });
+    </script>
+</body>
+</html>
