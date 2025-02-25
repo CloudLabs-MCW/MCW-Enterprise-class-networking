@@ -28,4 +28,6 @@
 
 3. If they are not listed, add them to the list using the **+ Add** button.
 
-   ![In this screenshot, the 'Overview' blade of the 'Network Watcher' service is depicted with the available regions listed and the '+ Add' button selected.](images/hol-ex9-task2-network-watcher.png "Network Watcher Overview blade")
+   ![In this screenshot, the 'Overview' blade of the 'Network Watcher' service is depicted with the available regions listed and the '+ Add' button selected.](images/hol-ex9-task2-network-watcher.png "Network Watcher Overview blade"
+
+## Great job on completing this exercise! You can now proceed to the next one.
