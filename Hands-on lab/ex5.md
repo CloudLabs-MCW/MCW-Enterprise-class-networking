@@ -116,3 +116,5 @@ In this exercise, you will create and configure a load balancer to distribute th
 
    ![](images/lab5loadb8.png)
    ![](images/lab5loadb9.png)
+
+## Great job on completing this exercise! You can now proceed to the next one.
