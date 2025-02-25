@@ -17,9 +17,5 @@ Restore-SqlDatabase -ServerInstance "WGSQL1" -Database "AdventureWorks2017" -Bac
     @{LogicalFileName = "AdventureWorks2017_log"; PhysicalFileName = "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\AdventureWorks2017.ldf"}
 ) -ReplaceDatabase -SqlCredential $cred
 
-
-#Remove logontask file from labfiles
-Remove-Item 'C:\LabFiles\wgsql-logontask.ps1' -Recurse -force
-
 Stop-Transcript
 Restart-Computer -Force
