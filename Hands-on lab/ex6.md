@@ -46,48 +46,36 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
 5. Select **+ Add NAT Rule collection** and enter the following information to create an inbound NAT Rule (a collection is a list of rules that share the same priority and action) then select **Add**:
 
-    - Name: **NATRuleCollection1**
-
-    - Priority: **250**
-
-    - Rules name: **IncomingHTTP**
-
-    - Protocol: **TCP**
-
-    - Source type: **IP Address**
-
-    - Source: **\***
-
-    - Destination Address: Type the public IP address assigned to the firewall you identified earlier in this task.
-
-    - Destination ports: **80** (to allow HTTP traffic)
-
-    - Translated Address: **10.8.0.100** (Private IP of the Azure Load Balancer you deployed earlier in this lab.)
-
-    - Translated Port: **80**
+    | Setting | Action |
+    | -- | -- |
+    | Name | **NATRuleCollection1** |
+    | Priority | **250** |
+    | Rules name | **IncomingHTTP** |
+    | Protocol | **TCP** |
+    | Source type | **IP Address** |
+    | Source| **\*** |
+    | Destination Address | Type the public IP address assigned to the firewall you identified earlier in this task|
+    | Destination ports | **80** (to allow HTTP traffic) |
+    | Translated Address | **10.8.0.100** (Private IP of the Azure Load Balancer you deployed earlier in this lab.) |
+    | Translated Port | Translated Port: **80** |
 
     ![](images/lab6fire5.png)
     ![](images/lab6fire6.png)
 
 6. Back on the **azureFirewall - Rules (classic)** page, select the newly created NAT rule collection. Add another rule for HTTPS, as illustrated in the following screenshot (alternatively you could create a single rule for both HTTP and HTTPS). The rules should look like the image below.
 
-    - Rules name: **IncomingHTTPS**
-
-    - Protocol: **TCP**
-
-    - Source type: **IP Address**
-
-    - Source: **\***
-
-    - Destination Address: Type the public IP address assigned to the firewall you identified earlier in this task.
-
-    - Destination ports: **443**
-
-    - Translated Address: **10.8.0.100**
-
-    - Translated Port: **443**
-
-        ![In this screenshot, the 'Edit NAT rule collection' page is depicted with the required settings listed above selected.](images/hol-ex6-task2-edit-nat-rule-collection.png "Azure Firewall NAT Rules for HTTP and HTTPS")
+    | Setting | Action |
+    | -- | -- |
+    | Rules name | **IncomingHTTPS** |
+    | Protocol | **TCP** |
+    | Source type | **IP Address** |
+    | Source | **\*** |
+    | Destination Address | Type the public IP address assigned to the firewall you identified earlier in this task. |
+    | Destination ports | **443** |
+    | Translated Address | **10.8.0.100** |
+    | Translated Port | **443** |
+  
+    ![In this screenshot, the 'Edit NAT rule collection' page is depicted with the required settings listed above selected.](images/hol-ex6-task2-edit-nat-rule-collection.png "Azure Firewall NAT Rules for HTTP and HTTPS")
 
     ![](images/lab6fire7.png)
 
@@ -95,39 +83,32 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
 8. Back on the Azure Firewall **Rules (classic)** page, select **Network rule collection**. Then Select **+ Add Network Rule collection** and enter the following information to create a Network Rule for inbound traffic. This rule allows HTTP connectivity from any directly connected network targeting the frontend IP address of the load balancer.
 
-    - Name: **NetworkRuleCollectionAllow1**
+    | Setting | Action |
+    | -- | -- |
+    | Name | **NetworkRuleCollectionAllow1** |
+    | Priority | **100** |
+    | Action | **Allow** |
+    | Rules name (IP Addresses) | **IncomingWeb** |
+    | Protocol | **TCP** |
+    | Source| **\*** |
+    | Destination Address | **10.8.0.100** |
+    | Destination ports | **80,443** |
 
-    - Priority: **100**
-
-    - Action: **Allow**
-
-    - Rules name (IP Addresses): **IncomingWeb**
-
-    - Protocol: **TCP**
-
-    - Source: **\***
-
-    - Destination Address: **10.8.0.100**
-
-    - Destination ports: **80,443**
-
-        ![In this screenshot, the azureFirewall Rules (classic) blade is depicted. The 'Network rule collection' tab and the 'Add network rule collection' link are highlighted.](images/hol-ex6-task2-network-rule-collection.png)
+    ![In this screenshot, the azureFirewall Rules (classic) blade is depicted. The 'Network rule collection' tab and the 'Add network rule collection' link are highlighted.](images/hol-ex6-task2-network-rule-collection.png)
 
     ![](images/lab6fire8.png)
 
 9. Create another rule for Remote Desktop sessions from the Management subnet on WGVNet1. The IP Addresses rules should look like the image below.
 
-    - Rules name (IP Addresses): **IncomingMgmtRDP**
+    | Setting | Action |
+    | -- | -- |
+    | Rules name (IP Addresses) | **IncomingMgmtRDP** |
+    | Protocol | **TCP** |
+    | Source| **10.7.2.0/25** |
+    | Destination Address | **10.8.0.0/25** |
+    | Destination ports | **3389** |
 
-    - Protocol: **TCP**
-
-    - Source: **10.7.2.0/25**
-
-    - Destination Address: **10.8.0.0/25**
-
-    - Destination ports: **3389**
-
-        ![In this screenshot, the 'IP Addresses' section of the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex6-task2-add-network-rule-mgmt-subnet.png "Azure Firewall IP Addresses section")
+    ![In this screenshot, the 'IP Addresses' section of the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex6-task2-add-network-rule-mgmt-subnet.png "Azure Firewall IP Addresses section")
 
 10. Select **Add** and wait until the update completes.
 
