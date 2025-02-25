@@ -4,39 +4,41 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 ### Task 1: Create route tables
 
-1. On the main portal menu, select **+ Create a Resource**. Type **route** into the search box, and select **Route table** then select **Create**.
+1. In the search bar of the Azure portal, type **Route tables (1)**. From the search results, select **Route tables (2)**.
 
-2. On the **Create a Route table** blade enter the following information:
+    ![](images/lab4route1.png)
 
-    - Subscription: **Select your subscription**.
+1. Click on **Create**.
 
-    - Resource group: Select **WGVNetRG1** from the drop down.
+1. On the **Create a Route table** blade enter the following information:
 
-    - Region: **South Central US**
+    | Setting | Action |
+    | -- | -- |
+    | **Subscription** | Select your subscription **(1)** |
+    | **Resource group** | **WGVNetRG1** **(2)** |
+    | **Region** | **South Central US (3)** |
+    | **Name** | **WebTier** **(4)** |
+    | **Propagate gateway routes** | **Yes** **(5)** |
 
-    - Name: **MgmtRT**
+    ![](images/lab4route2.png)
 
-    - Propagate gateway routes: **Yes**
+1. Select **Review + Create** then **Create**.
 
-3. When the dialog looks like the following screenshot, select **Review + Create** then **Create**.
+1. Repeat steps 1 and 2 to create the **AppRT** route table:
 
-    ![In this screenshot, the 'Create Route table' blade of the Azure portal is depicted with the required settings listed in the previous step highlighted.](images/hol-ex4-task1-create-route-table-basics.png "Create route table")
+    | Setting | Action |
+    | -- | -- |
+    | **Subscription** | Select your subscription **(1)** |
+    | **Resource group** | **WGVNetRG2** **(2)** |
+    | **Region** | **South Central US (3)** |
+    | **Name** | **AppRT** **(4)** |
+    | **Propagate gateway routes** | **Yes** **(5)** |
 
-4. Repeat steps 1 and 2 to create the **AppRT** route table:
+    ![](images/lab4route3.png)
 
-    - Subscription: **Select your subscription**.
+1. Once route tables are created, your **Route tables** blade should look like the following screenshot:
 
-    - Resource group: Select **WGVNetRG2** from the drop down.
-
-    - Region: **South Central US**
-
-    - Name: **AppRT**
-
-    - Propagate gateway routes: **Yes**
-
-5. Once route tables are created, your **Route tables** blade should look like the following screenshot:
-
-    ![In this screenshot, the 'Route tables' blade of the Azure portal is depicted with the two route tables created in this task listed.](images/hol-ex4-task1-route-tables-blade.png "Route table link")
+    ![](images/lab4route4.png)
 
 ### Task 2: Add routes to each route table
 
@@ -44,33 +46,29 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
     ![In this screenshot, the AppRT route table blade in the Azure portal is depicted with Routes in the Settings section of the navigation on the left highlighted.](images/hol-ex4-task2-routes-navigation.png "Route table blade ")
 
-2. On the **Routes** blade, select **+ Add**. Enter the following information, and select **Add**:
+2. On the **Routes** blade, select **+ Add**. Enter the following information, and select **Add (6)**:
 
-    - Route name: **AppToInternet**
+    | Setting | Action |
+    | -- | -- |
+    | Route name | **AppToInternet** **(1)** |
+    | Address prefix destination | **IP Addresses** **(2)** |
+    | Address prefix | **0.0.0.0/0** **(3)** |
+    | Next hop type | **Virtual appliance** **(4)** |
+    | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
-    - Address prefix destination: **IP Addresses**
-
-    - Address prefix: **0.0.0.0/0**
-
-    - Next hop type: **Virtual appliance**
-
-    - Next hop address: **10.7.1.4** (This is the private IP of Azure Firewall.)
-
-        ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-app-to-internet.png "Add route configuration")
+    ![](images/lab4route5.png)
 
 3. Repeat this procedure to add the **AppToMgmt** route using the following information:
 
-    - Route name: **AppToMgmt**
+    | Setting | Action |
+    | -- | -- |
+    | Route name | **AppToMgmt** **(1)** |
+    | Address prefix destination | **IP Addresses** **(2)** |
+    | Address prefix | **10.7.0.8/29** **(3)** |
+    | Next hop type | **Virtual appliance** **(4)** |
+    | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
-    - Address prefix destination: **IP Addresses**
-
-    - Address prefix: **10.7.0.8/29**
-
-    - Next hop type: **Virtual appliance**
-
-    - Next hop address: **10.7.1.4** (This is the private IP of Azure Firewall.)
-
-        ![In this screenshot, the 'Add route' blade of the AppRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-app-to-mgmt.png "Edit route")
+    ![](images/lab4route6.png)
 
 4. Upon completion, your routes in the **AppRT** route table should look like the following screenshot:
 
@@ -84,31 +82,27 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
 
 7. On the **Routes** blade, select **+Add**. Enter the following information, and select **Add**:
 
-    - Route name: **MgmtToOnPremises**
+    | Setting | Action |
+    | -- | -- |
+    | Route name | **MgmtToOnPremises** **(1)** |
+    | Address prefix destination | **IP Addresses** **(2)** |
+    | Address prefix | **192.168.0.0/16** **(3)** |
+    | Next hop type | **Virtual network gateway** **(4)** |
+    | Next hop address | **Leave blank** |
 
-    - Address prefix destination: **IP Addresses**
-
-    - Address prefix: **192.168.0.0/16**
-
-    - Next hop type: **Virtual network gateway**
-
-    - Next hop address: **Leave blank**.
-
-        ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-mgmt-to-onpremises.png "Add route")
+    ![](images/lab4route7.png)
 
 8. Add the **MgmtToApp** route using the following information:
 
-    - Route name: **MgmtToApp**
+    | Setting | Action |
+    | -- | -- |
+    | Route name | **MgmtToApp** **(1)** |
+    | Address prefix destination | **IP Addresses** **(2)** |
+    | Address prefix | **10.7.2.0/25** **(3)** |
+    | Next hop type | **Virtual network gateway** **(4)** |
+    | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
-    - Address prefix destination: **IP Addresses**
-
-    - Address prefix: **10.7.2.0/25**
-
-    - Next hop type: **Virtual appliance**
-
-    - Next hop address: **10.7.1.4** (This is the private IP of Azure Firewall.)
-
-        ![In this screenshot, the 'Add route' blade of the MgmtRT route table in the Azure portal is depicted with the required settings listed above highlighted.](images/hol-ex4-task2-add-route-blade-mgmt-to-app.png "Add route")
+    ![](images/lab4route8.png)
 
 9. Upon completion, your routes in the **MgmtRT** route table should look like the following screenshot:
 

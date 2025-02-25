@@ -4,47 +4,40 @@ In this exercise, you will create and configure a load balancer to distribute th
 
 ### Task 1: Create a load balancer to distribute the load between the web servers
 
-1. In the Azure portal, from the home page navigation, select **Load balancers**, then select **+ Create**.
+1. In the search bar of the Azure portal, type **Load balancers (1)**. From the search results, select **Load balancers (2)**.
 
-    ![In this screenshot, the navigation from the Azure portal home page is expanded. The hamburger menu (three stacked lines) and 'Load balancers' option are highlighted.](images/hol-ex5-task1-load-balancer-navigation.png)
+    ![](images/lab5loadb1.png)
 
 2. On the **Create load balancer** blade, on the **Basics** tab, enter the following values:
 
-    - Subscription: **Select your subscription**.
-
-    - Resource group: **WGVNetRG2**
-
-    - Name: **WGWEBLB**
-
-    - Region: **South Central US**
-
-    - SKU: **Standard**
-
-    - Type: **Internal**
-
-    - Tier: **Regional**
+    | Setting | Action |
+    | -- | -- |
+    | Subscription | Select your subscription **(1)** |
+    | Resource group | **WGVNetRG2** **(2)** |
+    | Name | **WGWEBLB** **(3)** |
+    | Region | **South Central US (4)** |
+    | SKU | **Standard** **(5)** |
+    | Type | **Internal** **(6)** |
+    | Tier | **Regional** **(7)**|
 
     Ensure your **Create load balancer** dialog looks like the following, and select **Next: Frontend IP configuration** then select **Create**.
 
-    ![In this screenshot, the 'Create load balancer' blade is depicted with the required settings listed above and the 'Next: Frontend IP configuration' button highlighted.](images/hol-ex5-task1-create-load-balancer-wgweblb.png "Create load balancer")
+    ![](images/hol-ex5-task1-create-load-balancer-wgweblb.png)
 
 3. On the **Frontend IP configuration** tile, select **+ Add a frontend IP configuration** and enter the following values:
 
-    - Name: **WGWEBLBIP**
+    | Setting | Action |
+    | -- | -- |
+    | Name | **WGWEBLBIP** **(1)** |
+    | Virtual network | **WGVNet2** **(2)** |
+    | Subnet | **AppSubnet (10.8.0.0/25)** **(3)** |
+    | Assignment | **Static** **(4)** |
+    | IP address | **10.8.0.100** **(5)** |
+    | Availability zone | **1** **(6)** |
 
-    - Virtual network: **WGVNet2**
+    Ensure your **Create load balancer - Frontend IP configuration** dialog looks like the following, and select **Save (7)**.
 
-    - Subnet: **AppSubnet (10.8.0.0/25)**
-
-    - Assignment: **Static**
-
-    - IP address: **10.8.0.100**
-
-    - Availability zone: **1**
-
-    Ensure your **Create load balancer - Frontend IP configuration** dialog looks like the following, and select **Add**.
-
-    ![In this screenshot, the 'Frontend IP configuration' blade is depicted with the required settings listed above as well as the Add button highlighted.](images/hol-ex5-task1-frontend-ip-config.png "Frontend IP configuration")
+    ![](images/lab5loadb2.png)
 
 4. Select **Review + create**, and then select **Create**.
 
@@ -64,7 +57,7 @@ In this exercise, you will create and configure a load balancer to distribute th
 
 4. Under **Virtual machine**, select **+ Add** and choose the **WGWEB1** and **WGWEB2** virtual machines and select **Add**.
 
-    ![In this screenshot, the 'Add IP configurations to backend pool' blade is depicted with WGWEB1 and WGWEB2 options highlighted and checked. The Add button is also highlighted.](images/hol-ex5-task2-add-vms-to-backend-pool.png)
+    ![](images/lab5loadb3.png)
 
     >**Note**: If you do not see WGWEB1 in the Virtual Machine selection list, the public IP address was not created as a Standard SKU.  Locate **webip** and in the **Overview** tile, select the **Upgrade to Standard SKU** banner to change the SKU.  You will need to change the IP to **Static** in the **Configuration** and temporarily **Disassociate** it from **WGWEB1NetworkInterface**. Once upgraded, **Associate** webip with the **Network Interface** for WGWEB1.
 
@@ -74,7 +67,7 @@ In this exercise, you will create and configure a load balancer to distribute th
 
 6. Wait to proceed until the Backend pool configuration is finished updating. When the backends are added, they should look like the following image.
 
-    ![In this screenshot, the 'WGWEBLB - Backend pools' blade of the Azure portal is depicted. The two virtual machines in the backend pool show a status of running, indicating that the backend pool configuration is complete.](images/hol-ex5-task2-backend-pools.png "Backend pool blade")
+    ![](images/lab5loadb4.png)
 
 7. Next, under **Settings** on the WGWEBLB Load Balancer blade, select **Health Probes**. Select **+ Add**, and use the following information to create a health probe.
 
@@ -90,38 +83,36 @@ In this exercise, you will create and configure a load balancer to distribute th
 
 9. After the Health probe has been added, select **Load balancing rules** from the left navigation. Select **+ Add** and complete the configuration as shown below followed by selecting **Add**.
 
-    - Name: **HTTP**
+    | Setting | Action |
+    | -- | -- |
+    | Name | **HTTP** **(1)** |
+    | Frontend IP address | **10.8.0.100** **(2)** |
+    | Backend pool | **LBBE** **(3)** |
+    | Port | **80** **(4)** |
+    | Backend port | **80** **(5)** |
+    | Health probe | **HTTP** **(6)** |
 
-    - Frontend IP address: Select the load balancer IP entry with **10.8.0.100**.
+    ![](images/lab5loadb5.png)
 
-    - Backend pool: **LBBE**
+1. On **WGWEB1**, click **Connect (1)** and select **Connect via Bastion (2)**.
 
-    - Port: **80**
+    ![](images/lab5loadb6.png)
 
-    - Backend port: **80**
+1. Enter the **Username** as **demouser (1)** and the **VM Password** as **demo@pass123 (2)**, then click **Connect (3)**.
 
-    - Health probe: **HTTP**
+    ![](images/lab5loadb7.png)
 
-        ![In this screenshot, the 'Add load balancing rule' blade of the Azure portal is depicted with the required settings listed above and the Add button highlighted.](images/a1.7.png "Add load balancing rule")
+10. Within WGWEB1, open **Microsoft Edge** from the Start menu and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of the two Web servers.
 
-10. Navigate to WGWEB1 in the Azure portal. Connect to WGWEB1 via Bastion. Within WGWEB1, open Microsoft Edge from the Start menu and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of the two Web servers.
+    ![](images/hol-ex5-task2-cloudshop-demo-on-wgweb1.png)
 
-    ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB1 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb1.png "Server response for the CloudShop demo on WGWEB1")
+    ![](images/hol-ex5-task2-cloudshop-demo-on-wgweb2.png)
 
-    ![In this screenshot, the web page that appears when you navigate to the load balancer IP address appears indicating that your successfully connected to the WEB2 web server.](images/hol-ex5-task2-cloudshop-demo-on-wgweb2.png "Server response for the CloudShop demo on WGWEB1")
+11. Using the portal, disassociate the public IP from the NIC of **WGWEB1NetworkInterface** VM. Do this by navigating to the VM and selecting **Network settings (1)** under **Networking** on the left. Select the **NIC Public IP (2)**. 
 
-11. Using the portal, disassociate the public IP from the NIC of **WGWEB1** VM. Do this by navigating to the VM and selecting **Networking** under **Settings** on the left. Select the **NIC Public IP** then choose **Dissociate**. Select **Yes** when prompted.
+    ![](images/lab5loadb10.png)
 
-    ![In this screenshot, the WGWEB1 - Networking blade of the Azure portal is depicted with the NIC Public IP selected.](images/hol-ex5-task2-wgweb1-dissociate-ip-address.png "Virtual machine networking blade")
+1. Then choose **Dissociate**. Select **Yes** when prompted.
 
-12. Next, return to the **WGWEB1 - Networking** blade and select the **Network Interface**.
-
-13. Select **IP configurations** under **Settings** on the left.
-
-    ![In this screenshot, the network interface page for the web server on the Azure portal is depicted with 'IP configuration' in the left navigation highlighted.](images/hol-ex5-task2-ip-configurations.png "Network interface blade")
-
-14. Next, select **ipconfig1** shown above.
-
-15. Select and make sure that the **Public IP address settings** is shown as **Dissociate**, and select **Save** if necessary. This should remove the public IP address from the network interface of the VM.
-
-    ![In this screenshot, the 'ipconfig1' blade of the web server NIC is depicted with the 'Public IP address' set to 'Disassociate' and the Save button selected.](images/hol-ex5-task2-ipconfig1-dissociate.png "IP configuration blade")
+   ![](images/lab5loadb8.png)
+   ![](images/lab5loadb9.png)

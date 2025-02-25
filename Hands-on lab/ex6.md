@@ -4,29 +4,27 @@ In this exercise, you will provision and configure an Azure firewall in your net
 
 ### Task 1: Provision the Azure firewall
 
-1. In the Azure portal, select **+ Create a resource**. In the **Search the Marketplace** text box, type **Azure Firewall**, in the list of results, select **Firewall**, and on the **Firewall** blade, select **Create**.
+1. In the search bar of the Azure portal, type **Load balancers (1)**. From the search results, select **Load balancers (2)**.
+
+    ![](images/lab6fire1.png)
 
 2. On the **Create a firewall** blade, on the **Basics** tab, enter the following information:
 
-    - Subscription: **Select your subscription**.
+    | Setting | Action |
+    | -- | -- |
+    | Subscription | Select your subscription |
+    | Resource group | **WGVNetRG1** |
+    | Name | **azureFirewall** |
+    | Region | **South Central US** |
+    | Firewall SKU | **Standard** |
+    | Firewall management | **Use Firewall rules (classic) to manage this Firewall** |
+    | Choose a Virtual network | **Use existing** |
+    | Virtual network | **WGVNet1** |
+    | Public IP address | **(Add new) azureFirewall-ip** |
+    | Enable Firewall Management NIC | **UNCHECKED** |
 
-    - Resource group: **WGVNetRG1**
-
-    - Name: **azureFirewall**
-
-    - Region: **South Central US**
-
-    - Firewall SKU: **Standard**
-
-    - Firewall management: **Use Firewall rules (classic) to manage this Firewall**
-
-    - Choose a Virtual network: **Use existing**
-
-    - Virtual network: **WGVNet1**
-
-    - Public IP address: **(Add new) azureFirewall-ip**
-
-        ![In this screenshot, the 'Create a firewall' blade is depicted with the required settings listed above selected.](images/hol-ex6-task1-create-a-firewall-wgvnetrg1.png "Create a firewall blade")
+    ![](images/hol-ex6-task1-create-a-firewall-wgvnetrg1.png)
+    ![](images/lab6fire2.png)
 
 3. Select **Review + create** and then select **Create** to provision the Azure Firewall.
 
@@ -40,9 +38,11 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
 3. Navigate to the **azureFirewall-ip** blade and note the value of its public IP address. You will need it later in this task.
 
+    ![](images/lab6fire3.png)
+
 4. Navigate to the **azureFirewall** blade, and, on the **Overview** page, select **Rules (classic)** under **Settings** on the left.
 
-    ![In this screenshot, the Azure Firewall page is depicted with Rules (classic) selected on the left.](images/hol-ex6-task2-azure-firewall-rules-navigation.png "Azure Firewall overview page")
+    ![](images/lab6fire4.png)
 
 5. Select **+ Add NAT Rule collection** and enter the following information to create an inbound NAT Rule (a collection is a list of rules that share the same priority and action) then select **Add**:
 
@@ -66,6 +66,9 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     - Translated Port: **80**
 
+    ![](images/lab6fire5.png)
+    ![](images/lab6fire6.png)
+
 6. Back on the **azureFirewall - Rules (classic)** page, select the newly created NAT rule collection. Add another rule for HTTPS, as illustrated in the following screenshot (alternatively you could create a single rule for both HTTP and HTTPS). The rules should look like the image below.
 
     - Rules name: **IncomingHTTPS**
@@ -86,7 +89,9 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
         ![In this screenshot, the 'Edit NAT rule collection' page is depicted with the required settings listed above selected.](images/hol-ex6-task2-edit-nat-rule-collection.png "Azure Firewall NAT Rules for HTTP and HTTPS")
 
-7. Select **Add** and wait until the update completes.
+    ![](images/lab6fire7.png)
+
+7. Select **Save** and wait until the update completes.
 
 8. Back on the Azure Firewall **Rules (classic)** page, select **Network rule collection**. Then Select **+ Add Network Rule collection** and enter the following information to create a Network Rule for inbound traffic. This rule allows HTTP connectivity from any directly connected network targeting the frontend IP address of the load balancer.
 
@@ -107,6 +112,8 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
     - Destination ports: **80,443**
 
         ![In this screenshot, the azureFirewall Rules (classic) blade is depicted. The 'Network rule collection' tab and the 'Add network rule collection' link are highlighted.](images/hol-ex6-task2-network-rule-collection.png)
+
+    ![](images/lab6fire8.png)
 
 9. Create another rule for Remote Desktop sessions from the Management subnet on WGVNet1. The IP Addresses rules should look like the image below.
 
