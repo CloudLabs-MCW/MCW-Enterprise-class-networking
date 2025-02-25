@@ -39,3 +39,5 @@
     - Allow gateway or route server in 'WGVNet1' to forward traffic to the peered virtual network
 
       ![](images/lab1vnet16.png)
+
+## Great job on completing this exercise! You can now proceed to the next one.
