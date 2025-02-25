@@ -22,15 +22,11 @@
 
     **Remote virtual network**
 
-    - Peering link name: **VNETPeering_WGVNet2-WGVNet1**
+    - Peering link name: **VNETPeering_WGVNet2-WGVNet1** **(1)**
 
-    - Virtual Network: **WGVNet2**
+    - Virtual network deployment model: **Resource Manager (2)**
 
-    - Traffic to remote virtual network: **Allow (default)**
-
-    - Traffic forwarded from remote virtual network: **Allow (default)**
-
-    - Virtual network gateway or Route Server: **None (default)**
+    - Virtual Network: **WGVNet2 (WGVNetRG2) (3)**
 
         ![In this screenshot, the 'Add peering' blade of the Azure portal is depicted with the required settings specified above highlighted for this virtual network.](images/hol-ex2-task1-add-peering-blade-1.png "WGVNet1 add peering blade - this virtual network")
 
