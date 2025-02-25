@@ -96,3 +96,5 @@ This virtual network will have a gateway subnet named `GatewaySubnet` provisione
     ![](images/lab1vnet12.png)
 
     ![](images/lab1vnet13.png)
+
+## Great job on completing this exercise! You can now proceed to the next one.
