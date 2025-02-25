@@ -21,4 +21,3 @@ Restore-SqlDatabase -ServerInstance "WGSQL1" -Database "AdventureWorks2017" -Bac
 Write-Output "AdventureWorks2017 database has been successfully downloaded and restored to SQL Server."
 
 Stop-Transcript
-Restart-Computer -Force
