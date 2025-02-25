@@ -135,3 +135,5 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
     ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet1' virtual network and 'Management' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet1.png "Associate subnet blade for MgmtRT")
 
 8. Select **OK** at the bottom of the **Associate subnet** blade.
+
+## Great job on completing this exercise! You can now proceed to the next one.
