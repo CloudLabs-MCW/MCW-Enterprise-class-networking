@@ -50,17 +50,34 @@ The architecture for this lab involves several key components:
 - **Monitoring and Management:** MonitoringRG for centralized performance monitoring and logging.  
 - **Hybrid Connectivity:** Integration of on-premises infrastructure with Azure cloud via secure connectivity.
 
-# Getting Started with the Lab
-
-1. After the environment has been set up, your browser will load a virtual machine (JumpVM), use this virtual machine throughout the workshop to perform the lab. You can see the number on the bottom of the lab guide to switch to different exercises in the lab guide.
-
-   ![](images/gettingstartedpagenew1-v2.png)
+## Accessing Your Lab Environment
  
-1. To get the lab environment details, you can select the **Environment** tab. Additionally, the credentials will also be emailed to your registered email address. You can also open the Lab Guide in a separate and full window by selecting the **Split Window** from the lower right corner. Also, you can start, stop, and restart virtual machines from the **Resources** tab.
+Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
+ 
+   ![](images/new-ecn-feb-1.png)
 
-    ![](images/gettingstartedpagenew2-v2.png)
-   
-   > You will see the SUFFIX value on the **Environment** tab; use it wherever you see SUFFIX or DeploymentID in lab steps.
+### Virtual Machine & Lab Guide
+ 
+Your virtual machine is your workhorse throughout the workshop. The lab guide is your roadmap to success.
+ 
+## Exploring Your Lab Resources
+ 
+To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
+ 
+   ![](images/new-ecn-feb-05.png)
+ 
+## Utilizing the Split Window Feature
+ 
+For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
+ 
+   ![](images/new-ecn-feb-2.png)
+ 
+## Managing Your Virtual Machine
+ 
+1. Feel free to start, stop, or restart your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
+ 
+   ![](images/new-ecn-feb-4.png)
+
 
 ## Lab Guide Zoom In/Zoom Out
  
@@ -72,7 +89,7 @@ To adjust the zoom level for the environment page, click the **A↕ : 100%** ico
 
 1. In the JumpVM, click on the Azure portal shortcut of the Microsoft Edge browser, which is created on the desktop.
 
-   ![](images/gettingstartpage3.png)
+   ![](images/new-ecn-feb-3.png)
 
 1. On the **Sign in to Microsoft Azure** tab, you will see the login screen. Enter the following email or username, and click on **Next**. 
 
@@ -94,8 +111,8 @@ To adjust the zoom level for the environment page, click the **A↕ : 100%** ico
 
     ![](images/miyagi-image5.png)
 
- > [!IMPORTANT]<br>
- > **For a smoother experience during the hands-on lab, it's important to thoroughly review both the instructions and the accompanying notes. This will help you navigate through the tasks with ease and confidence.**
+
+   > **For a smoother experience during the hands-on lab, it's important to thoroughly review both the instructions and the accompanying notes. This will help you navigate through the tasks with ease and confidence.**
 
 ## Support Contact
 

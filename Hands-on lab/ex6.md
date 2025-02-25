@@ -2,6 +2,16 @@
 
 In this exercise, you will provision and configure an Azure firewall in your network.
 
+## Lab objectives
+
+In this lab, you will perform following tasks:
+
+- Provision the Azure firewall
+- Create Firewall Rules
+- Associate route tables to subnets
+  
+## Estimated timing: 80 minutes
+
 ### Task 1: Provision the Azure firewall
 
 1. In the search bar of the Azure portal, type **Load balancers (1)**. From the search results, select **Load balancers (2)**.
@@ -135,5 +145,11 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
     ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet1' virtual network and 'Management' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet1.png "Associate subnet blade for MgmtRT")
 
 8. Select **OK** at the bottom of the **Associate subnet** blade.
+
+### Review
+In this lab, you have completed:
+- Provisioned the Azure firewall
+- Created Firewall Rules
+- Associated route tables to subnets
 
 ## Great job on completing this exercise! You can now proceed to the next one.

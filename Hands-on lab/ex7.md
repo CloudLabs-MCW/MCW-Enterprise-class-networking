@@ -2,6 +2,18 @@
 
 In this exercise, we will simulate an on-premises connection to the internal web application. To do this, we will first set up another Virtual Network in a separate Azure region followed by the Site-to-Site connection of the 2 Virtual Networks Finally, we will set up a virtual machine in the new Virtual Network to simulate on-premises connectivity to the internal load-balancer.
 
+## Lab objectives
+
+In this lab, you will perform following tasks:
+
+- Create OnPrem Virtual Network
+- Configure gateway subnets for on premise Virtual Network
+- Create the first gateway
+- Create the second gateway
+- Connect the gateways
+  
+## Estimated timing: 80 minutes
+
 ### Task 1: Create OnPrem Virtual Network
 
 1. In the search bar of the Azure portal, type **Virtual network (1)**. From the search results, select **Virtual network (2)**.
@@ -177,5 +189,13 @@ In this exercise, we will simulate an on-premises connection to the internal web
 7. Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
     ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/hol-ex7-task5-connections-blade.png "Connections blade")
+
+### Review
+In this lab, you have completed:
+- Created OnPrem Virtual Network
+- Configured gateway subnets for on premise Virtual Network
+- Created the first gateway
+- Created the second gateway
+- Connected the gateways
 
 ## Great job on completing this exercise! You can now proceed to the next one.

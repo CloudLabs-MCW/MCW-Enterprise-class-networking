@@ -2,6 +2,16 @@
 
 In this exercise, you will restrict traffic between tiers of an n-tier application by using network security groups and application security groups.
 
+## Lab objectives
+
+In this lab, you will perform following tasks:
+
+- Create application security groups
+- Configure application security groups
+- Create network security group
+  
+## Estimated timing: 80 minutes
+
 ### Task 1: Create application security groups
 
 1. In the search bar of the Azure portal, type **Application security group (1)**. From the search results, select **Application security group (2)**.
@@ -174,5 +184,11 @@ This task will create a network security group with the following rules:
 1. On the **WGAppNSG1 - Inbound security rules** blade, go to **Settings** > **Subnets (1)**, click **+ Associate (2)**, select **WGVNet2 (3)** in the **Virtual network** dropdown, choose **AppSubnet (4)** in the **Subnet** dropdown, and click **OK (5)**.
 
     ![](images/lab3vnet18.png)
+
+### Review
+In this lab, you have completed:
+- Created application security groups
+- Configured application security groups
+- Created network security group
 
 ## Great job on completing this exercise! You can now proceed to the next one.
