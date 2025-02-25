@@ -81,6 +81,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
     - Resource group: Select the drop-down menu, and select **WGVNetRG1**.
 
     - Region: **South Central US** (This must match the location in which you created the **WGVNet1** virtual network.)
+      > **Note**: Ensure this is created in the **WGVNet1** virtual network.
 
     - Name: **WGAzureVNetGWRT**
 
