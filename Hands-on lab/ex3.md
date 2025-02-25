@@ -174,3 +174,5 @@ This task will create a network security group with the following rules:
 1. On the **WGAppNSG1 - Inbound security rules** blade, go to **Settings** > **Subnets (1)**, click **+ Associate (2)**, select **WGVNet2 (3)** in the **Virtual network** dropdown, choose **AppSubnet (4)** in the **Subnet** dropdown, and click **OK (5)**.
 
     ![](images/lab3vnet18.png)
+
+## Great job on completing this exercise! You can now proceed to the next one.
