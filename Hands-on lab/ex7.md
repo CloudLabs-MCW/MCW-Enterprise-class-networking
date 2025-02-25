@@ -178,38 +178,3 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/hol-ex7-task5-connections-blade.png "Connections blade")
 
-### Task 6: Update VNet peerings to use gateway
-
-1. In the Azure Portal, go to All Services and type **virtual network** in the search box and select **Virtual Networks**.
-
-2. Select **WGVNet1**, and select **Peerings** under **Settings** on the left.
-
-    ![](images/lab7vnet10.png)
-
-3. On the **Peerings** pane, select the **VNETPeering_WGVNet1-WGVNet2** peering.
-
-    ![](images/lab7vnet11.png)
-
-4. On the **VNETPeering_WGVNet1-WGVNet2**, set the **Virtual network gateway or Route Server** setting to the value of **Use this virtual network's gateway or Route Server**.
-
-    ![Peering settings pane with virtual network gateway setting configured.](images/hol-ex7-task6-wgvnet1-peering-configured.png "Peering settings")
-
-5. Select **Save**.
-
-6. In the Azure Portal, go to All Services and type **virtual network** in the search box and select **Virtual Networks**.
-
-7. Select **WGVNet2**, and select **Peerings** under **Settings** on the left.
-
-    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/hol-ex7-task6-wgvnet2-peerings.png "Virtual network blade")
-
-8. On the **Peerings** pane, select the **VNETPeering_WGVNet2-WGVNet1** peering.
-
-    ![Peerings pane showing the virtual network peering that is configured.](images/hol-ex7-task6-wgvnet2-peerings-list.png "Peerings list")
-
-9. On the **VNETPeering_WGVNet2-WGVNet1**, set the **Virtual network gateway or Route Server** setting to the value of **Use the remote virtual network's gateway or Route Server**.
-
-    ![Peering settings pane with virtual network gateway setting configured.](images/hol-ex7-task6-wgvnet2-peering-configured.png "Peering settings")
-
-10. Select **Save**.
-
-The change to the gateway setting for the virtual network peerings may take a few minutes to update.
