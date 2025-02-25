@@ -4,17 +4,23 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 1: Create OnPrem Virtual Network
 
-1. In the Azure portal, select **+ Create a resource**, then in the **Search the Marketplace** box, search for and select **Virtual network**. Select **Create**.
+1. In the search bar of the Azure portal, type **Virtual network (1)**. From the search results, select **Virtual network (2)**.
+
+    ![](images/lab1vnet2.png)
+
+1. Click on **Create**.
 
 2. On the **Create virtual network** blade, enter the following information:
 
     - Subscription: **Select your subscription**.
 
-    - Resource group: Select **Create new**, and enter the name **OnPremVNetRG**.
+    - Resource group: Select **OnPremVNetRG**.
 
     - Name: **OnPremVNet**
 
     - Region: **East US** (Make sure this is **NOT** the same location you have specified in the previous exercises.)
+
+    ![](images/lab7vnet1.png)
 
 3. Leave the other options with their default values.
 
@@ -32,23 +38,25 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
       - Subnet address range: **192.168.0.0/24**
 
+    ![](images/lab7vnet2.png)
+
 6. Select **Review + create** then **Create**.
 
 ### Task 2: Configure gateway subnets for on premise Virtual Network
 
 1. Select the **OnPremVNetRG** Resource Group and then open the **OnPremVNet** blade and select **Subnets**.
 
-2. Next, select **+ Gateway subnet**.
+2. Next, select **+ subnet**.
 
-    ![In this screenshot, the 'OnPremVNet - Subnets' blade is depicted with the Subnets selected on the left and the '+ Gateway subnet' selected.](images/hol-ex7-task2-onpremvnet-add-gateway-subnet.png "Virtual network blade")
+    ![](images/lab7vnet3.png)
 
-3. Specify the following configuration for the subnet, and select **Save**:
+3. Specify the following configuration for the subnet, and select **Add**:
 
-    - Subnet address range: **192.168.1.0/27**
+    - Subnet Purpose: **Virtual Network Gateway**
+    - Starting address: **192.168.1.0**
+    - Size: **/27 (32 addresses)**
 
-    - Route table: **None** (We will add this later.)
-
-        ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/a1.4.png "Add subnet")
+    ![](images/lab7vnet4.png)
 
 4. Next, select **+ Subnet** and add the **OnPremManagementSubnet** subnet to the **OnPremVNet**, as shown below in the screenshot:
 
@@ -62,7 +70,9 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 3: Create the first gateway
 
-1. Using the Azure Management portal, select **+ Create a resource**, type **Virtual network gateway** in the **Search the Marketplace** text box, in the list of results, select **Virtual network gateway**, and then select **Create**.
+1. In the search bar of the Azure portal, type **Virtual network gateway (1)**. From the search results, select **Virtual network gateway (2)**.
+
+    ![](images/lab7vnet5.png)
 
 2. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
@@ -73,8 +83,6 @@ In this exercise, we will simulate an on-premises connection to the internal web
     - Region: **East US** (This must match the location in which you created the **OnPremVNet** virtual network.)
 
     - Gateway type: **VPN**
-
-    - VPN type: **Route-based**
 
     - SKU: **VpnGw1**
 
@@ -90,9 +98,8 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Configure BGP: **Disabled**
 
-        ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above Project details and Instance details highlighted.](images/hol-ex7-task3-create-onpremwggateway-1.png "Create virtual network gateway Instance details")
-
-        ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the Public IP settings.](images/hol-ex7-task3-create-onpremwggateway-2.png "Create virtual network gateway Public IP addresses")
+    ![](images/lab7vnet6.png)
+    ![](images/lab7vnet7.png)
 
 3. Validate your settings and select **Review + Create** then **Create**.
 
@@ -100,7 +107,9 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 4: Create the second gateway
 
-1. Using the Azure Management portal, select **+ Create a resource**, type **Virtual Network gateway** in the **Search the Marketplace** text box, in the list of results, select **Virtual network gateway**, and then select **Create**.
+1. In the search bar of the Azure portal, type **Virtual network gateway (1)**. From the search results, select **Virtual network gateway (2)**.
+
+    ![](images/lab7vnet5.png)
 
 2. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
@@ -111,8 +120,6 @@ In this exercise, we will simulate an on-premises connection to the internal web
     - Region: **South Central US** (This must match the location in which you created the **WGVNet1** virtual network.)
 
     - Gateway type: **VPN**
-
-    - VPN type: **Route-based**
 
     - SKU: **VpnGw1**
 
@@ -130,9 +137,8 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     - Configure BGP: **Disabled**
 
-        ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the Instance details settings selected.](images/hol-ex7-task4-create-wgvnet1gateway-1.png "Create virtual network gateway - Instance details")
-
-        ![In this screenshot, the 'Create virtual network gateway' blade of the Azure portal is depicted with the above public IP settings selected.](images/hol-ex7-task4-create-wgvnet1gateway-2.png "Create virtual network gateway - Public IP addresses")
+    ![](images/lab7vnet8.png)
+    ![](images/lab7vnet9.png)
 
 3. Validate your settings and select **Review + Create** then **Create**.
 
@@ -142,7 +148,11 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 5: Connect the gateways
 
-1. In the Azure portal, select **+ Create a resource**, in the **Search the Marketplace** text box, type in **Connection**, and press **Enter**.
+1. In the Azure portal, in the 'Search resources, services, and docs' search box, type **connections** in the search text box. Select **Connections**.
+
+    ![In this screenshot, the 'Search resources, services, and docs' search box of the Azure portal is depicted with Connections searched for and selected.](images/hol-ex7-task5-search-for-connections.png "Azure Portal")
+
+2. Click on **Create**.
 
 2. On the **Connection** blade, select **Create**.
 
@@ -174,11 +184,11 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 2. Select **WGVNet1**, and select **Peerings** under **Settings** on the left.
 
-    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/hol-ex7-task6-wgvnet1-peerings.png "Virtual network blade")
+    ![](images/lab7vnet10.png)
 
 3. On the **Peerings** pane, select the **VNETPeering_WGVNet1-WGVNet2** peering.
 
-    ![Peerings pane showing the virtual network peering that is configured.](images/a1.1.png "Peerings list")
+    ![](images/lab7vnet11.png)
 
 4. On the **VNETPeering_WGVNet1-WGVNet2**, set the **Virtual network gateway or Route Server** setting to the value of **Use this virtual network's gateway or Route Server**.
 

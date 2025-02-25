@@ -10,28 +10,32 @@
 
 3. Set the following configuration for the new peering. Select **Add** to create the peering.
 
-    **This virtual network**
+    **Remote virtual network summary**
 
-    - Peering link name: **VNETPeering_WGVNet1-WGVNet2**
+    | Setting | Action |
+    | -- | -- |
+    | **Peering link name** | **VNETPeering_WGVNet2-WGVNet1** **(1)** |
+    | **Virtual network deployment model** | **Resource Manager** **(2)** |
+    | **Virtual Network** | **WGVNet2 (WGVNetRG2) (3)** |
 
-    - Traffic to remote virtual network: **Allow (default)**
+    ![](images/lab1vnet14.png)
 
-    - Traffic forwarded from remote virtual network: **Allow (default)**
+1. Enable the following checkboxes for **Remote virtual network peering settings**
 
-    - Virtual network gateway or Route Server: **None (default)**
+    - Allow the peered virtual network to access 'WGVNet1'
+    - Allow the peered virtual network to receive forwarded traffic from 'WGVNet1'
+    - Allow the gateway or route server in the peered virtual network to forward traffic to 'WGVNet1'
 
-    **Remote virtual network**
+      ![](images/lab1vnet15.png)
 
-    - Peering link name: **VNETPeering_WGVNet2-WGVNet1**
+1. For **Local virtual network summary** provide the Peering link name as **VNETPeering_WGVNet1-WGVNet2** **(1)**
 
-    - Virtual Network: **WGVNet2**
+1. Enable the following checkboxes for **Local virtual network peering settings**
 
-    - Traffic to remote virtual network: **Allow (default)**
+    - Allow 'WGVNet1' to access the peered virtual network
 
-    - Traffic forwarded from remote virtual network: **Allow (default)**
+    - Allow 'WGVNet1' to receive forwarded traffic from the peered virtual network
 
-    - Virtual network gateway or Route Server: **None (default)**
+    - Allow gateway or route server in 'WGVNet1' to forward traffic to the peered virtual network
 
-        ![In this screenshot, the 'Add peering' blade of the Azure portal is depicted with the required settings specified above highlighted for this virtual network.](images/hol-ex2-task1-add-peering-blade-1.png "WGVNet1 add peering blade - this virtual network")
-
-        ![In this screenshot, the 'Add peering' blade of the Azure portal is depicted with the required settings specified above highlighted for this virtual network.](images/hol-ex2-task1-add-peering-blade-2.png "WGVNet1 add peering blade - this virtual network")
+      ![](images/lab1vnet16.png)
