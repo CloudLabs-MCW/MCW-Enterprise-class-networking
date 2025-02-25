@@ -148,7 +148,11 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 ### Task 5: Connect the gateways
 
-1. In the Azure portal, select **+ Create a resource**, in the **Search the Marketplace** text box, type in **Connection**, and press **Enter**.
+1. In the Azure portal, in the 'Search resources, services, and docs' search box, type **connections** in the search text box. Select **Connections**.
+
+    ![In this screenshot, the 'Search resources, services, and docs' search box of the Azure portal is depicted with Connections searched for and selected.](images/hol-ex7-task5-search-for-connections.png "Azure Portal")
+
+2. Click on **Create**.
 
 2. On the **Connection** blade, select **Create**.
 
@@ -180,11 +184,11 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
 2. Select **WGVNet1**, and select **Peerings** under **Settings** on the left.
 
-    ![In the Virtual Network blade, in the Settings section of the navigation, Peerings is highlighted.](images/hol-ex7-task6-wgvnet1-peerings.png "Virtual network blade")
+    ![](images/lab7vnet10.png)
 
 3. On the **Peerings** pane, select the **VNETPeering_WGVNet1-WGVNet2** peering.
 
-    ![Peerings pane showing the virtual network peering that is configured.](images/a1.1.png "Peerings list")
+    ![](images/lab7vnet11.png)
 
 4. On the **VNETPeering_WGVNet1-WGVNet2**, set the **Virtual network gateway or Route Server** setting to the value of **Use this virtual network's gateway or Route Server**.
 

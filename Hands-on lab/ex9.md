@@ -8,7 +8,7 @@
 
     - Subscription: **Select your subscription**.
 
-    - Resource group: Select **Create new**, and enter the name **MonitoringRG**.
+    - Resource group: Select the **MonitoringRG**.
 
     - Name: **Enter a unique name in all lowercase**
 
