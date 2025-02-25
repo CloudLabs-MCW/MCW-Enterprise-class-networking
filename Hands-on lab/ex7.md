@@ -178,3 +178,4 @@ In this exercise, we will simulate an on-premises connection to the internal web
 
     ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/hol-ex7-task5-connections-blade.png "Connections blade")
 
+## Great job on completing this exercise! You can now proceed to the next one.
