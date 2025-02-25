@@ -1,48 +1,33 @@
-Start-Transcript -Path C:\WindowsAzure\Logs\CloudLabsCustomScriptExtension-wgsql-1.txt -Append
-[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls
-[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls" 
+# Start transcript to log the script execution
+Start-Transcript -Path C:\WindowsAzure\Logs\DownloadAndUploadAdventureWorks.txt -Append
 
-# Download the database backup file from the GitHub repo
-Invoke-WebRequest 'https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2017.bak' -OutFile 'C:\AdventureWorks2017.bak'
+# Set security protocol
+[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 
-# Define database variables
-$ServerName = $env:ComputerName
-#$DatabaseName = 'WideWorldImporters'
-$SqlMiUser = 'demouser'
-$PasswordPlainText = 'demo@pass123'
-$PasswordSecure = ConvertTo-SecureString $PasswordPlainText -AsPlainText -Force
-$PasswordSecure.MakeReadOnly()
-$Creds = New-Object System.Management.Automation.PSCredential $SqlMiUser, $PasswordSecure
-$Password = $Creds.GetNetworkCredential().Password
+# Create directories for storing the downloaded files
+New-Item -ItemType directory -Path C:\LabFiles\AdventureWorks -Force
 
-# Restore the Adventuerworks database using the downloaded backup file
-function Restore-SqlDatabase1 {
-    $bakFileName = 'C:\AdventureWorks2017.bak'
+# Download the AdventureWorks sample database
+$WebClient = New-Object System.Net.WebClient
+$WebClient.DownloadFile("https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2017.bak", "C:\LabFiles\AdventureWorks\AdventureWorks2017.bak")
+$WebClient.DownloadFile("https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/refs/heads/prod/Hands-on%20lab/labfiles/wgsql-logontask.ps1", "C:\LabFiles\logontask.ps1")
 
-    $RestoreCmd = "
 
-  RESTORE DATABASE [AdventureWorks2017]
-  FILE = N'AdventureWorks2017'
-  FROM DISK = N'C:\AdventureWorks2017.bak'
-  WITH 
-    FILE = 1, NOUNLOAD, STATS = 10,
-    MOVE N'AdventureWorks2017'
-    TO N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\AdventureWorks2017.mdf',
-    MOVE N'AdventureWorks2017_log'
-    TO N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\Log\AdventureWorks2017_log.ldf'"
+Install-PackageProvider -NuGet -MinimunVersion 2.8.5.201 -Force
+Install-Module -Name SqlServer -Force -AllowClobber
+#Enable Autologon
+$AutoLogonRegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+Set-ItemProperty -Path $AutoLogonRegPath -Name "AutoAdminLogon" -Value "1" -type String 
+Set-ItemProperty -Path $AutoLogonRegPath -Name "DefaultUsername" -Value "$($env:ComputerName)\demouser" -type String  
+Set-ItemProperty -Path $AutoLogonRegPath -Name "DefaultPassword" -Value "demo@pass123" -type String
+Set-ItemProperty -Path $AutoLogonRegPath -Name "AutoLogonCount" -Value "1" -type DWord
 
-    Invoke-SqlCmd -Query $RestoreCmd -QueryTimeout 3600 -Username $SqlMiUser -Password $Password -ServerInstance $ServerName
-    Start-Sleep -Seconds 30
-}
 
-# Restore the Adventuerworks datasbase
-Restore-SqlDatabase1
+# Scheduled Task to Run PostConfig.ps1 screen on logon
+$Trigger= New-ScheduledTaskTrigger -AtLogOn
+$User= "$($env:ComputerName)\demouser" 
+$Action= New-ScheduledTaskAction -Execute "C:\Windows\System32\WindowsPowerShell\v1.0\Powershell.exe" -Argument "-executionPolicy Unrestricted -File C:\LabFiles\logontask.ps1"
+Register-ScheduledTask -TaskName "logon-task" -Trigger $Trigger -User $User -Action $Action -RunLevel Highest -Force
 
-Start-Sleep -Seconds 30
-
-# Restart the MSSQLSERVER service.
-Stop-Service -Name 'MSSQLSERVER' -Force
-Start-Service -Name 'MSSQLSERVER'
-
-# Enable the Service Broker functionality on the database
-Enable-ServiceBroker
+Stop-Transcript
+Restart-Computer -Force
