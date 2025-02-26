@@ -2,6 +2,15 @@
 
 In this exercise, you will validate connectivity from your simulated on-premises environment to Azure.
 
+## Lab objectives
+
+In this lab, you will perform following tasks:
+
+- Create a virtual machine to validate connectivity
+- Configure routing for simulated 'on-premises' to Azure traffic
+  
+## Estimated timing: 80 minutes
+
 ### Task 1: Create a virtual machine to validate connectivity
 
 1. Create a new virtual machine in the OnPremVNet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
@@ -128,5 +137,10 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
     - In the Azure portal, navigate to the WGWEB2 VM and initiate a Bastion connection session to the WGWEB2 virtual machine by selecting **Connect** and **Bastion**. This should be successful since it is allowed by Azure Firewall and Azure Bastion Host.
 
     - From within the WGWEB1 VM Bastion connection session, initiate a Remote Desktop session to the WGSQL1 via its private IP address (10.8.1.4). This should be successful since it is allowed by Azure Firewall.
+
+### Review
+In this lab, you have completed:
+- Created a virtual machine to validate connectivity
+- Configured routing for simulated 'on-premises' to Azure traffic
 
 ## Great job on completing this exercise! You can now proceed to the next one.

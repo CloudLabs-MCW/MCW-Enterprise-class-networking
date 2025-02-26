@@ -2,6 +2,15 @@
 
 In this exercise, you will create and configure a load balancer to distribute the load between the web servers.
 
+## Lab objectives
+
+In this lab, you will perform following tasks:
+
+- Create a load balancer to distribute the load between the web servers
+- Configure the load balancer
+  
+## Estimated timing: 80 minutes
+
 ### Task 1: Create a load balancer to distribute the load between the web servers
 
 1. In the search bar of the Azure portal, type **Load balancers (1)**. From the search results, select **Load balancers (2)**.
@@ -116,5 +125,10 @@ In this exercise, you will create and configure a load balancer to distribute th
 
    ![](images/lab5loadb8.png)
    ![](images/lab5loadb9.png)
+
+### Review
+In this lab, you have completed:
+- Created a load balancer to distribute the load between the web servers
+- Configured the load balancer
 
 ## Great job on completing this exercise! You can now proceed to the next one.

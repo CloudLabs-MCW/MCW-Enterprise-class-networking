@@ -1,5 +1,14 @@
 ## Exercise 1: Create a Virtual Network and provision subnets
 
+## Lab objectives
+
+In this lab, you will perform following tasks:
+
+- Create a Virtual Network
+- Configure subnets
+  
+## Estimated timing: 80 minutes
+
 ### Task 1: Create a Virtual Network
 
 This virtual network will have a gateway subnet named `GatewaySubnet` provisioned with [the guidance from the Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking) of using the last part of the virtual network address space.
@@ -96,5 +105,10 @@ This virtual network will have a gateway subnet named `GatewaySubnet` provisione
     ![](images/lab1vnet12.png)
 
     ![](images/lab1vnet13.png)
+
+### Review
+In this lab, you have completed:
+- Created a Virtual Network
+- Configured subnets
 
 ## Great job on completing this exercise! You can now proceed to the next one.

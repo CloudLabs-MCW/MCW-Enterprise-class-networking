@@ -1,5 +1,13 @@
 ## Exercise 2: Virtual Network Peering
 
+## Lab objectives
+
+In this lab, you will perform following tasks:
+
+- Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa
+  
+## Estimated timing: 80 minutes
+
 ### Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa
 
 1. Select the resource group **WGVNetRG1**, and select the configuration blade for **WGVNet1**. Select **Peerings** under **Settings** on the left.
@@ -39,5 +47,9 @@
     - Allow gateway or route server in 'WGVNet1' to forward traffic to the peered virtual network
 
       ![](images/lab1vnet16.png)
+
+### Review
+In this lab, you have completed:
+- Configured VNet peering WGVNet1 to WGVNet2 and Vice Versa
 
 ## Great job on completing this exercise! You can now proceed to the next one.

@@ -1,5 +1,14 @@
 ## Exercise 9: Create a Network Monitoring Solution
 
+## Lab objectives
+
+In this lab, you will perform following tasks:
+
+- Create a Log Analytics Workspace
+- Configure Network Watcher
+  
+## Estimated timing: 80 minutes
+
 ### Task 1: Create a Log Analytics Workspace
 
 1. Connect to the Azure portal. Select **+ Create a resource**, and in the **Search the Marketplace** box, search for and select **Log Analytics Workspace**. Select **Create**.
@@ -29,5 +38,10 @@
 3. If they are not listed, add them to the list using the **+ Add** button.
 
    ![In this screenshot, the 'Overview' blade of the 'Network Watcher' service is depicted with the available regions listed and the '+ Add' button selected.](images/hol-ex9-task2-network-watcher.png "Network Watcher Overview blade"
+
+### Review
+In this lab, you have completed:
+- Created a Log Analytics Workspace
+- Configured Network Watcher
 
 ## Great job on completing this exercise! You can now proceed to the next one.

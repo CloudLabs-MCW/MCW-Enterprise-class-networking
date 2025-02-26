@@ -2,6 +2,15 @@
 
 Route Tables are containers for User Defined Routes (UDRs). The route table is created and associated with a subnet. UDRs allow you to direct traffic in ways other than normal system routes would. In this case, UDRs will direct outbound traffic via the Azure firewall.
 
+## Lab objectives
+
+In this lab, you will perform following tasks:
+
+- Create route tables
+- Add routes to each route table
+  
+## Estimated timing: 80 minutes
+
 ### Task 1: Create route tables
 
 1. In the search bar of the Azure portal, type **Route tables (1)**. From the search results, select **Route tables (2)**.
@@ -109,5 +118,10 @@ Route Tables are containers for User Defined Routes (UDRs). The route table is c
     ![In this screenshot, the Routes blade of the MgmtRT route table is depicted with the two newly creates routes listed.](images/hol-ex4-task2-mgmtrt-route-table.png "Route table")
 
     >**Note:** The route tables and routes you have just created are not associated with any subnets yet, so they are not impacting any traffic flow yet. This will be accomplished later in the lab.
+
+### Review
+In this lab, you have completed:
+- Created route tables
+- Added routes to each route table
 
 ## Great job on completing this exercise! You can now proceed to the next one.
