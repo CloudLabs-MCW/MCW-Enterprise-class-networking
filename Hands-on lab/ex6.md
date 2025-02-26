@@ -10,7 +10,7 @@ In this lab, you will perform following tasks:
 - Create Firewall Rules
 - Associate route tables to subnets
   
-## Estimated timing: 80 minutes
+## Estimated timing: 60 minutes
 
 ### Task 1: Provision the Azure firewall
 

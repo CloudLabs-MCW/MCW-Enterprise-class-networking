@@ -12,7 +12,7 @@ In this lab, you will perform following tasks:
 - Create the second gateway
 - Connect the gateways
   
-## Estimated timing: 80 minutes
+## Estimated timing: 60 minutes
 
 ### Task 1: Create OnPrem Virtual Network
 
@@ -24,13 +24,12 @@ In this lab, you will perform following tasks:
 
 2. On the **Create virtual network** blade, enter the following information:
 
-    - Subscription: **Select your subscription**.
-
-    - Resource group: Select **OnPremVNetRG**.
-
-    - Name: **OnPremVNet**
-
-    - Region: **East US** (Make sure this is **NOT** the same location you have specified in the previous exercises.)
+    | Setting | Action |
+    | -- | -- |
+    | Subscription | Select your subscription |
+    | Resource group | Select **OnPremVNetRG** |
+    | Name | **OnPremVNet** |
+    | Region | **East US** (Make sure this is **NOT** the same location you have specified in the previous exercises.) |
 
     ![](images/lab7vnet1.png)
 
@@ -64,9 +63,11 @@ In this lab, you will perform following tasks:
 
 3. Specify the following configuration for the subnet, and select **Add**:
 
-    - Subnet Purpose: **Virtual Network Gateway**
-    - Starting address: **192.168.1.0**
-    - Size: **/27 (32 addresses)**
+    | Setting | Action |
+    | -- | -- |
+    | Subnet Purpose | **Virtual Network Gateway** |
+    | Starting address | **192.168.1.0** |
+    | Size | **/27 (32 addresses)** |
 
     ![](images/lab7vnet4.png)
 
@@ -88,27 +89,19 @@ In this lab, you will perform following tasks:
 
 2. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
-    - Subscription: **Select your subscription**.
-
-    - Name: **OnPremWGGateway**
-
-    - Region: **East US** (This must match the location in which you created the **OnPremVNet** virtual network.)
-
-    - Gateway type: **VPN**
-
-    - SKU: **VpnGw1**
-
-    - Virtual network: **OnPremVNet**
-
-    - Public IP address: **Create new**
-
-    - Public IP address name: **onpremgatewayIP1**
-
-    - Enable active-active mode: **Enabled**
-
-    - Second Public IP address name: **onpremgatewayIP2**
-
-    - Configure BGP: **Disabled**
+    | Setting | Action |
+    | -- | -- |
+    | Subscription | **Select your subscription** |
+    | Name | **OnPremWGGateway** |
+    | Region | **East US** (This must match the location in which you created the **OnPremVNet** virtual network.) |
+    | Gateway type | **VPN** |
+    | SKU | **VpnGw1** |
+    | Virtual network | **OnPremVNet** |
+    | Public IP address | **Create new** |
+    | Public IP address name | **onpremgatewayIP1** |
+    | Enable active-active mode | **Enabled** |
+    | Second Public IP address name | **onpremgatewayIP2** |
+    | Configure BGP | **Disabled** |
 
     ![](images/lab7vnet6.png)
     ![](images/lab7vnet7.png)
@@ -125,29 +118,20 @@ In this lab, you will perform following tasks:
 
 2. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
-    - Subscription: **Select your subscription**.
-
-    - Name: **WGVNet1Gateway**
-
-    - Region: **South Central US** (This must match the location in which you created the **WGVNet1** virtual network.)
-
-    - Gateway type: **VPN**
-
-    - SKU: **VpnGw1**
-
-    - Virtual network: **WGVNet1**
-
-    - Resource group: **WGVNetRG1**
-
-    - Public IP address: **Create new**
-
-    - Public IP address name: **vnet1gatewayIP1**
-
-    - Enable active-active mode: **Enabled**
-
-    - Second Public IP address name: **vnet1gatewayIP2**
-
-    - Configure BGP: **Disabled**
+    | Setting | Action |
+    | -- | -- |
+    | Subscription | **Select your subscription** |
+    | Name | **WGVNet1Gateway** |
+    | Region | **South Central US** (This must match the location in which you created the **WGVNet1** virtual network.) |
+    | Gateway type | **VPN** |
+    | SKU | **VpnGw1** |
+    | Virtual network | **WGVNet1** |
+    | Resource group | **WGVNetRG1** |
+    | Public IP address | **Create new** |
+    | Public IP address name | **vnet1gatewayIP1** |
+    | Enable active-active mode | **Enabled** |
+    | Second Public IP address name | **vnet1gatewayIP2** |
+    | Configure BGP | **Disabled** |
 
     ![](images/lab7vnet8.png)
     ![](images/lab7vnet9.png)

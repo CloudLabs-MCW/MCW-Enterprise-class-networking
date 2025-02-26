@@ -6,7 +6,7 @@ In this lab, you will perform following tasks:
 
 - Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa
   
-## Estimated timing: 80 minutes
+## Estimated timing: 20 minutes
 
 ### Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa
 

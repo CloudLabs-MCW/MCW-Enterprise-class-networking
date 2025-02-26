@@ -9,7 +9,7 @@ In this lab, you will perform following tasks:
 - Create a load balancer to distribute the load between the web servers
 - Configure the load balancer
   
-## Estimated timing: 80 minutes
+## Estimated timing: 60 minutes
 
 ### Task 1: Create a load balancer to distribute the load between the web servers
 

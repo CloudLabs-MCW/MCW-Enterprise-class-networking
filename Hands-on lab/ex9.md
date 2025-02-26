@@ -7,7 +7,7 @@ In this lab, you will perform following tasks:
 - Create a Log Analytics Workspace
 - Configure Network Watcher
   
-## Estimated timing: 80 minutes
+## Estimated timing: 20 minutes
 
 ### Task 1: Create a Log Analytics Workspace
 
@@ -15,13 +15,12 @@ In this lab, you will perform following tasks:
 
 2. On the **Create workspace** blade, enter the following information:
 
-    - Subscription: **Select your subscription**.
-
-    - Resource group: Select the **MonitoringRG**.
-
-    - Name: **Enter a unique name in all lowercase**
-
-    - Location: **East US**
+    | Setting | Action |
+    | -- | -- |
+    | Subscription | **Select your subscription** |
+    | Resource group | **MonitoringRG** |
+    | Name | **Enter a unique name in all lowercase** |
+    | Location | **East US** |
 
 3. Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Review + create** then **Create**.
 

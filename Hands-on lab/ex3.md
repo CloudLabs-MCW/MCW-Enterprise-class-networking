@@ -10,7 +10,7 @@ In this lab, you will perform following tasks:
 - Configure application security groups
 - Create network security group
   
-## Estimated timing: 80 minutes
+## Estimated timing: 60 minutes
 
 ### Task 1: Create application security groups
 
