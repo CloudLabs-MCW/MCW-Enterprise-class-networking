@@ -9,7 +9,7 @@ In this lab, you will perform following tasks:
 - Create route tables
 - Add routes to each route table
   
-## Estimated timing: 80 minutes
+## Estimated timing: 40 minutes
 
 ### Task 1: Create route tables
 
