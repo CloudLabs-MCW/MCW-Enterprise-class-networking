@@ -54,7 +54,7 @@ The architecture for this lab involves several key components:
  
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
  
-   ![](images/new-ecn-feb-1.png)
+![](images/new-ecn-feb-1.png)
 
 ### Virtual Machine & Lab Guide
  
@@ -64,7 +64,7 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-   ![](images/new-ecn-feb-05.png)
+![](images/new-ecn-feb-05.png)
  
 ## Utilizing the Split Window Feature
  
