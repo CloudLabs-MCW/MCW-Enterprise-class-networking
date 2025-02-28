@@ -19,16 +19,6 @@ You have been asked by Woodgrove Financial Services to provision a proof of conc
 - How to implement a combination of Network Security Groups (NSGs) and Application Security Groups (ASGs) to control traffic flow within virtual networks.
 
 - How to monitor network traffic for proper route configuration and trouble shooting.
-  
-## Pre-requisites
-
-Participants should have the following prerequisites
-
-- **Basic Knowledge of Docker**: Familiarity with containerization concepts and Docker, including building and running Docker images.
-- **Experience with Azure Container Apps**: Understanding of Azure Container Apps and the process of deploying containerized applications on Azure.
-- **Familiarity with REST APIs**: Basic knowledge of REST API concepts for interacting with the Recommendation service and verifying functionality.
-- **Basic Programming Skills**: Proficiency in Python or a similar programming language to work with the Recommendation service and containerization scripts.
-- **Development Environment Setup**: Ability to set up a local development environment for running the Miyagi frontend and building Docker images.
 
 ## Architecture
 

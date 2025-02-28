@@ -11,7 +11,7 @@ In this lab, you will perform following tasks:
 
 ### Task 1: Create a Virtual Network
 
-This virtual network will have a gateway subnet named `GatewaySubnet` provisioned with [the guidance from the Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-networking) of using the last part of the virtual network address space.
+In this task, you will create a Virtual Network (VNet) in Azure, configure its address space and subnets, and enable Azure Bastion for secure remote access
 
 1. In the search bar of the Azure portal, type **Virtual network (1)**. From the search results, select **Virtual network (2)**.
 
@@ -45,7 +45,25 @@ This virtual network will have a gateway subnet named `GatewaySubnet` provisione
 
     ![](images/lab1vnet6.png)
 
-1. Select **+ Add subnet** then enter the following information,delete the **default** address space and then select **Save (4)**.
+1. Click on the **default subnet**.
+
+    ![](images/lab1vnet6a.png)
+
+1. Enter the following information, then click **Save (4)** to apply the changes.
+
+    | Setting | Action |
+    | -- | -- |
+    | **Subnet purpose** | **Virtual Network Gateway** **(1)** |
+    | **Starting address** | **10.7.15.0** **(2)** |
+    | **Size** | **/27 (32 addresses) (3)** |
+
+    ![](images/lab1vnet10a.png)
+
+1. Click on the **AzureBastionSubnet**.
+
+    ![](images/lab1vnet10b.png)
+
+1. Enter the following information, then click **Save (4)** to apply the changes.
 
     | Setting | Action |
     | -- | -- |
@@ -55,17 +73,7 @@ This virtual network will have a gateway subnet named `GatewaySubnet` provisione
 
     ![](images/lab1vnet7.png)
 
-    ![](images/lab1vnet9.png)
-
-1. Select **+ Add subnet** then enter the following information,delete the **default** address space and then select **Save (4)**.
-
-    | Setting | Action |
-    | -- | -- |
-    | **Subnet purpose** | **Virtual Network Gateway** **(1)** |
-    | **Starting address** | **10.7.15.0** **(2)** |
-    | **Size** | **/27 (32 addresses) (3)** |
-
-    ![](images/lab1vnet10.png)
+    ![](images/lab1vnet9a.png)
 
 1. Select **Review + Create**.
 
