@@ -26,7 +26,7 @@ In this lab, you will perform following tasks:
     | **Subscription** | Select your subscription **(1)** |
     | **Resource group** | **WGVNetRG1** **(2)** |
     | **Region** | **South Central US (3)** |
-    | **Name** | **WebTier** **(4)** |
+    | **Name** | **MgmtRT** **(4)** |
     | **Propagate gateway routes** | **Yes** **(5)** |
 
     ![](images/lab4route2.png)
@@ -108,7 +108,7 @@ In this lab, you will perform following tasks:
     | Route name | **MgmtToApp** **(1)** |
     | Address prefix destination | **IP Addresses** **(2)** |
     | Address prefix | **10.7.2.0/25** **(3)** |
-    | Next hop type | **Virtual network gateway** **(4)** |
+    | Next hop type | **Virtual appliance** **(4)** |
     | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
     ![](images/lab4route8.png)

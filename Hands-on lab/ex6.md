@@ -14,7 +14,7 @@ In this lab, you will perform following tasks:
 
 ### Task 1: Provision the Azure firewall
 
-1. In the search bar of the Azure portal, type **Load balancers (1)**. From the search results, select **Load balancers (2)**.
+1. In the search bar of the Azure portal, type **Firewall (1)**. From the search results, select **Firewalls (2)**.
 
     ![](images/lab6fire1.png)
 
@@ -22,25 +22,35 @@ In this lab, you will perform following tasks:
 
     | Setting | Action |
     | -- | -- |
-    | Subscription | Select your subscription |
-    | Resource group | **WGVNetRG1** |
-    | Name | **azureFirewall** |
-    | Region | **South Central US** |
-    | Firewall SKU | **Standard** |
-    | Firewall management | **Use Firewall rules (classic) to manage this Firewall** |
-    | Choose a Virtual network | **Use existing** |
-    | Virtual network | **WGVNet1** |
-    | Public IP address | **(Add new) azureFirewall-ip** |
-    | Enable Firewall Management NIC | **UNCHECKED** |
+    | Subscription | Select your subscription **(1)** |
+    | Resource group | **WGVNetRG1** **(2)** |
+    | Name | **azureFirewall** **(3)** |
+    | Region | **South Central US** **(4)**|
+    | Firewall SKU | **Standard** **(5)** |
+    | Firewall management | **Use Firewall rules (classic) to manage this Firewall** **(6)** |
+    | Choose a Virtual network | **Use existing** **(7)** |
 
-    ![](images/hol-ex6-task1-create-a-firewall-wgvnetrg1.png)
-    ![](images/lab6fire2.png)
+    ![](images/lab6fire1b.png)
+
+1. Select **Virtual Network** as **WGVNet1 (1)**, click **Add new (2)** for **Public IP address**, name it **azureFirewall-ip (3)**, and click **OK (4)**.
+
+    ![](images/lab6fire1c.png)
+
+    >**Note:** If you receive the message **"Force Tunneling requires this virtual network to have a subnet named AzureFirewallManagementSubnet"**, it will disappear once you uncheck the **Enable Firewall Management NIC**.
+
+    ![](images/lab6fire1a.png)
+
+1. Uncheck the box for the **Enable Firewall Management NIC**.
+
+    ![](images/lab6fire1d.png)
 
 3. Select **Review + create** and then select **Create** to provision the Azure Firewall.
 
+    >**Note**: It will take **5-7 minutes** to be created.
+
 ### Task 2: Create Firewall Rules
 
-Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall created. Next, we will create firewall rules to allow the inbound and outbound traffic.
+We will create firewall rules to allow the inbound and outbound traffic.
 
 1. On the main Azure menu, select **Resource groups**.
 
@@ -54,7 +64,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     ![](images/lab6fire4.png)
 
-5. Select **+ Add NAT Rule collection** and enter the following information to create an inbound NAT Rule (a collection is a list of rules that share the same priority and action) then select **Add**:
+5. Select **+ Add NAT Rule collection** and enter the following information to create an inbound NAT Rule (a collection is a list of rules that share the same priority and action).
 
     | Setting | Action |
     | -- | -- |
@@ -72,7 +82,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
     ![](images/lab6fire5.png)
     ![](images/lab6fire6.png)
 
-6. Back on the **azureFirewall - Rules (classic)** page, select the newly created NAT rule collection. Add another rule for HTTPS, as illustrated in the following screenshot (alternatively you could create a single rule for both HTTP and HTTPS). The rules should look like the image below.
+6. Add another rule for HTTPS, as illustrated in the following screenshot. The rules should look like the image below.
 
     | Setting | Action |
     | -- | -- |
@@ -89,7 +99,7 @@ Within 1-2 minutes, the resource group **WGVNetRG1** will have the firewall crea
 
     ![](images/lab6fire7.png)
 
-7. Select **Save** and wait until the update completes.
+7. Select **Add** and wait until the update completes.
 
 8. Back on the Azure Firewall **Rules (classic)** page, select **Network rule collection**. Then Select **+ Add Network Rule collection** and enter the following information to create a Network Rule for inbound traffic. This rule allows HTTP connectivity from any directly connected network targeting the frontend IP address of the load balancer.
 
