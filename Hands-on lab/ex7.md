@@ -33,23 +33,20 @@ In this lab, you will perform following tasks:
 
     ![](images/lab7vnet1.png)
 
-3. Leave the other options with their default values.
-
 4. Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Next: IP Addresses**.
 
-    ![In this screenshot, the Basics tab of the 'Create virtual network' blade in the Azure portal is depicted with the required settings selected.](images/hol-ex7-task1-create-virtual-network-onpremvnet.png "Create virtual network")
 
 5. On the **IP addresses** tab of the **Create virtual network blade**, enter the following information.
 
     - Address space: **192.168.0.0/16**
 
-    - Select **+ Add subnet** then enter the following information in the blade that appears on the right and select **Add**.
+    - Select the **default** subnet then enter the following information in the blade that appears on the right and select **Add**.
 
       - Subnet name: **default**
 
       - Subnet address range: **192.168.0.0/24**
 
-    ![](images/lab7vnet2.png)
+    ![](images/lab7vnet2a.png)
 
 6. Select **Review + create** then **Create**.
 
@@ -77,9 +74,9 @@ In this lab, you will perform following tasks:
 
     - Address range: **192.168.2.0/27**
 
-    - Leave the rest of the values as their defaults. Select **Save**.
+    - Leave the rest of the values as their defaults. Select **Add**.
 
-        ![In this screenshot, the 'Add subnet' blade of the Azure portal is depicted with the required settings listed above selected along with the Save button.](images/a1.5.png "Add subnet")
+        ![](images/lab7vnet4a.png)
 
 ### Task 3: Create the first gateway
 
@@ -96,6 +93,7 @@ In this lab, you will perform following tasks:
     | Region | **East US** (This must match the location in which you created the **OnPremVNet** virtual network.) |
     | Gateway type | **VPN** |
     | SKU | **VpnGw1** |
+    | Generation | **Generation1** |
     | Virtual network | **OnPremVNet** |
     | Public IP address | **Create new** |
     | Public IP address name | **onpremgatewayIP1** |
@@ -125,8 +123,8 @@ In this lab, you will perform following tasks:
     | Region | **South Central US** (This must match the location in which you created the **WGVNet1** virtual network.) |
     | Gateway type | **VPN** |
     | SKU | **VpnGw1** |
+    | Generation | **Generation1** |
     | Virtual network | **WGVNet1** |
-    | Resource group | **WGVNetRG1** |
     | Public IP address | **Create new** |
     | Public IP address name | **vnet1gatewayIP1** |
     | Enable active-active mode | **Enabled** |
@@ -146,7 +144,7 @@ In this lab, you will perform following tasks:
 
 1. In the Azure portal, in the 'Search resources, services, and docs' search box, type **connections** in the search text box. Select **Connections**.
 
-    ![In this screenshot, the 'Search resources, services, and docs' search box of the Azure portal is depicted with Connections searched for and selected.](images/hol-ex7-task5-search-for-connections.png "Azure Portal")
+    ![](images/lab7vnet9b.png)
 
 2. Click on **Create**.
 
@@ -158,23 +156,24 @@ In this lab, you will perform following tasks:
     - Second connection name - **WGGateway-to-WGVNet1**
     - Region - **South Central US**
 
-        ![In this screenshot, the Basics step of the 'xCreate connection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex7-task5-create-connection-vnet-to-vnet.png "Basics")
+        ![](images/hol-ex7-task5-create-connection-vnet-to-vnet.png)
 
 4. On the Settings step, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEv2** is selected. Enter a shared key, such as **A1B2C3D4**. Select **Review + create**.
 
-    ![In this screenshot, the Settings step of the 'Create connection' blade of the Azure portal is depicted with the required settings listed above selected including the two virtual network gateway resources created earlier.](images/hol-ex7-task5-create-connection-vnet-to-vnet-settings.png "select virtual network gateway")
+    ![](images/lab7vnet9a.png)
 
 5. Select **Create** on the **Summary** page to create the connection.
 
 6. In the Azure portal, in the 'Search resources, services, and docs' search box, type **connections** in the search text box. Select **Connections**.
 
-    ![In this screenshot, the 'Search resources, services, and docs' search box of the Azure portal is depicted with Connections searched for and selected.](images/hol-ex7-task5-search-for-connections.png "Azure Portal")
+    ![](images/lab7vnet9b.png)
 
 7. Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
 
-    ![In this screenshot, the Connections blade of the Azure portal is depicted with the two connections created earlier listed with their respective statuses showing as Connected.](images/hol-ex7-task5-connections-blade.png "Connections blade")
+    ![](images/hol-ex7-task5-connections-blade.png)
 
 ### Review
+
 In this lab, you have completed:
 - Created OnPrem Virtual Network
 - Configured gateway subnets for on premise Virtual Network

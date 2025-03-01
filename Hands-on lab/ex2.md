@@ -48,6 +48,14 @@ In this lab, you will perform following tasks:
 
       ![](images/lab1vnet16.png)
 
+1. Click on **Add** to create the **VNet Peering**.
+
+   ![](images/lab1vnet14a.png)
+
+1. Once the **VNet Peering** is completed, it will appear as shown in the screenshot below.
+
+   ![](images/lab1vnet14b.png)
+
 ### Review
 In this lab, you have completed:
 - Configured VNet peering WGVNet1 to WGVNet2 and Vice Versa

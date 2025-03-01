@@ -29,9 +29,9 @@ In this lab, you will perform following tasks:
     | Type | **Internal** **(6)** |
     | Tier | **Regional** **(7)**|
 
-    Ensure your **Create load balancer** dialog looks like the following, and select **Next: Frontend IP configuration** then select **Create**.
+    Ensure your **Create load balancer** dialog looks like the following, and select **Next: Frontend IP configuration (8)** then select **Create**.
 
-    ![](images/hol-ex5-task1-create-load-balancer-wgweblb.png)
+    ![](images/lab5loadb1a.png)
 
 3. On the **Frontend IP configuration** tile, select **+ Add a frontend IP configuration** and enter the following values:
 
@@ -60,17 +60,13 @@ In this lab, you will perform following tasks:
 
     ![In this screenshot, the Azure portal blade for the WGWEBLB load balancer is depicted with Backend pools' selected on the left and the '+ Add' button selected.](images/hol-ex5-task2-backend-pools-add-button.png "Load balancer blade")
 
-3. Enter **LBBE** for the pool name. Select **NIC** for **Backend Pool Configuration**. Under **IP Configurations**, select **+ Add**.
+3. Enter **LBBE (1)** for the pool name. Select **NIC (2)** for **Backend Pool Configuration**. Under **IP Configurations**, select **+ Add (3)**.
 
-    ![In this screenshot, the 'Add backend pool' blade is depicted with the Name and 'Associated to' fields filled in as listed above.](images/hol-ex5-task2-add-backend-pool.png "Add backend pool blade")
+    ![](images/lab5loadb2a.png)
 
 4. Under **Virtual machine**, select **+ Add** and choose the **WGWEB1** and **WGWEB2** virtual machines and select **Add**.
 
     ![](images/lab5loadb3.png)
-
-    >**Note**: If you do not see WGWEB1 in the Virtual Machine selection list, the public IP address was not created as a Standard SKU.  Locate **webip** and in the **Overview** tile, select the **Upgrade to Standard SKU** banner to change the SKU.  You will need to change the IP to **Static** in the **Configuration** and temporarily **Disassociate** it from **WGWEB1NetworkInterface**. Once upgraded, **Associate** webip with the **Network Interface** for WGWEB1.
-
-    ![In this screenshot, the upgrade to standard sku will take you through the process of upgrading the public IP address.](images/hol-ex5-task2-upgrade-ip-address-sku.png "Upgrade Public IP from Basic to Standard")
 
 5. Select **Save** at the bottom of the **Add backend pool** blade to add the backend pool.
 
@@ -84,24 +80,34 @@ In this lab, you will perform following tasks:
 
     - Protocol: **HTTP**
 
-        ![In this screenshot, the 'WGWEBLB' load balancer blade of the Azure portal is depicted with 'Health probes' under 'Settings' in the left navigation highlighted.](images/hol-ex5-task2-health-probes-add-button.png "Settings section, Add health probe blade")
+        ![](images/hol-ex5-task2-health-probes-add-button.png)
 
-        ![In this screenshot, the 'Add health probe' blade is depicted with the required settings listed above selected along with the Add button selected.](images/a1.6.png "Add health probe blade")
+        ![](images/lab5loadb4a.png)
 
-8. Select **Add**.
+8. Select **Save**.
 
-9. After the Health probe has been added, select **Load balancing rules** from the left navigation. Select **+ Add** and complete the configuration as shown below followed by selecting **Add**.
+9. After the Health probe has been added, select **Load balancing rules (1)** from the left navigation. Select **+ Add (2)** and complete the configuration as shown below followed by selecting **Add**.
+
+    ![](images/lab5loadb4b.png)
 
     | Setting | Action |
     | -- | -- |
     | Name | **HTTP** **(1)** |
-    | Frontend IP address | **10.8.0.100** **(2)** |
+    | Frontend IP address | **WGWEBLBIP 10.8.0.100** **(2)** |
     | Backend pool | **LBBE** **(3)** |
     | Port | **80** **(4)** |
     | Backend port | **80** **(5)** |
     | Health probe | **HTTP** **(6)** |
 
     ![](images/lab5loadb5.png)
+
+1. In the search bar of the Azure portal, type **Virtual machines (1)**. From the search results, select **Virtual machines (2)**.
+
+    ![](images/lab5loadb5a.png)
+
+1. Select **WGWEB1** virtual machine.
+
+    ![](images/lab5loadb5b.png)
 
 1. On **WGWEB1**, click **Connect (1)** and select **Connect via Bastion (2)**.
 
@@ -110,6 +116,22 @@ In this lab, you will perform following tasks:
 1. Enter the **Username** as **demouser (1)** and the **VM Password** as **demo@pass123 (2)**, then click **Connect (3)**.
 
     ![](images/lab5loadb7.png)
+
+1. If you receive an error message like the one shown in the screenshot, follow these steps:
+
+    ![](images/lab5loadb7a.png)
+
+1. Click on the **pop-up (1)** icon from the browser bar, select **Always allow pop-ups and redirects from https://portal.azure.com (2)**, and then click **Done**.  
+
+    ![](images/lab5loadb7b.png)
+
+1. Now, click on **Connect** again.
+
+    ![](images/lab5loadb7d.png)
+
+1. It will open a new page, click on the **Allow**
+
+    ![](images/lab5loadb7c.png)
 
 10. Within WGWEB1, open **Microsoft Edge** from the Start menu and navigate to <http://10.8.0.100>. Ensure that you successfully connect to either one of the two Web servers.
 
