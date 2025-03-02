@@ -4,7 +4,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 
 ## Lab objectives
 
-In this lab, you will perform following tasks:
+In this lab, you will perform the following tasks:
 
 - Create a virtual machine to validate connectivity
 - Configure routing for simulated 'on-premises' to Azure traffic
@@ -32,7 +32,9 @@ In this lab, you will perform following tasks:
     | Select inbound ports | **RDP** **(11)** |
 
     ![](images/lab8vm1.png)
+
     ![](images/lab8vm2.png)
+   
     ![](images/lab8vm3.png)
 
 1. Click on **Next: Disk >**, then proceed to the networking section by clicking on **Next: Networking >**.
@@ -51,6 +53,7 @@ In this lab, you will perform following tasks:
     | Load balancing options | **None** **(8)** |
 
     ![](images/lab8vm4.png)
+   
     ![](images/lab8vm5.png)
 
 1. On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
@@ -72,6 +75,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
     - Resource group: Select the drop-down menu, and select **WGVNetRG1**.
 
     - Region: **South Central US** (This must match the location in which you created the **WGVNet1** virtual network.)
+
       > **Note**: Ensure this is created in the **WGVNet1** virtual network.
 
     - Name: **WGAzureVNetGWRT**
