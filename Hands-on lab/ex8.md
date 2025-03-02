@@ -116,7 +116,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 ### Scenario 1: Verifying RDP Access Restriction by Azure Firewall
 
-In this scenario, you will attempt to initiate a Remote Desktop (RDP) session from the **OnPremVM** virtual machine to a virtual machine in the **AppSubnet (10.8.0.0/25)**. However, the connection should fail due to Azure Firewall restrictions. Follow these steps to test the behavior:  
+In this scenario, you will initiate a Remote Desktop (RDP) session from the **OnPremVM** virtual machine to a virtual machine in the **AppSubnet (10.8.0.0/25)**. However, the connection should fail due to Azure Firewall restrictions. Please follow the below steps:
 
 1. On the Azure portal, type **Virtual Machine (1)** in the search box and select **Virtual Machines (2)** from the results.
 
@@ -146,7 +146,7 @@ In this scenario, you will attempt to initiate a Remote Desktop (RDP) session fr
 
 This confirms that RDP access to the AppSubnet is blocked by Azure Firewall.
 
-### Scenario 2: Accessing the Web Application via Bastion in WGWEB1 or WGWEB2 VM.
+### Scenario 2: Accessing the Web Application via Bastion in WGWEB1 or WGWEB2 VM
 
 In this scenario, you will access the web application deployed in **WGVNet2** using the private IP address of the **Azure Load Balancer (10.8.0.100)**. This will be done from within **WGWEB1** or **WGWEB2** after establishing a Bastion session. Since the traffic is routed through **Azure Firewall**, access should be successful. 
 
@@ -161,6 +161,7 @@ In this scenario, you will access the web application deployed in **WGVNet2** us
 7. Enter the following credentials and click **Connect (3)**:
 
    - **Username (1):** `demouser`
+
    - **VM Password (2):** `demo@pass123`
 
 1. On the desktop, open **Microsoft Edge**, enter **10.8.0.100** (the private IP of the Azure Load Balancer) in the address bar, and press **Enter** to load the web application.
@@ -201,7 +202,7 @@ In this scenario, you will establish a **Bastion** session to **WGWEB1** and the
 
 1. If prompted with a security warning, click **Yes** to proceed.
 
-1. The RDP session to **WGSQL1** should establish successfully, confirming that Azure Firewall allows the connection.
+1. The RDP session to **WGSQL1** should be established successfully, confirming that Azure Firewall allows the connection.
 
 This verifies that **WGWEB1** can communicate with **WGSQL1** over **RDP**, as permitted by **Azure Firewall**.
 
