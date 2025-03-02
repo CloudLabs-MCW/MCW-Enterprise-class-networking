@@ -230,13 +230,19 @@ In this scenario, you will establish a **Bastion** session to **WGWEB1** and the
 
 1. Enter **10.8.1.4** (the private IP of WGSQL1) in the **Computer** field and click **Connect**.
 
+    ![](images/02032025(24).png)
+
 1. Enter the following credentials and click **Connect (3)**:  
 
    - **Username (1):** `.\demouser` 
 
    - **Password (2):** `demo@pass123`
 
+     ![](images/02032025(25).png)
+
 1. If prompted with a security warning, click **Yes** to proceed.
+
+    ![](images/02032025(26).png)
 
 1. The RDP session to **WGSQL1** should be established successfully, confirming that Azure Firewall allows the connection.
 
