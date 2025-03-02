@@ -2,7 +2,7 @@
 
 ## Lab objectives
 
-In this lab, you will perform following tasks:
+In this lab, you will perform the following tasks:
 
 - Create a Log Analytics Workspace
 - Configure Network Watcher
@@ -26,7 +26,7 @@ In this lab, you will perform following tasks:
     | Name | **Enter a unique name in all lowercase** |
     | Location | **East US** |
 
-3. Upon completion, it should look like the following screenshot. Validate the information is correct, and select **Review + create** then **Create**.
+3. Upon completion, it should look like the following screenshot. Validate that the information is correct, select **Review + create**, and then **Create**.
 
     ![](images/hol-ex9-task1-create-log-analytics-workspace.png)
 
