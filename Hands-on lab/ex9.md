@@ -15,9 +15,9 @@ In this lab, you will perform following tasks:
 
    ![](images/lab9log1.png)
 
-1. Click on **Create**.
+1. Click on **+ Create**.
 
-2. On the **Create workspace** blade, enter the following information:
+2. On the **Create Log Analytics workspace** blade, enter the following information:
 
     | Setting | Action |
     | -- | -- |
@@ -32,9 +32,7 @@ In this lab, you will perform following tasks:
 
 ### Task 2: Configure Network Watcher
 
-1. Connect to the Azure portal. Select **All Services** on the left navigation, and in the Category list, select **Networking** followed by selecting **Network Watcher**.
-
-    ![](images/hol-ex9-task2-services-network-watcher.png)
+1. In the search bar of the Azure portal, type **Network Watcher (1)**. From the search results, select **Network Watcher (2)**.
 
 2. In the **Overview** blade, ensure that **NetworkWatcher_southcentralus** and **NetworkWatcher_eastus** is listed.
 

@@ -194,7 +194,7 @@ In this scenario, you will establish a **Bastion** session to **WGWEB1** and the
 
    - **Username (1):** `.\demouser` 
 
-   - **VM Password (2):** `demo@pass123`
+   - **Password (2):** `demo@pass123`
 
 1. If prompted with a security warning, click **Yes** to proceed.
 
