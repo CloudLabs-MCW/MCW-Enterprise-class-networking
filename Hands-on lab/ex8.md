@@ -172,23 +172,19 @@ Please follow the same steps for **WGWEB2**.
 
 ### Scenario 3: Initiating an RDP Session to WGSQL1 from WGWEB1 via Bastion  
 
-In this scenario, you will establish a **Bastion** session to **WGWEB1** and then initiate a **Remote Desktop (RDP)** connection to **WGSQL1** using its private IP address. The connection should be successful since it is allowed by **Azure Firewall**. 
-
-#### **Step 1: Connect to WGWEB1 via Azure Bastion**  
+In this scenario, you will establish a **Bastion** session to **WGWEB1** and then initiate a **Remote Desktop (RDP)** connection to **WGSQL1** using its private IP address. The connection should be successful since it is allowed by **Azure Firewall**.
 
 1. On the Azure portal, type **Virtual Machine (1)** in the search box and select **Virtual Machines (2)** from the results.
 
-3. On the **Virtual Machines** page, find and select **WGWEB1**. 
+1. On the **Virtual Machines** page, find and select **WGWEB1**. 
 
-4. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
+1. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
 
-7. Enter the following credentials and click **Connect (3)**:  
+1. Enter the following credentials and click **Connect (3)**:  
    
    - **Username (1):** `demouser` 
 
    - **VM Password (2):** `demo@pass123`
-
-#### **Step 2: Initiate RDP Connection to WGSQL1**
 
 1. Within the **WGWEB1** Bastion session, search for **Remote Desktop Connection** in the Windows search bar and open the application.
 
