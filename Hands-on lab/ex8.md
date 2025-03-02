@@ -37,7 +37,7 @@ In this lab, you will perform following tasks:
 
 1. Click on **Next: Disk >**, then proceed to the networking section by clicking on **Next: Networking >**.
 
-1. On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and select **Next : Management > **(9)**:
+1. On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and select **Next : Management > (9)**:
 
     | Setting | Action |
     | -- | -- |
@@ -118,15 +118,25 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 In this scenario, you will initiate a Remote Desktop (RDP) session from the **OnPremVM** virtual machine to a virtual machine in the **AppSubnet (10.8.0.0/25)**. However, the connection should fail due to Azure Firewall restrictions. Please follow the below steps:
 
-1. On the Azure portal, type **Virtual Machine (1)** in the search box and select **Virtual Machines (2)** from the results.
+1. On the Azure portal, type **Virtual Machines (1)** in the search box and select **Virtual Machines (2)** from the results.
 
-3. On the **Virtual Machines** page, find and select **OnPremVM**. 
+    ![](images/02032025(9).png)
 
-4. Click **Connect (1)** and choose **RDP (2)** as the connection method. 
+3. On the **Virtual Machines** page, find and select **OnPremVM**.
 
-5. Under the **RDP** tab, click **Download RDP file**. 
+    ![](images/02032025(10).png)
 
-6. Open the downloaded RDP file and click **Connect**. 
+4. Click **Connect (1)** and choose **Connect (2)** as the connection method.
+
+    ![](images/02032025(11).png)
+
+5. Under the **Native RDP** option, click **Download RDP file**.
+
+    ![](images/02032025(12).png)
+
+6. Open the downloaded RDP file and click **Connect**.
+
+    ![](images/02032025(13).png)
 
 7. When prompted, enter the following credentials and click **OK (3)**:  
    
@@ -134,15 +144,25 @@ In this scenario, you will initiate a Remote Desktop (RDP) session from the **On
 
    - **Password (2):** `demo@pass123`
 
+     ![](images/02032025(14).png)
+
 8. Click **Yes** on the security pop-up to proceed.
+
+    ![](images/02032025(15).png)
 
 9. Inside **OnPremVM**, search for **Remote Desktop Connection** in the Windows search bar and open the application. 
 
+    ![](images/02032025(16).png)
+
 10. In the **Computer** field, enter **10.8.0.5** and click **Connect**.
+
+    ![](images/02032025(18).png)
 
 11. The connection attempt should fail, displaying the error message: **Remote desktop can't be connected to the remote computer**.
 
 12. Click **OK** to close the error message.
+
+    ![](images/02032025(19).png)
 
 This confirms that RDP access to the AppSubnet is blocked by Azure Firewall.
 
@@ -150,10 +170,10 @@ This confirms that RDP access to the AppSubnet is blocked by Azure Firewall.
 
 In this scenario, you will access the web application deployed in **WGVNet2** using the private IP address of the **Azure Load Balancer (10.8.0.100)**. This will be done from within **WGWEB1** or **WGWEB2** after establishing a Bastion session. Since the traffic is routed through **Azure Firewall**, access should be successful. 
 
-1. Open the **Azure portal** and search for **Virtual Machines (1)** in the search bar.
+1. On the Azure portal, type **Virtual Machines (1)** in the search box and select **Virtual Machines (2)** from the results.
 
-2. From the search results, select **Virtual Machine (2)**. 
-
+    ![](images/02032025(9).png)
+    
 3. On the **Virtual Machines** page, find and select **WGWEB1**.
 
 4. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
