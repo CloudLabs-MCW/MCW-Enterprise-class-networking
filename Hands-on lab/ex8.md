@@ -15,56 +15,53 @@ In this lab, you will perform following tasks:
 
 1. Create a new virtual machine in the OnPremVNet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
 
-2. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
+1. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
     | Setting | Action |
     | -- | -- |
-    | Subscription | **Select your subscription** |
-    | Resource group | Select **OnPremVMRG** |
-    | Virtual machine name | **OnPremVM** |
-    | Region | **(US) East US** (This must match the region in which you created the OnPremVNet virtual network.) |
-    | Availability options | **No infrastructure redundancy required** |
-    | Image | **Windows Server 2019 Datacenter - Gen2** |
-    | Size | **Standard DS1 v2** |
-    | User name | **demouser** |
-    | Password/Confirm password | **demo\@pass123** |
-    | Public inbound ports | **Allow selected ports** |
-    | Select inbound ports | **RDP** |
+    | Subscription | **Select your subscription** **(1)** |
+    | Resource group | Select **OnPremVMRG** **(2)** |
+    | Virtual machine name | **OnPremVM** **(3)** |
+    | Region | **(US) East US** **(4)** (This must match the region in which you created the OnPremVNet virtual network.) |
+    | Availability options | **No infrastructure redundancy required** **(5)** |
+    | Image | **Windows Server 2019 Datacenter - Gen2** **(6)** |
+    | Size | **Standard DS1 v2** **(7)** |
+    | User name | **demouser** **(8)** |
+    | Password/Confirm password | **demo\@pass123** **(9)** |
+    | Public inbound ports | **Allow selected ports** **(10)** |
+    | Select inbound ports | **RDP** **(11)** |
 
-3. On the **Create a virtual machine** blade, on the **Disks** tab, set the following configuration and select **Next : Networking >**:
+    ![](images/lab8vm1.png)
+    ![](images/lab8vm2.png)
+    ![](images/lab8vm3.png)
 
-    - OS disk type: **Premium SSD**
+1. Click on **Next: Disk >**, then proceed to the networking section by clicking on **Next: Networking >**.
 
-4. On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and select **Next : Management >**:
-
-    | Setting | Action |
-    | -- | -- |
-    | Virtual network | **OnPremVNet** |
-    | Subnet | **OnPremManagementSubnet (192.168.2.0/27)** |
-    | Public IP | **(new)OnPremVM-ip** |
-    | NIC network security group | **Basic** |
-    | Public inbound ports | **Allow selected ports** |
-    | Select inbound ports | **RDP** |
-    | Accelerated networking | **Unchecked** |
-    | Load balancing options | **None** |
-
-5. On the **Create a virtual machine** blade, on the **Management** tab, set the following configuration and select **Review + create**:
+1. On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and select **Next : Management > **(9)**:
 
     | Setting | Action |
     | -- | -- |
-    | System assigned managed identity | **Unchecked** |
-    | Login with Azure AD | **Unchecked** |
-    | Enable auto-shutdown | **Unchecked** |
-    | Enable backup | **Unchecked** |
-    | Enable OS guest diagnostics | **Unchecked** |
+    | Virtual network | **OnPremVNet** **(1)** |
+    | Subnet | **OnPremManagementSubnet (192.168.2.0/27)** **(2)**|
+    | Public IP | **(new)OnPremVM-ip** **(3)** |
+    | NIC network security group | **Basic** **(4)** |
+    | Public inbound ports | **Allow selected ports** **(5)** |
+    | Select inbound ports | **RDP** **(6)** |
+    | Accelerated networking | **Unchecked** **(7)** |
+    | Load balancing options | **None** **(8)** |
 
-6. On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
+    ![](images/lab8vm4.png)
+    ![](images/lab8vm5.png)
+
+1. On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
 
 ### Task 2: Configure routing for simulated 'on-premises' to Azure traffic
 
 When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.15.0/27). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
 
-1. On the Azure portal select **All services** at the left navigation. Enter **Route** in the search box, and select **Route tables**.
+1. In the search bar of the Azure portal, type **Route tables (1)**. From the search results, select **Route tables (2)**.
+
+    ![](images/lab4route1.png)
 
 2. On the **Route tables** blade, select **+ Create**.
 
@@ -81,7 +78,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     - Propagate gateway routes: **Yes**
 
-        ![In this screenshot, the 'Create route table' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex8-task2-create-route-table-wgazurevnetgwrt.png "Create route table")
+        ![](images/hol-ex8-task2-create-route-table-wgazurevnetgwrt.png)
 
 4. Select **Review + create** then **Create**.
 
@@ -99,15 +96,21 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
     | Next hop type | **Virtual appliance** |
     | Next hop address | **10.7.1.4** |
 
-    ![In this screenshot, the 'Add route' blade of the 'WGAzureVNetGWRT' route table is depicted with the required settings listed above selected along with the OK button.](images/hol-ex8-task2-onpremtoappsubnet-to-virtual-appliance.png "Add route")
+    ![](images/hol-ex8-task2-onpremtoappsubnet-to-virtual-appliance.png)
 
-8. Navigate to the **WGVNet1** virtual network in the Azure portal.
+1. In the search bar of the Azure portal, type **Virtual network (1)**. From the search results, select **Virtual network (2)**.
 
-9. Under the **Settings** section, select **Subnets**. On the **Subnets** blade, select **Gateway Subnet**.
+   ![](images/lab1vnet2.png)
+
+1. Select the **WGVNet1** virtual network.
+
+1. Under the **Settings (1)** section, select **Subnets (2)**. On the **Subnets** blade, select **Gateway Subnet (3)**.
+
+   ![](images/lab8vm6.png)
 
 10. On the **GatewaySubnet** dialog, under the **Route table** drop down, select **WGAzureVNetGWRT**. Then select **Save**.
 
-    ![In this screenshot, the 'GatewaySubnet' dialog of the 'WGVNet1' virtual network is depicted with the required route table and Save button highlighted.](images/a1.8.png "GatewaySubnet")
+    ![](images/lab8vm7.png)
 
     >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 

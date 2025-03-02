@@ -53,7 +53,7 @@ In this lab, you will perform following tasks:
 
 1. Select the **AppRT** route table, and select **Routes** under **Settings** on the left.
 
-    ![In this screenshot, the AppRT route table blade in the Azure portal is depicted with Routes in the Settings section of the navigation on the left highlighted.](images/hol-ex4-task2-routes-navigation.png "Route table blade ")
+    ![](images/hol-ex4-task2-routes-navigation.png)
 
 2. On the **Routes** blade, select **+ Add**. Enter the following information, and select **Add (6)**:
 
@@ -81,13 +81,13 @@ In this lab, you will perform following tasks:
 
 4. Upon completion, your routes in the **AppRT** route table should look like the following screenshot:
 
-    ![In this screenshot, the Routes blade of the AppRT route table is depicted with the two newly creates routes listed.](images/hol-ex4-task2-apprt-route-table.png "Route table ")
+    ![](images/hol-ex4-task2-apprt-route-table.png)
 
 5. In the Azure Portal, go to All Services and type **route** in the search box and select **Route tables**.
 
 6. Select **MgmtRT**, and select **Routes** under **Settings** on the left.
 
-    ![In this screenshot, the 'Routes' blade of the Azure portal is depicted with the MgmtRT route table selected. The Routes option under the Settings section of the left navigation is highlighted.](images/hol-ex4-task2-mgmtrt-in-route-tables.png "MgmtRT")
+    ![](images/hol-ex4-task2-mgmtrt-in-route-tables.png)
 
 7. On the **Routes** blade, select **+Add**. Enter the following information, and select **Add**:
 
@@ -115,7 +115,7 @@ In this lab, you will perform following tasks:
 
 9. Upon completion, your routes in the **MgmtRT** route table should look like the following screenshot:
 
-    ![In this screenshot, the Routes blade of the MgmtRT route table is depicted with the two newly creates routes listed.](images/hol-ex4-task2-mgmtrt-route-table.png "Route table")
+    ![](images/hol-ex4-task2-mgmtrt-route-table.png)
 
     >**Note:** The route tables and routes you have just created are not associated with any subnets yet, so they are not impacting any traffic flow yet. This will be accomplished later in the lab.
 
