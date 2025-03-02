@@ -192,7 +192,7 @@ In this scenario, you will establish a **Bastion** session to **WGWEB1** and the
 
 1. Enter the following credentials and click **Connect (3)**:  
 
-   - **Username (1):** `demouser` 
+   - **Username (1):** `.\demouser` 
 
    - **VM Password (2):** `demo@pass123`
 
