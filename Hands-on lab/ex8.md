@@ -43,7 +43,7 @@ In this lab, you will perform following tasks:
     | -- | -- |
     | Virtual network | **OnPremVNet** **(1)** |
     | Subnet | **OnPremManagementSubnet (192.168.2.0/27)** **(2)**|
-    | Public IP | **(new)OnPremVM-ip** **(3)** |
+    | Public IP | **(new) OnPremVM-ip** **(3)** |
     | NIC network security group | **Basic** **(4)** |
     | Public inbound ports | **Allow selected ports** **(5)** |
     | Select inbound ports | **RDP** **(6)** |
