@@ -173,10 +173,14 @@ In this scenario, you will access the web application deployed in **WGVNet2** us
 1. On the Azure portal, type **Virtual Machines (1)** in the search box and select **Virtual Machines (2)** from the results.
 
     ![](images/02032025(9).png)
-    
+
 3. On the **Virtual Machines** page, find and select **WGWEB1**.
 
+    ![](images/02032025(20).png)
+
 4. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
+
+    ![](images/02032025(21).png)
 
 7. Enter the following credentials and click **Connect (3)**:
 
@@ -184,9 +188,15 @@ In this scenario, you will access the web application deployed in **WGVNet2** us
 
    - **VM Password (2):** `demo@pass123`
 
+     ![](images/02032025(22).png)
+
 1. On the desktop, open **Microsoft Edge**, enter **10.8.0.100** (the private IP of the Azure Load Balancer) in the address bar, and press **Enter** to load the web application.
 
+    ![](images/02032025(23).png)
+
 1. The web page should open successfully, confirming that traffic is routed correctly through **Azure Firewall**.
+
+1. Close the RDP session.
 
 Please follow the same steps for **WGWEB2**.
 
@@ -196,9 +206,15 @@ In this scenario, you will establish a **Bastion** session to **WGWEB1** and the
 
 1. On the Azure portal, type **Virtual Machine (1)** in the search box and select **Virtual Machines (2)** from the results.
 
-1. On the **Virtual Machines** page, find and select **WGWEB1**. 
+    ![](images/02032025(9).png)
+
+1. On the **Virtual Machines** page, find and select **WGWEB1**.
+
+    ![](images/02032025(20).png)
 
 1. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
+
+    ![](images/02032025(21).png)
 
 1. Enter the following credentials and click **Connect (3)**:  
    
@@ -206,7 +222,11 @@ In this scenario, you will establish a **Bastion** session to **WGWEB1** and the
 
    - **VM Password (2):** `demo@pass123`
 
+     ![](images/02032025(22).png)
+
 1. Within the **WGWEB1** Bastion session, search for **Remote Desktop Connection** in the Windows search bar and open the application.
+
+    ![](images/02032025(16).png)
 
 1. Enter **10.8.1.4** (the private IP of WGSQL1) in the **Computer** field and click **Connect**.
 
