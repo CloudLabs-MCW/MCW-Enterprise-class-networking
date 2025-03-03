@@ -114,6 +114,14 @@ In this task, you will create a Virtual Network (VNet) in Azure, configure its a
 
     ![](images/lab1vnet13.png)
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="ae72d483-918b-4151-90a7-e3252fdef067" />
+
 ### Review
 In this lab, you have completed:
 - Created a Virtual Network

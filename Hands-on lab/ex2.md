@@ -56,6 +56,14 @@ In this lab, you will perform following tasks:
 
    ![](images/lab1vnet14b.png)
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="7117aa53-3f41-4bf9-b67b-294aaeecbec8" />
+
 ### Review
 In this lab, you have completed:
 - Configured VNet peering WGVNet1 to WGVNet2 and Vice Versa
