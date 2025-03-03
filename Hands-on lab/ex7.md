@@ -35,11 +35,11 @@ In this lab, you will perform following tasks:
 
 3. Now click on the **IP addresses** tab of the **Create virtual network blade**, enter the following information.
 
-4. Edit the IP address space as **192.168.0.0  (1)** and the subnetting with **/16  (2)**
+4. Edit the IP address space as **192.168.0.0  (1)** and the subnetting with **/16  (2)**.
 
     ![](images/lab7vnet2-updated1.png)
 
-4. Select **Review + create** then **Create**.
+4. Select **Review + create (3)** then **Create**.
 
 ### Task 2: Configure gateway subnets for on premise Virtual Network
 
