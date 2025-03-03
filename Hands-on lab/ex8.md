@@ -1,6 +1,6 @@
 ## Exercise 8: Validate connectivity from 'on-premises' to Azure
 
-In this exercise, you will validate connectivity from your simulated on-premises environment to Azure.
+In this exercise, you will validate connectivity from your simulated on-premises environment to Azure using multiple scenarios.
 
 ## Lab objectives
 
