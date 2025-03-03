@@ -139,15 +139,6 @@ In this lab, you will perform following tasks:
 
     ![](images/hol-ex5-task2-cloudshop-demo-on-wgweb2.png)
 
-11. Using the portal, disassociate the public IP from the NIC of **WGWEB1NetworkInterface** VM. Do this by navigating to the VM and selecting **Network settings (1)** under **Networking** on the left. Select the **NIC Public IP (2)**. 
-
-    ![](images/lab5loadb10.png)
-
-1. Then choose **Dissociate**. Select **Yes** when prompted.
-
-   ![](images/lab5loadb8.png)
-   ![](images/lab5loadb9.png)
-
 ### Review
 In this lab, you have completed:
 - Created a load balancer to distribute the load between the web servers
