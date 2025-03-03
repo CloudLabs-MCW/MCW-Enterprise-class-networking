@@ -37,7 +37,7 @@ In this lab, you will perform following tasks:
 
 4. Edit the IP address space as **192.168.0.0  (1)** and the subnetting with **/16  (2)**
 
-    ![](images/lab7vnet2a-updated.png)
+    ![](images/lab7vnet2-updated1.png)
 
 4. Select **Review + create** then **Create**.
 
