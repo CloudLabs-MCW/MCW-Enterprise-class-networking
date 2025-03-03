@@ -50,5 +50,8 @@ Copy-Item -Path "$SitePath\index.html" -Destination "C:\inetpub\wwwroot\"
 Write-Host "Restarting IIS..." -ForegroundColor Green
 Restart-Service W3SVC
 
+#Update Windows server evaluation licence to 180 days
+slmgr.vbs /rearm
+net accounts /maxpwage:unlimited
 Write-Host "Deployment completed! Visit http://localhost to view the site." -ForegroundColor Cyan
-
+Restart-Computer -Force
