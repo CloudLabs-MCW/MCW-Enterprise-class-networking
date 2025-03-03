@@ -54,6 +54,14 @@ In this lab, you will perform following tasks:
 
 6. Repeat steps 1 and 2, but this time for **WGSQL1** in order to assign to its network interface the **DataTier** application security group.
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="e53f334e-4c3e-47c1-adbe-725ce183da93" />
+
 ### Task 3: Create network security group
 
 This task will create a network security group with the following rules:
@@ -79,13 +87,13 @@ This task will create a network security group with the following rules:
 
    ![](images/lab3vnet6.png)
 
-1. Once the deployment is completed, then click on **Go to resource**.
+3. Once the deployment is completed, then click on **Go to resource**.
 
-5. On the **WGAppNSG1** blade, select **Inbound security rules (2)** under **Settings (1)** on the left and select **Add (3)**.
+4. On the **WGAppNSG1** blade, select **Inbound security rules (2)** under **Settings (1)** on the left and select **Add (3)**.
 
     ![](images/lab3vnet7.png)
 
-6. On the **Add inbound security rule** blade, enter the following information, and select **Add (11)**:
+5. On the **Add inbound security rule** blade, enter the following information, and select **Add (11)**:
 
     | Setting | Action |
     | -- | -- |
@@ -103,9 +111,9 @@ This task will create a network security group with the following rules:
     ![](images/lab3vnet8.png)
     ![](images/lab3vnet9.png)
 
-7. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+6. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-8. On the **Add inbound security rule** blade, enter the following information, and select **Add (10)**:
+7. On the **Add inbound security rule** blade, enter the following information, and select **Add (10)**:
 
     | Setting | Action |
     | -- | -- |
@@ -122,9 +130,9 @@ This task will create a network security group with the following rules:
     ![](images/lab3vnet10.png)
     ![](images/lab3vnet11.png)
 
-9. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+8. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-10. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+9. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     | Setting | Action |
     | -- | -- |
@@ -141,9 +149,9 @@ This task will create a network security group with the following rules:
     ![](images/lab3vnet12.png)
     ![](images/lab3vnet13.png)
 
-11. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+10. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-12. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+11. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     | Setting | Action |
     | -- | -- |
@@ -161,9 +169,9 @@ This task will create a network security group with the following rules:
     ![](images/lab3vnet14.png)
     ![](images/lab3vnet15.png)
 
-13. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+12. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-14. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+13. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
 
     | Setting | Action |
     | -- | -- |
@@ -181,9 +189,17 @@ This task will create a network security group with the following rules:
     ![](images/lab3vnet16.png)
     ![](images/lab3vnet17.png)
 
-1. On the **WGAppNSG1 - Inbound security rules** blade, go to **Settings** > **Subnets (1)**, click **+ Associate (2)**, select **WGVNet2 (3)** in the **Virtual network** dropdown, choose **AppSubnet (4)** in the **Subnet** dropdown, and click **OK (5)**.
+14. On the **WGAppNSG1 - Inbound security rules** blade, go to **Settings** > **Subnets (1)**, click **+ Associate (2)**, select **WGVNet2 (3)** in the **Virtual network** dropdown, choose **AppSubnet (4)** in the **Subnet** dropdown, and click **OK (5)**.
 
     ![](images/lab3vnet18.png)
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="40ba7084-b737-4f64-9163-ebb360cf8ea2" />
 
 ### Review
 In this lab, you have completed:

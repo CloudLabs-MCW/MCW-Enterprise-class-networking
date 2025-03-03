@@ -18,7 +18,7 @@ In this lab, you will perform following tasks:
 
     ![](images/lab6fire1.png)
 
-2. On the **Create a firewall** blade, on the **Basics** tab, enter the following information:
+1. On the **Create a firewall** blade, on the **Basics** tab, enter the following information:
 
     | Setting | Action |
     | -- | -- |
@@ -44,9 +44,17 @@ In this lab, you will perform following tasks:
 
     ![](images/lab6fire1d.png)
 
-3. Select **Review + create** and then select **Create** to provision the Azure Firewall.
+1. Select **Review + create** and then select **Create** to provision the Azure Firewall.
 
     >**Note**: It will take **5-7 minutes** to be created.
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="7fb0feba-84e2-4b2f-a525-8804ed2e92f1" />
 
 ### Task 2: Create Firewall Rules
 
@@ -131,6 +139,14 @@ We will create firewall rules to allow the inbound and outbound traffic.
     ![In this screenshot, the 'IP Addresses' section of the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex6-task2-add-network-rule-mgmt-subnet.png "Azure Firewall IP Addresses section")
 
 10. Select **Add** and wait for 5-7 minutes until the update completes.
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="460b4d7d-dd41-4dcc-822b-d7978c970f3f" />
 
 ### Task 3: Associate route tables to subnets
 

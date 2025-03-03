@@ -52,6 +52,14 @@ In this lab, you will perform following tasks:
 
     >**Note**: **Backend pools** can now be configured within the **Create Load balancer** wizard.  For this exercise, we will complete this in the next task to show where to find it on the resource.
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="9867053a-f34e-4a74-8f92-f05a6c075ae2" />
+
 ### Task 2: Configure the load balancer
 
 1. Open the **WGWEBLB** load balancer in the Azure portal.
@@ -138,6 +146,14 @@ In this lab, you will perform following tasks:
     ![](images/hol-ex5-task2-cloudshop-demo-on-wgweb1.png)
 
     ![](images/hol-ex5-task2-cloudshop-demo-on-wgweb2.png)
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="98be1945-3a24-4466-927f-45b7592578c8" />
 
 ### Review
 In this lab, you have completed:
