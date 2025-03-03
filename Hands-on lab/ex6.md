@@ -130,7 +130,7 @@ We will create firewall rules to allow the inbound and outbound traffic.
 
     ![In this screenshot, the 'IP Addresses' section of the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex6-task2-add-network-rule-mgmt-subnet.png "Azure Firewall IP Addresses section")
 
-10. Select **Add** and wait until the update completes.
+10. Select **Add** and wait for 5-7 minutes until the update completes.
 
 ### Task 3: Associate route tables to subnets
 
