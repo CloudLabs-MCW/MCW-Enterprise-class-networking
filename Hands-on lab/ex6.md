@@ -50,7 +50,7 @@ In this lab, you will perform following tasks:
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
-   - If you receive a success message, you can proceed to the next task.
+   - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
    - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
@@ -142,7 +142,7 @@ We will create firewall rules to allow the inbound and outbound traffic.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
-   - If you receive a success message, you can proceed to the next task.
+   - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
    - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
    - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
@@ -168,7 +168,7 @@ We will create firewall rules to allow the inbound and outbound traffic.
 
 7. On the **Associate subnet** blade, select **WGVNet1** on the **Virtual network** drop down. Select **Management** on the **Subnet** dropdown.
 
-    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet1' virtual network and 'Management' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet1.png "Associate subnet blade for MgmtRT")
+    ![](images/hol-ex6-task3-associate-subnet-blade-wgvnet1.png)
 
 8. Select **OK** at the bottom of the **Associate subnet** blade.
 

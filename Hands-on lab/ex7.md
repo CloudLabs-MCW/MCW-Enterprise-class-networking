@@ -69,6 +69,14 @@ In this lab, you will perform following tasks:
 
         ![](images/lab7vnet4a.png)
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="e84eca2b-bc7c-4fa9-ac22-eeccd0d75de2" />
+
 ### Task 3: Create the first gateway
 
 1. In the search bar of the Azure portal, type **Virtual network gateway (1)**. From the search results, select **Virtual network gateway (2)**.
@@ -130,6 +138,14 @@ In this lab, you will perform following tasks:
     >**Note:** The gateway will take 30-45 minutes to provision. You will need to wait until both gateways are provisioned before proceeding to the next section.
 
 4. The Azure portal will display a notification when the deployments have completed.
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+      
+   - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="f6220584-0bee-4752-9cde-a4f42292dc10" />
 
 ### Task 5: Connect the gateways
 
