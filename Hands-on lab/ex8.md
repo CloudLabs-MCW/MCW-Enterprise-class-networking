@@ -9,7 +9,7 @@ In this lab, you will perform the following tasks:
 - Create a virtual machine to validate connectivity
 - Configure routing for simulated 'on-premises' to Azure traffic
   
-## Estimated timing: 40 minutes
+## Estimated timing: 60 minutes
 
 ### Task 1: Create a virtual machine to validate connectivity
 
