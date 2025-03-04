@@ -54,7 +54,33 @@ Write-Host "Restarting IIS..." -ForegroundColor Green
 Restart-Service W3SVC
 
 #Update Windows server evaluation licence to 180 days
-slmgr.vbs /rearm
-net accounts /maxpwage:unlimited
+Function ReArmWS
+{
+    #Update Windows server evaluation licence to 180 days
+    slmgr.vbs /rearm
+    net accounts /maxpwage:unlimited
+    Restart-Computer -Force 
+
+   <# for hyper v VMs use below code
+   $ap = "demo@pass123"
+   $cred = New-Object -ArgumentList "Administrator",(ConvertTo-SecureString -AsPlainText -Force -String $ap) -TypeName System.Management.Automation.PSCredential
+
+    $blockB = {
+    #Update Windows server evaluation licence to 180 days
+        Write-Output "Re-arm (extend eval license) for VM $ComputerName at $ip"
+        slmgr.vbs /rearm
+        net accounts /maxpwage:unlimited
+        Restart-Computer -Force
+    }
+    #Run Code BlockB in SQL VM
+    $ip =  "192.168.0.4"
+    foreach($serverIP in $ip){
+        set-item wsman:\localhost\Client\TrustedHosts -value $serverIP -Force
+        Invoke-Command -ComputerName $serverIP -Credential $cred -ScriptBlock $blockB
+    }
+    #>
+}
+ReArmWS
+
 Write-Host "Deployment completed! Visit http://localhost to view the site." -ForegroundColor Cyan
 Restart-Computer -Force
