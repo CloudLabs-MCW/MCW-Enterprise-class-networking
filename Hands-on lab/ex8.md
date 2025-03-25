@@ -15,6 +15,8 @@ In this lab, you will perform the following tasks:
 
 1. Create a new virtual machine in the OnPremVNet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
 
+1. Click on **+ Create**.
+
 1. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
     | Setting | Action |
@@ -49,14 +51,16 @@ In this lab, you will perform the following tasks:
     | NIC network security group | **Basic** **(4)** |
     | Public inbound ports | **Allow selected ports** **(5)** |
     | Select inbound ports | **RDP** **(6)** |
-    | Accelerated networking | **Unchecked** **(7)** |
+    | Enable Accelerated networking | **Unchecked** **(7)** |
     | Load balancing options | **None** **(8)** |
 
     ![](images/lab8vm4.png)
    
     ![](images/lab8vm5.png)
 
-1. On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
+1. On the **Create a virtual machine** blade, on the **Management** tab, click on **Review+create**.
+
+1. Ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
@@ -103,8 +107,8 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
     | Setting | Action |
     | -- | -- |
     | Route name | **OnPremToAppSubnet** |
-    | Address prefix destination | **IP Addresses** |
-    | Address prefix | **10.8.0.0/25** |
+    | Destination type | **IP Addresses** |
+    | Destination IP addresses/CIDR ranges | **10.8.0.0/25** |
     | Next hop type | **Virtual appliance** |
     | Next hop address | **10.7.1.4** |
 
@@ -143,23 +147,27 @@ In this scenario, you will initiate a Remote Desktop (RDP) session from the **On
 
     ![](images/02032025(9).png)
 
-3. On the **Virtual Machines** page, find and select **OnPremVM**.
+1. On the **Virtual Machines** page, find and select **OnPremVM**.
 
     ![](images/02032025(10).png)
 
-4. Click **Connect (1)** and choose **Connect (2)** as the connection method.
+1. Click **Connect (1)** and choose **Connect (2)** as the connection method.
 
     ![](images/02032025(11).png)
 
-5. Under the **Native RDP** option, click **Download RDP file**.
+1. Under the **Native RDP** option, click **Download RDP file**.
 
     ![](images/02032025(12).png)
 
-6. Open the downloaded RDP file and click **Connect**.
+1. If you recieve any pop up, click on **Keep**.
+
+1. Select **Open file**.
+
+1. Open the downloaded RDP file and click **Connect**.
 
     ![](images/02032025(13).png)
 
-7. When prompted, enter the following credentials and click **OK (3)**:  
+1. When prompted, enter the following credentials and click **OK (3)**:  
    
    - **Username (1):** `.\demouser`  
 
@@ -167,21 +175,21 @@ In this scenario, you will initiate a Remote Desktop (RDP) session from the **On
 
      ![](images/02032025(14).png)
 
-8. Click **Yes** on the security pop-up to proceed.
+1. Click **Yes** on the security pop-up to proceed.
 
     ![](images/02032025(15).png)
 
-9. Inside **OnPremVM**, search for **Remote Desktop Connection** in the Windows search bar and open the application. 
+1. Inside **OnPremVM**, search for **Remote Desktop Connection** in the Windows search bar and open the application. 
 
     ![](images/02032025(16).png)
 
-10. In the **Computer** field, enter **10.8.0.5** and click **Connect**.
+1. In the **Computer** field, enter **10.8.0.5** and click **Connect**.
 
     ![](images/02032025(18).png)
 
-11. The connection attempt should fail, displaying the error message: **Remote desktop can't be connected to the remote computer**.
+1. The connection attempt should fail, displaying the error message: **Remote desktop can't be connected to the remote computer**.
 
-12. Click **OK** to close the error message.
+1. Click **OK** to close the error message.
 
     ![](images/02032025(19).png)
 

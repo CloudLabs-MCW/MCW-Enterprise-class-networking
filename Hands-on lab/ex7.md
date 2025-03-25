@@ -22,16 +22,16 @@ In this lab, you will perform following tasks:
 
 1. Click on **Create**.
 
-2. On the **Create virtual network** blade, enter the following information:
+2. On the **Create virtual network** blade, enter the following information and then click on **IP addresses (5)** tab.
 
     | Setting | Action |
     | -- | -- |
-    | Subscription | Select your subscription |
-    | Resource group | Select **OnPremVNetRG** |
-    | Name | **OnPremVNet** |
-    | Region | **East US** (Make sure this is **NOT** the same location you have specified in the previous exercises.) |
+    | Subscription | Select your subscription **(1)** |
+    | Resource group | Select **OnPremVNetRG (2)** |
+    | Name | **OnPremVNet (3)** |
+    | Region | **East US (4)** (Make sure this is **NOT** the same location you have specified in the previous exercises.) |
 
-    ![](images/lab7vnet1.png)
+    ![](images/e17.png)
 
 3. Now click on the **IP addresses** tab of the **Create virtual network blade**, enter the following information.
 
@@ -41,25 +41,25 @@ In this lab, you will perform following tasks:
 
 4. Select **Review + create (3)** then **Create**.
 
+5. Click on **Go to resources.**
+
 ### Task 2: Configure gateway subnets for on premise Virtual Network
 
-1. Select the **OnPremVNetRG** Resource Group and then open the **OnPremVNet** blade and select **Subnets**.
-
-2. Next, select **+ subnet**.
+1. On the **OnPremVNet** blade and select **Subnets** and then select **+ Subnet**.
 
     ![](images/lab7vnet3.png)
 
-3. Specify the following configuration for the subnet, and select **Add**:
+1. Specify the following configuration for the subnet, and select **Add (4)**:
 
     | Setting | Action |
     | -- | -- |
-    | Subnet Purpose | **Virtual Network Gateway** |
-    | Starting address | **192.168.1.0** |
-    | Size | **/27 (32 addresses)** |
+    | Subnet Purpose | **Virtual Network Gateway (1)** |
+    | Starting address | **192.168.1.0 (2)** |
+    | Size | **/27 (32 addresses) (3)** |
 
-    ![](images/lab7vnet4.png)
+    ![](images/e18.png)
 
-4. Next, select **+ Subnet** and add the **OnPremManagementSubnet** subnet to the **OnPremVNet**, as shown below in the screenshot:
+1. Next, select **+ Subnet** and add the **OnPremManagementSubnet** subnet to the **OnPremVNet**, as shown below in the screenshot:
 
     - Name: **OnPremManagementSubnet**
 
@@ -83,7 +83,9 @@ In this lab, you will perform following tasks:
 
     ![](images/lab7vnet5.png)
 
-2. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
+1. Click on **+Create**.    
+
+1. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
     | Setting | Action |
     | -- | -- |
@@ -103,7 +105,7 @@ In this lab, you will perform following tasks:
     ![](images/lab7vnet6.png)
     ![](images/lab7vnet7.png)
 
-3. Validate your settings and select **Review + Create** then **Create**.
+1. Validate your settings and select **Review + Create** then **Create**.
 
     >**Note:** The gateway will take 30-45 minutes to provision. Rather than waiting, continue to the next task.
 
@@ -113,7 +115,9 @@ In this lab, you will perform following tasks:
 
     ![](images/lab7vnet5.png)
 
-2. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
+1. Click on **+ Create**.    
+
+1. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
 
     | Setting | Action |
     | -- | -- |
@@ -133,11 +137,11 @@ In this lab, you will perform following tasks:
     ![](images/lab7vnet8.png)
     ![](images/lab7vnet9.png)
 
-3. Validate your settings and select **Review + Create** then **Create**.
+1. Validate your settings and select **Review + Create** then **Create**.
 
     >**Note:** The gateway will take 30-45 minutes to provision. You will need to wait until both gateways are provisioned before proceeding to the next section.
 
-4. The Azure portal will display a notification when the deployments have completed.
+1. The Azure portal will display a notification when the deployments have completed.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       

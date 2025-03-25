@@ -45,9 +45,11 @@ In this lab, you will perform following tasks:
 
     ![](images/lab4route3.png)
 
+1. Select **Review + Create** then **Create**.    
+
 1. Once route tables are created, your **Route tables** blade should look like the following screenshot:
 
-    ![](images/lab4route4.png)
+    ![](images/e4.png)
 
 ### Task 2: Add routes to each route table
 
@@ -60,8 +62,8 @@ In this lab, you will perform following tasks:
     | Setting | Action |
     | -- | -- |
     | Route name | **AppToInternet** **(1)** |
-    | Address prefix destination | **IP Addresses** **(2)** |
-    | Address prefix | **0.0.0.0/0** **(3)** |
+    | Destination type | **IP Addresses** **(2)** |
+    | Destination IP addresses/CIDR ranges | **0.0.0.0/0** **(3)** |
     | Next hop type | **Virtual appliance** **(4)** |
     | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
@@ -72,8 +74,8 @@ In this lab, you will perform following tasks:
     | Setting | Action |
     | -- | -- |
     | Route name | **AppToMgmt** **(1)** |
-    | Address prefix destination | **IP Addresses** **(2)** |
-    | Address prefix | **10.7.0.8/29** **(3)** |
+    | Destination type | **IP Addresses** **(2)** |
+    | Destination IP addresses/CIDR ranges | **10.7.0.8/29** **(3)** |
     | Next hop type | **Virtual appliance** **(4)** |
     | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
@@ -83,31 +85,31 @@ In this lab, you will perform following tasks:
 
     ![](images/hol-ex4-task2-apprt-route-table.png)
 
-5. In the Azure Portal, go to All Services and type **route** in the search box and select **Route tables**.
+5. In the Azure Portal, search for **Route tables** in the search box and select **Route tables**.
 
 6. Select **MgmtRT**, and select **Routes** under **Settings** on the left.
 
     ![](images/hol-ex4-task2-mgmtrt-in-route-tables.png)
 
-7. On the **Routes** blade, select **+Add**. Enter the following information, and select **Add**:
+7. On the **Routes** blade, select **+Add**. Enter the following information, and select **Add (5)**:
 
     | Setting | Action |
     | -- | -- |
     | Route name | **MgmtToOnPremises** **(1)** |
-    | Address prefix destination | **IP Addresses** **(2)** |
-    | Address prefix | **192.168.0.0/16** **(3)** |
+    | Destination type | **IP Addresses** **(2)** |
+    | Destination IP addresses/CIDR ranges | **192.168.0.0/16** **(3)** |
     | Next hop type | **Virtual network gateway** **(4)** |
     | Next hop address | **Leave blank** |
 
     ![](images/lab4route7.png)
 
-8. Add the **MgmtToApp** route using the following information:
+8. Add the **MgmtToApp** route using the following information and select **Add (6)**:
 
     | Setting | Action |
     | -- | -- |
     | Route name | **MgmtToApp** **(1)** |
-    | Address prefix destination | **IP Addresses** **(2)** |
-    | Address prefix | **10.7.2.0/25** **(3)** |
+    | Destination type | **IP Addresses** **(2)** |
+    | Destination IP addresses/CIDR ranges | **10.7.2.0/25** **(3)** |
     | Next hop type | **Virtual appliance** **(4)** |
     | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 

@@ -18,6 +18,8 @@ In this lab, you will perform following tasks:
 
     ![](images/lab3vnet1.png)
 
+1. Click on **+ Create**.    
+
 1. On the **Create an application security group** blade, on the **Basics** tab, enter the following information, and select **Review + create (5)**:
 
     | Setting | Action |
@@ -31,7 +33,7 @@ In this lab, you will perform following tasks:
 
 1. Click on **Create**.
 
-1. Repeat the previous two steps to create an application security group named **DataTier** with the following settings.
+1. Repeat the previous two steps to create an application security group named **DataTier** with the following settings and select **Review + create (5)**:
 
     | Setting | Action |
     | -- | -- |
@@ -46,13 +48,19 @@ In this lab, you will perform following tasks:
 
 ### Task 2: Configure application security groups
 
-1. In the Azure portal, navigate to the **Virtual machines** blade and select **WGWEB1**.
+1. In the Azure portal, search for **Virtual machines (1)** and select **Virtual machines (2)** from the services.
+
+    ![](images/e1.png)
+
+1. Select **WGWEB1**.
+
+    ![](images/e3.png)
 
 1. On the **WGWEB1** blade, go to **Networking** > **Application security groups (1)**, select **+ Application security groups (2)**, choose **WebTier (3)**, and click **Add (4)**.
 
     ![](images/lab3vnet4.png)
 
-6. Repeat steps 1 and 2, but this time for **WGSQL1** in order to assign to its network interface the **DataTier** application security group.
+1. Repeat steps 1 and 2, but this time select **WGSQL1** Virtual machine and assign **DataTier** application security group.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
@@ -98,9 +106,9 @@ This task will create a network security group with the following rules:
     | Setting | Action |
     | -- | -- |
     | Source | **Application security group** **(1)** |
-    | Source application security group | **WebTierWGVNetRG2** **(2)** |
+    | Source application security group | **WebTier** **(2)** |
     | Source port ranges | **\*** **(3)** |
-    | Destination | **Application security group** (4)** |
+    | Destination | **Application security group (4)** |
     | Destination application security group | **DataTier** **(5)** |
     | Destination port ranges | **1433** **(6)** |
     | Protocol | **TCP** **(7)** |
@@ -132,7 +140,7 @@ This task will create a network security group with the following rules:
 
 8. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-9. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+9. On the **Add inbound security rule** blade, enter the following information, and select **Add (10)**:
 
     | Setting | Action |
     | -- | -- |
@@ -141,7 +149,7 @@ This task will create a network security group with the following rules:
     | Source port ranges | **\*** **(3)** |
     | Destination | **Any** **(4)** |
     | Destination port ranges | **3389** **(5)** |
-    | Protocol | **TCP** **(6)** |
+    | Protocol | **Any** **(6)** |
     | Action | **Allow** **(7)** |
     | Priority | **200** **(8)** |
     | **Name** | **AllowMgmtInboundAny3389** **(9)**|
@@ -151,7 +159,7 @@ This task will create a network security group with the following rules:
 
 10. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-11. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+11. On the **Add inbound security rule** blade, enter the following information, and select **Add (11)**:
 
     | Setting | Action |
     | -- | -- |
@@ -171,7 +179,7 @@ This task will create a network security group with the following rules:
 
 12. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-13. On the **Add inbound security rule** blade, enter the following information, and select **Add**:
+13. On the **Add inbound security rule** blade, enter the following information, and select **Add (11)**:
 
     | Setting | Action |
     | -- | -- |

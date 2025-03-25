@@ -44,7 +44,7 @@ In this lab, you will perform the following tasks:
 
 2. In the **Overview** blade, ensure that **NetworkWatcher_southcentralus** and **NetworkWatcher_eastus** is listed.
 
-3. If they are not listed, add them to the list using the **+ Add** button.
+3. If they are not listed, add them to the list using the **+ Create** button.
 
    ![](images/hol-ex9-task2-network-watcher.png)
 
