@@ -103,7 +103,7 @@ In this task, you will create a Virtual Network (VNet) in Azure, configure its a
 
     ![](images/lab1vnet11.png)
 
-1. Repeat Step 3, enter the following information for the **Azure Firewall** which we will use to control traffic flow in and out of the Network.
+1. Repeat Step 3, enter the following information for the **Azure Firewall** which we will use to control traffic flow in and out of the Network then click on **Add (3)**.
 
     | Setting | Action |
     | -- | -- |

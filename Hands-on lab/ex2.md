@@ -10,13 +10,15 @@ In this lab, you will perform following tasks:
 
 ### Task 1: Configure VNet peering WGVNet1 to WGVNet2 and Vice Versa
 
-1. Select the resource group **WGVNetRG1**, and select the configuration blade for **WGVNet1**. Select **Peerings** under **Settings** on the left.
+1. Select the resource group **WGVNetRG1** and select **WGVNet1**.
 
-2. Select **+ Add**.
+    ![](images/e2.png)
+
+1. On the configuration blade for **WGVNet1**. Select **Peerings** under **Settings** on the left then select **+ Add**.
 
     ![In this screenshot, the Peerings blade of the WGVNet1 Virtual Network resources is depicted. With the '+ Add' button selected.](images/hol-ex2-task1-add-peerings-button.png "Virtual network blade")
 
-3. Set the following configuration for the new peering. Select **Add** to create the peering.
+1. Set the following configuration for the new peering. Select **Add** to create the peering.
 
     **Remote virtual network summary**
 

@@ -18,6 +18,8 @@ In this lab, you will perform following tasks:
 
     ![](images/lab6fire1.png)
 
+1. Click on **+ Create**.
+
 1. On the **Create a firewall** blade, on the **Basics** tab, enter the following information:
 
     | Setting | Action |
@@ -40,13 +42,17 @@ In this lab, you will perform following tasks:
 
     ![](images/lab6fire1a.png)
 
-1. Uncheck the box for the **Enable Firewall Management NIC**.
+1. Uncheck the box for the **Enable Firewall Management NIC** then click on **Next:Tags>**.
 
     ![](images/lab6fire1d.png)
 
-1. Select **Review + create** and then select **Create** to provision the Azure Firewall.
+     >**Note:** Add the **Public ip address** again, if it disappers. Please refer 4th step.
+
+1. Select Select **Review + create** and then select **Create** to provision the Azure Firewall.
 
     >**Note**: It will take **5-7 minutes** to be created.
+
+1. Perform the below validation after completing **Task 2**.    
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
@@ -56,23 +62,26 @@ In this lab, you will perform following tasks:
 
 <validation step="7fb0feba-84e2-4b2f-a525-8804ed2e92f1" />
 
+
 ### Task 2: Create Firewall Rules
 
 We will create firewall rules to allow the inbound and outbound traffic.
 
 1. On the main Azure menu, select **Resource groups**.
 
-2. Select the **WGVNetRG1** resource group. This resource group contains the azure firewall and its public IP address resources.
+2. Select the **WGVNetRG1 (1)** resource group. This resource group contains the **azure firewall and its public IP address** resources **(2)**.
 
-3. Navigate to the **azureFirewall-ip** blade and note the value of its public IP address. You will need it later in this task.
+    ![](images/e8.png)
 
-    ![](images/lab6fire3.png)
+3. Navigate to the **azureFirewall-ip** blade and note the value of its **public IP address**. You will need it later in this task.
 
-4. Navigate to the **azureFirewall** blade, and, on the **Overview** page, select **Rules (classic)** under **Settings** on the left.
+    ![](images/e9.png)
 
-    ![](images/lab6fire4.png)
+4. Navigate to the **azureFirewall** blade, and, on the **Overview** page, select **Rules (classic) (1)** under **Settings** on the left and select **+ Add NAT Rule collection (2)**
 
-5. Select **+ Add NAT Rule collection** and enter the following information to create an inbound NAT Rule (a collection is a list of rules that share the same priority and action).
+    ![](images/e10.png)
+
+5. Enter the following information to create an inbound NAT Rule (a collection is a list of rules that share the same priority and action).
 
     | Setting | Action |
     | -- | -- |
@@ -82,13 +91,13 @@ We will create firewall rules to allow the inbound and outbound traffic.
     | Protocol | **TCP** |
     | Source type | **IP Address** |
     | Source| **\*** |
-    | Destination Address | Type the public IP address assigned to the firewall you identified earlier in this task|
+    | Destination Address | Type the **public IP address** assigned to the firewall you identified earlier in this task|
     | Destination ports | **80** (to allow HTTP traffic) |
     | Translated Address | **10.8.0.100** (Private IP of the Azure Load Balancer you deployed earlier in this lab.) |
     | Translated Port | Translated Port: **80** |
 
-    ![](images/lab6fire5.png)
-    ![](images/lab6fire6.png)
+    ![](images/e12.png)
+    ![](images/e13.png)
 
 6. Add another rule for HTTPS, as illustrated in the following screenshot. The rules should look like the image below.
 
@@ -103,13 +112,15 @@ We will create firewall rules to allow the inbound and outbound traffic.
     | Translated Address | **10.8.0.100** |
     | Translated Port | **443** |
   
-    ![In this screenshot, the 'Edit NAT rule collection' page is depicted with the required settings listed above selected.](images/hol-ex6-task2-edit-nat-rule-collection.png "Azure Firewall NAT Rules for HTTP and HTTPS")
-
-    ![](images/lab6fire7.png)
+    ![](images/e-11.png)
 
 7. Select **Add** and wait until the update completes.
 
-8. Back on the Azure Firewall **Rules (classic)** page, select **Network rule collection**. Then Select **+ Add Network Rule collection** and enter the following information to create a Network Rule for inbound traffic. This rule allows HTTP connectivity from any directly connected network targeting the frontend IP address of the load balancer.
+8. Back on the Azure Firewall **Rules (classic)** page, select **Network rule collection (1)**. Then Select **+ Add Network Rule collection (2)**. 
+
+    ![In this screenshot, the azureFirewall Rules (classic) blade is depicted. The 'Network rule collection' tab and the 'Add network rule collection' link are highlighted.](images/hol-ex6-task2-network-rule-collection.png)
+
+1. Enter the following information to create a Network Rule for inbound traffic. This rule allows HTTP connectivity from any directly connected network targeting the frontend IP address of the load balancer.
 
     | Setting | Action |
     | -- | -- |
@@ -121,8 +132,6 @@ We will create firewall rules to allow the inbound and outbound traffic.
     | Source| **\*** |
     | Destination Address | **10.8.0.100** |
     | Destination ports | **80,443** |
-
-    ![In this screenshot, the azureFirewall Rules (classic) blade is depicted. The 'Network rule collection' tab and the 'Add network rule collection' link are highlighted.](images/hol-ex6-task2-network-rule-collection.png)
 
     ![](images/lab6fire8.png)
 
@@ -136,7 +145,7 @@ We will create firewall rules to allow the inbound and outbound traffic.
     | Destination Address | **10.8.0.0/25** |
     | Destination ports | **3389** |
 
-    ![In this screenshot, the 'IP Addresses' section of the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/hol-ex6-task2-add-network-rule-mgmt-subnet.png "Azure Firewall IP Addresses section")
+    ![In this screenshot, the 'IP Addresses' section of the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/e14.png "Azure Firewall IP Addresses section")
 
 10. Select **Add** and wait for 5-7 minutes until the update completes.
 
@@ -152,25 +161,21 @@ We will create firewall rules to allow the inbound and outbound traffic.
 
 1. In the Azure portal, navigate to the blade of the **WGVNetRG2** resource group.
 
-2. Select **AppRT**, followed by **Subnets** and then select **+ Associate**.
+1. Select **AppRT**, followed by **Subnets** and then select **+ Associate**.
 
     ![In this screenshot, the AppRT - Subnets blade is depicted with Subnets selected on the left and the '+ Associate' button selected.](images/hol-ex6-task3-route-table-associate-button.png "AppRT Route table blade")
 
-3. On the **Associate subnet** blade, select **WGVNet2** on the **Virtual network** drop down. Select **AppSubnet** on the **Subnet** dropdown.
+1. On the **Associate subnet** blade, select **WGVNet2 (1)** on the **Virtual network** drop down. Select **AppSubnet (2)** on the **Subnet** dropdown and then select **OK (3)** at the bottom of the **Associate subnet** blade.
 
-    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet2' virtual network and 'AppSubnet' subnet selected along with the 'OK' button.](images/hol-ex6-task3-associate-subnet-blade-wgvnet2.png "Associate subnet section for AppRT")
+    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet2' virtual network and 'AppSubnet' subnet selected along with the 'OK' button.](images/e15.png "Associate subnet section for AppRT")
 
-4. Select **OK** at the bottom of the **Associate subnet** blade.
+1. Navigate to the blade of the **WGVNetRG1** resource group, and select **MgmtRT**, then **Subnets**.
 
-5. Navigate to the blade of the **WGVNetRG1** resource group, and select **MgmtRT**, then **Subnets**.
+1. Select **+ Associate**.
 
-6. Select **+ Associate**.
+1. On the **Associate subnet** blade, select **WGVNet1 (1)** on the **Virtual network** drop down. Select **Management (2)** on the **Subnet** dropdown and then select **OK (3)** at the bottom of the **Associate subnet** blade.
 
-7. On the **Associate subnet** blade, select **WGVNet1** on the **Virtual network** drop down. Select **Management** on the **Subnet** dropdown.
-
-    ![](images/hol-ex6-task3-associate-subnet-blade-wgvnet1.png)
-
-8. Select **OK** at the bottom of the **Associate subnet** blade.
+    ![](images/e16.png)
 
 ### Review
 In this lab, you have completed:

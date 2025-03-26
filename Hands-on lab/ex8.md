@@ -13,7 +13,13 @@ In this lab, you will perform the following tasks:
 
 ### Task 1: Create a virtual machine to validate connectivity
 
-1. Create a new virtual machine in the OnPremVNet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
+1. Create a new virtual machine in the OnPremVNet virtual network. In the Azure portal, search for **Virtual machines (1)** and select **Virtual machines (2)**.
+
+    ![](images/e1.png)
+
+1. Click on **+ Create (1)** drop down amd select **Azure Virtual Machine (2)**.
+
+    ![](images/e28.png)
 
 1. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
@@ -49,14 +55,16 @@ In this lab, you will perform the following tasks:
     | NIC network security group | **Basic** **(4)** |
     | Public inbound ports | **Allow selected ports** **(5)** |
     | Select inbound ports | **RDP** **(6)** |
-    | Accelerated networking | **Unchecked** **(7)** |
+    | Enable Accelerated networking | **Unchecked** **(7)** |
     | Load balancing options | **None** **(8)** |
 
     ![](images/lab8vm4.png)
    
     ![](images/lab8vm5.png)
 
-1. On the **Create a virtual machine** blade, on the **Review + Create** tab, ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
+1. On the **Create a virtual machine** blade, on the **Management** tab, click on **Review+create**.
+
+1. Ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
@@ -78,37 +86,41 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 3. On the **Create route table** blade, enter the following information:
 
-    - Subscription: **Select your subscription**.
+    - Subscription: **Select your subscription (1)**.
 
-    - Resource group: Select the drop-down menu, and select **WGVNetRG1**.
+    - Resource group: Select the drop-down menu, and select **WGVNetRG1 (2)**.
 
-    - Region: **South Central US** (This must match the location in which you created the **WGVNet1** virtual network.)
+    - Region: **South Central US (3)** (This must match the location in which you created the **WGVNet1** virtual network.)
 
       > **Note**: Ensure this is created in the **WGVNet1** virtual network.
 
-    - Name: **WGAzureVNetGWRT**
+    - Name: **WGAzureVNetGWRT (4)**
 
-    - Propagate gateway routes: **Yes**
+    - Propagate gateway routes: **Yes (5)**
 
-        ![](images/hol-ex8-task2-create-route-table-wgazurevnetgwrt.png)
+    - Select **Review + create (6)**
 
-4. Select **Review + create** then **Create**.
+        ![](images/e29.png)
+
+4. Then **Create**.
 
 5. Select **Go to resource** to go to the **WGAzureVNetGWRT** route table.
 
-6. Select **Routes** under **Settings** on the left.
+6. Select **Routes (1)** under **Settings** on the left.On the **Routes** blade, select the **+ Add (2)** button. 
 
-7. On the **Routes** blade, select the **+ Add** button. Enter the following information, and select **Add**:
+   ![](images/e30.png)
+
+7. Enter the following information, and select **Add (6)**:
 
     | Setting | Action |
     | -- | -- |
-    | Route name | **OnPremToAppSubnet** |
-    | Address prefix destination | **IP Addresses** |
-    | Address prefix | **10.8.0.0/25** |
-    | Next hop type | **Virtual appliance** |
-    | Next hop address | **10.7.1.4** |
+    | Route name | **OnPremToAppSubnet (1)** |
+    | Destination type | **IP Addresses (2)** |
+    | Destination IP addresses/CIDR ranges | **10.8.0.0/25 (3)** |
+    | Next hop type | **Virtual appliance (4)** |
+    | Next hop address | **10.7.1.4 (5)** |
 
-    ![](images/hol-ex8-task2-onpremtoappsubnet-to-virtual-appliance.png)
+    ![](images/e31.png)
 
 8. In the search bar of the Azure portal, type **Virtual network (1)**. From the search results, select **Virtual network (2)**.
 
@@ -120,9 +132,9 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     ![](images/lab8vm6.png)
 
-11. On the **GatewaySubnet** dialog, under the **Route table** drop down, select **WGAzureVNetGWRT**. Then select **Save**.
+11. On the **GatewaySubnet** dialog, under the **Route table** drop down, select **WGAzureVNetGWRT (1)**. Then select **Save (2)**.
 
-    ![](images/lab8vm7.png)
+    ![](images/e32.png)
 
     >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
@@ -143,45 +155,61 @@ In this scenario, you will initiate a Remote Desktop (RDP) session from the **On
 
     ![](images/02032025(9).png)
 
-3. On the **Virtual Machines** page, find and select **OnPremVM**.
+1. On the **Virtual Machines** page, find and select **OnPremVM**.
 
     ![](images/02032025(10).png)
 
-4. Click **Connect (1)** and choose **Connect (2)** as the connection method.
+1. Click **Connect (1)** and choose **Connect (2)** as the connection method.
 
     ![](images/02032025(11).png)
 
-5. Under the **Native RDP** option, click **Download RDP file**.
+1. Under the **Native RDP** option, click **Download RDP file**.
 
     ![](images/02032025(12).png)
 
-6. Open the downloaded RDP file and click **Connect**.
+1. If you recieve any pop up, click on **Keep**.
+
+    ![](images/e33.png)
+
+1. Select **Open file**.
+
+    ![](images/e34.png)
+
+1. Open the downloaded RDP file and click **Connect**.
 
     ![](images/02032025(13).png)
 
-7. When prompted, enter the following credentials and click **OK (3)**:  
+1. Click on **More choices**.
+
+    ![](images/e35.png)
+
+1. Click on **Use a different account**.
+
+    ![](images/e36.png)
+
+1. When prompted, enter the following credentials and click **OK (3)**:  
    
    - **Username (1):** `.\demouser`  
 
    - **Password (2):** `demo@pass123`
 
-     ![](images/02032025(14).png)
+     ![](images/e37.png)
 
-8. Click **Yes** on the security pop-up to proceed.
+1. Click **Yes** on the security pop-up to proceed.
 
     ![](images/02032025(15).png)
 
-9. Inside **OnPremVM**, search for **Remote Desktop Connection** in the Windows search bar and open the application. 
+1. Inside **OnPremVM**, search for **Remote Desktop Connection (2)** in the Windows **search bar (1)** and open the **Remote Desktop Connection (3)** application. 
 
     ![](images/02032025(16).png)
 
-10. In the **Computer** field, enter **10.8.0.5** and click **Connect**.
+1. In the **Computer** field, enter **10.8.0.5** and click **Connect**.
 
     ![](images/02032025(18).png)
 
-11. The connection attempt should fail, displaying the error message: **Remote desktop can't be connected to the remote computer**.
+1. The connection attempt should fail, displaying the error message: **Remote desktop can't be connected to the remote computer**.
 
-12. Click **OK** to close the error message.
+1. Click **OK** to close the error message.
 
     ![](images/02032025(19).png)
 

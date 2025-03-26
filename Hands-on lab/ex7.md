@@ -22,16 +22,16 @@ In this lab, you will perform following tasks:
 
 1. Click on **Create**.
 
-2. On the **Create virtual network** blade, enter the following information:
+2. On the **Create virtual network** blade, enter the following information and then click on **IP addresses (5)** tab.
 
     | Setting | Action |
     | -- | -- |
-    | Subscription | Select your subscription |
-    | Resource group | Select **OnPremVNetRG** |
-    | Name | **OnPremVNet** |
-    | Region | **East US** (Make sure this is **NOT** the same location you have specified in the previous exercises.) |
+    | Subscription | Select your subscription **(1)** |
+    | Resource group | Select **OnPremVNetRG (2)** |
+    | Name | **OnPremVNet (3)** |
+    | Region | **East US (4)** (Make sure this is **NOT** the same location you have specified in the previous exercises.) |
 
-    ![](images/lab7vnet1.png)
+    ![](images/e17.png)
 
 3. Now click on the **IP addresses** tab of the **Create virtual network blade**, enter the following information.
 
@@ -41,33 +41,35 @@ In this lab, you will perform following tasks:
 
 4. Select **Review + create (3)** then **Create**.
 
+5. Click on **Go to resources.**
+
 ### Task 2: Configure gateway subnets for on premise Virtual Network
 
-1. Select the **OnPremVNetRG** Resource Group and then open the **OnPremVNet** blade and select **Subnets**.
-
-2. Next, select **+ subnet**.
+1. On the **OnPremVNet** blade and select **Subnets** and then select **+ Subnet**.
 
     ![](images/lab7vnet3.png)
 
-3. Specify the following configuration for the subnet, and select **Add**:
+1. Specify the following configuration for the subnet, and select **Add (4)**:
 
     | Setting | Action |
     | -- | -- |
-    | Subnet Purpose | **Virtual Network Gateway** |
-    | Starting address | **192.168.1.0** |
-    | Size | **/27 (32 addresses)** |
+    | Subnet Purpose | **Virtual Network Gateway (1)** |
+    | Starting address | **192.168.1.0 (2)** |
+    | Size | **/27 (32 addresses) (3)** |
 
-    ![](images/lab7vnet4.png)
+    ![](images/e18.png)
 
-4. Next, select **+ Subnet** and add the **OnPremManagementSubnet** subnet to the **OnPremVNet**, as shown below in the screenshot:
+1. Next, select **+ Subnet** and add the **OnPremManagementSubnet** subnet to the **OnPremVNet**, as shown below in the screenshot:
 
-    - Name: **OnPremManagementSubnet**
+    - Name: **OnPremManagementSubnet (1)**
 
-    - Address range: **192.168.2.0/27**
+    - Starting address: **192.168.2.0 (2)**
 
-    - Leave the rest of the values as their defaults. Select **Add**.
+    - Size: **/27 (32 addresses) (3)**
 
-        ![](images/lab7vnet4a.png)
+    - Leave the rest of the values as their defaults. Select **Add (4)**.
+
+        ![](images/e19.png)
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
@@ -83,27 +85,29 @@ In this lab, you will perform following tasks:
 
     ![](images/lab7vnet5.png)
 
-2. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
+1. Click on **+Create**.    
+
+1. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create (13)**:
 
     | Setting | Action |
     | -- | -- |
-    | Subscription | **Select your subscription** |
-    | Name | **OnPremWGGateway** |
-    | Region | **East US** (This must match the location in which you created the **OnPremVNet** virtual network.) |
-    | Gateway type | **VPN** |
-    | SKU | **VpnGw1** |
-    | Generation | **Generation1** |
-    | Virtual network | **OnPremVNet** |
-    | Public IP address | **Create new** |
-    | Public IP address name | **onpremgatewayIP1** |
-    | Enable active-active mode | **Enabled** |
-    | Second Public IP address name | **onpremgatewayIP2** |
-    | Configure BGP | **Disabled** |
+    | Subscription | **Select your subscription (1)** |
+    | Name | **OnPremWGGateway (2)** |
+    | Region | **East US (3)** (This must match the location in which you created the **OnPremVNet** virtual network.) |
+    | Gateway type | **VPN (4)** |
+    | SKU | **VpnGw1 (5)** |
+    | Generation | **Generation1 (6)** |
+    | Virtual network | **OnPremVNet (7)** |
+    | Public IP address | **Create new (8)** |
+    | Public IP address name | **onpremgatewayIP1 (9)** |
+    | Enable active-active mode | **Enabled (10)** |
+    | Second Public IP address name | **onpremgatewayIP2 (11)** |
+    | Configure BGP | **Disabled (12)** |
 
-    ![](images/lab7vnet6.png)
-    ![](images/lab7vnet7.png)
+    ![](images/e20.png)
+    ![](images/e21.png)
 
-3. Validate your settings and select **Review + Create** then **Create**.
+1. Validate your settings then select **Create**.
 
     >**Note:** The gateway will take 30-45 minutes to provision. Rather than waiting, continue to the next task.
 
@@ -113,31 +117,33 @@ In this lab, you will perform following tasks:
 
     ![](images/lab7vnet5.png)
 
-2. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create**:
+1. Click on **+ Create**.    
+
+1. On the **Create virtual network gateway** blade,  enter the following information and select **Review + create (13)**:
 
     | Setting | Action |
     | -- | -- |
-    | Subscription | **Select your subscription** |
-    | Name | **WGVNet1Gateway** |
-    | Region | **South Central US** (This must match the location in which you created the **WGVNet1** virtual network.) |
-    | Gateway type | **VPN** |
-    | SKU | **VpnGw1** |
-    | Generation | **Generation1** |
-    | Virtual network | **WGVNet1** |
-    | Public IP address | **Create new** |
-    | Public IP address name | **vnet1gatewayIP1** |
-    | Enable active-active mode | **Enabled** |
-    | Second Public IP address name | **vnet1gatewayIP2** |
-    | Configure BGP | **Disabled** |
+    | Subscription | **Select your subscription (1)** |
+    | Name | **WGVNet1Gateway (2)** |
+    | Region | **South Central US (3)** (This must match the location in which you created the **WGVNet1** virtual network.) |
+    | Gateway type | **VPN (4)** |
+    | SKU | **VpnGw1 (5)** |
+    | Generation | **Generation1 (6)** |
+    | Virtual network | **WGVNet1 (7)** |
+    | Public IP address | **Create new (8)** |
+    | Public IP address name | **vnet1gatewayIP1 (9)** |
+    | Enable active-active mode | **Enabled (10)** |
+    | Second Public IP address name | **vnet1gatewayIP2 (11)** |
+    | Configure BGP | **Disabled (12)** |
 
-    ![](images/lab7vnet8.png)
-    ![](images/lab7vnet9.png)
+    ![](images/e22.png)
+    ![](images/e23.png)
 
-3. Validate your settings and select **Review + Create** then **Create**.
+1. Validate your settings and then **Create**.
 
     >**Note:** The gateway will take 30-45 minutes to provision. You will need to wait until both gateways are provisioned before proceeding to the next section.
 
-4. The Azure portal will display a notification when the deployments have completed.
+1. The Azure portal will display a notification when the deployments have completed.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
@@ -149,35 +155,45 @@ In this lab, you will perform following tasks:
 
 ### Task 5: Connect the gateways
 
-1. In the Azure portal, in the 'Search resources, services, and docs' search box, type **connections** in the search text box. Select **Connections**.
+1. In the Azure portal, in the 'Search resources, services, and docs' search box, type **Connections (1)** in the search text box. Select **Connections (2)**.
 
-    ![](images/lab7vnet9b.png)
+    ![](images/e24.png)
 
-2. Click on **Create**.
+     >**Note**: Make sure to refer the above screenshot while selecting the **Connections.**
 
-2. On the **Connection** blade, select **Create**.
+1. On the **Connection** blade, select **Create**.
 
-3. On the **Basics** blade, leave the **Connection type** set to **VNet-to-VNet**. Select the existing **WGVNetRG1** resource group. Enter the following information and select **Next: Settings**:
-    - Establish bidirectional connectivity - checked
-    - First connection name - **WGVNet1-to-OnPremWGGateway**
-    - Second connection name - **WGGateway-to-WGVNet1**
-    - Region - **South Central US**
+1. On the **Basics** blade, enter the following information and select **Next: Settings (8)**:
 
-        ![](images/hol-ex7-task5-create-connection-vnet-to-vnet.png)
+    - Subscription: Leave default **(1)**
+    - Resource group: Select the existing **WGVNetRG1 (2)**
+    - **Connection type** set to **VNet-to-VNet (3)**
+    - Establish bidirectional connectivity - checked **(4)**
+    - First connection name - **WGVNet1-to-OnPremWGGateway (5)**
+    - Second connection name - **WGGateway-to-WGVNet1 (6)**
+    - Region - **South Central US (7)**
 
-4. On the Settings step, select **WGVNet1Gateway** as the first virtual network gateway and **OnPremWGGateway** as the second virtual network gateway. Ensure **Establish bidirectional connectivity** and **IKEv2** is selected. Enter a shared key, such as **A1B2C3D4**. Select **Review + create**.
+        ![](images/e25.png)
 
-    ![](images/lab7vnet9a.png)
+1. On the Settings step, 
 
-5. Select **Create** on the **Summary** page to create the connection.
+    - Select **WGVNet1Gateway (1)** as the first virtual network gateway 
+    - **OnPremWGGateway (2)** as the second virtual network gateway
+    - Enter a shared key, such as **A1B2C3D4 (3)**.
+    - Ensure **IKEv2 (4)** is selected
+    - Select **Review + create (5)**.
 
-6. In the Azure portal, in the 'Search resources, services, and docs' search box, type **connections** in the search text box. Select **Connections**.
+      ![](images/e26.png)
 
-    ![](images/lab7vnet9b.png)
+1. Select **Create** on the **Summary** page to create the connection.
 
-7. Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
+1. In the Azure portal, in the 'Search resources, services, and docs' search box, type **Connections (1)** in the search text box. Select **Connections (2)**.
 
-    ![](images/hol-ex7-task5-connections-blade.png)
+    ![](images/e24.png)
+
+1. Watch the progress of the connection status, and use the **Refresh** icon until the status changes for both connections from **Unknown** to **Connected**. This may take 5-10 minutes or more. You might need to refresh the page to see the change in status.
+
+    ![](images/e27.png)
 
 ### Review
 

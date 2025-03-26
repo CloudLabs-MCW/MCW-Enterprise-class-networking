@@ -42,9 +42,9 @@ The architecture for this lab involves several key components:
 
 ## Accessing Your Lab Environment
  
-Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
+Once you're ready to dive in, your virtual machine and **lab guide** will be right at your fingertips within your web browser.
  
-![](images/new-ecn-feb-1.png)
+![](images/eg1.png)
 
 ### Virtual Machine & Lab Guide
  
@@ -54,26 +54,26 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-![](images/new-ecn-feb-05.png)
+![](images/eg2.png)
  
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
-   ![](images/new-ecn-feb-2.png)
+   ![](images/eg3.png)
  
 ## Managing Your Virtual Machine
  
-1. Feel free to start, stop, or restart your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
+1. Feel free to **start, stop, or restart (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
  
-   ![](images/new-ecn-feb-4.png)
+   ![](images/eg5.png)
 
 
 ## Lab Guide Zoom In/Zoom Out
  
 To adjust the zoom level for the environment page, click the **A↕ : 100%** icon located next to the timer in the lab environment.
 
-![](images/n21.png)
+![](images/eg4.png)
  
 ## Login to the Azure Portal
 
@@ -113,8 +113,8 @@ Learner Support Contacts:
 - Email Support: cloudlabs-support@spektrasystems.com.
 - Live Chat Support: https://cloudlabs.ai/labs-support
 
-Now, click on Next from the lower right corner to move on to the next page.
+Now, click on **Next** from the lower right corner to move on to the next page.
 
-![](images/n8.png)
+![](images/eg6.png)
 
 ## Happy Learning!!
