@@ -13,9 +13,13 @@ In this lab, you will perform the following tasks:
 
 ### Task 1: Create a virtual machine to validate connectivity
 
-1. Create a new virtual machine in the OnPremVNet virtual network. In the Azure portal, select **+ Create a resource** and select **Virtual machine**.
+1. Create a new virtual machine in the OnPremVNet virtual network. In the Azure portal, search for **Virtual machines (1)** and select **Virtual machines (2)**.
 
-1. Click on **+ Create**.
+    ![](images/e1.png)
+
+1. Click on **+ Create (1)** drop down amd select **Azure Virtual Machine (2)**.
+
+    ![](images/e28.png)
 
 1. On the **Create a virtual machine** blade, on the **Basics** tab, enter the following information, and select **Next : Disks >**:
 
@@ -82,21 +86,23 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 3. On the **Create route table** blade, enter the following information:
 
-    - Subscription: **Select your subscription**.
+    - Subscription: **Select your subscription (1)**.
 
-    - Resource group: Select the drop-down menu, and select **WGVNetRG1**.
+    - Resource group: Select the drop-down menu, and select **WGVNetRG1 (2)**.
 
-    - Region: **South Central US** (This must match the location in which you created the **WGVNet1** virtual network.)
+    - Region: **South Central US (3)** (This must match the location in which you created the **WGVNet1** virtual network.)
 
       > **Note**: Ensure this is created in the **WGVNet1** virtual network.
 
-    - Name: **WGAzureVNetGWRT**
+    - Name: **WGAzureVNetGWRT (4)**
 
-    - Propagate gateway routes: **Yes**
+    - Propagate gateway routes: **Yes (5)**
 
-        ![](images/hol-ex8-task2-create-route-table-wgazurevnetgwrt.png)
+    - Select **Review + create (6)**
 
-4. Select **Review + create** then **Create**.
+        ![](images/e29.png)
+
+4. Then **Create**.
 
 5. Select **Go to resource** to go to the **WGAzureVNetGWRT** route table.
 
