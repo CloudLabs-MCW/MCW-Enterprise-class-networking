@@ -42,11 +42,13 @@ In this lab, you will perform the following tasks:
 
 1. In the search bar of the Azure portal, type **Network Watcher (1)**. From the search results, select **Network Watcher (2)**.
 
+   ![](images/e38.png)
+
 2. In the **Overview** blade, ensure that **NetworkWatcher_southcentralus** and **NetworkWatcher_eastus** is listed.
 
 3. If they are not listed, add them to the list using the **+ Create** button.
 
-   ![](images/hol-ex9-task2-network-watcher.png)
+   ![](images/e39.png)
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       

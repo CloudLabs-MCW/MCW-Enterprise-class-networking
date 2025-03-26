@@ -106,19 +106,21 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 5. Select **Go to resource** to go to the **WGAzureVNetGWRT** route table.
 
-6. Select **Routes** under **Settings** on the left.
+6. Select **Routes (1)** under **Settings** on the left.On the **Routes** blade, select the **+ Add (2)** button. 
 
-7. On the **Routes** blade, select the **+ Add** button. Enter the following information, and select **Add**:
+   ![](images/e30.png)
+
+7. Enter the following information, and select **Add (6)**:
 
     | Setting | Action |
     | -- | -- |
-    | Route name | **OnPremToAppSubnet** |
-    | Destination type | **IP Addresses** |
-    | Destination IP addresses/CIDR ranges | **10.8.0.0/25** |
-    | Next hop type | **Virtual appliance** |
-    | Next hop address | **10.7.1.4** |
+    | Route name | **OnPremToAppSubnet (1)** |
+    | Destination type | **IP Addresses (2)** |
+    | Destination IP addresses/CIDR ranges | **10.8.0.0/25 (3)** |
+    | Next hop type | **Virtual appliance (4)** |
+    | Next hop address | **10.7.1.4 (5)** |
 
-    ![](images/hol-ex8-task2-onpremtoappsubnet-to-virtual-appliance.png)
+    ![](images/e31.png)
 
 8. In the search bar of the Azure portal, type **Virtual network (1)**. From the search results, select **Virtual network (2)**.
 
@@ -130,9 +132,9 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     ![](images/lab8vm6.png)
 
-11. On the **GatewaySubnet** dialog, under the **Route table** drop down, select **WGAzureVNetGWRT**. Then select **Save**.
+11. On the **GatewaySubnet** dialog, under the **Route table** drop down, select **WGAzureVNetGWRT (1)**. Then select **Save (2)**.
 
-    ![](images/lab8vm7.png)
+    ![](images/e32.png)
 
     >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
@@ -167,11 +169,23 @@ In this scenario, you will initiate a Remote Desktop (RDP) session from the **On
 
 1. If you recieve any pop up, click on **Keep**.
 
+    ![](images/e33.png)
+
 1. Select **Open file**.
+
+    ![](images/e34.png)
 
 1. Open the downloaded RDP file and click **Connect**.
 
     ![](images/02032025(13).png)
+
+1. Click on **More choices**.
+
+    ![](images/e35.png)
+
+1. Click on **Use a different account**.
+
+    ![](images/e36.png)
 
 1. When prompted, enter the following credentials and click **OK (3)**:  
    
@@ -179,13 +193,13 @@ In this scenario, you will initiate a Remote Desktop (RDP) session from the **On
 
    - **Password (2):** `demo@pass123`
 
-     ![](images/02032025(14).png)
+     ![](images/e37.png)
 
 1. Click **Yes** on the security pop-up to proceed.
 
     ![](images/02032025(15).png)
 
-1. Inside **OnPremVM**, search for **Remote Desktop Connection** in the Windows search bar and open the application. 
+1. Inside **OnPremVM**, search for **Remote Desktop Connection (2)** in the Windows **search bar (1)** and open the **Remote Desktop Connection (3)** application. 
 
     ![](images/02032025(16).png)
 
