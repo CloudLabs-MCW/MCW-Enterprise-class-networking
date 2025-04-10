@@ -75,7 +75,7 @@ In this lab, you will perform following tasks:
     | -- | -- |
     | Route name | **AppToMgmt** **(1)** |
     | Destination type | **IP Addresses** **(2)** |
-    | Destination IP addresses/CIDR ranges | **10.7.0.8/29** **(3)** |
+    | Destination IP addresses/CIDR ranges | **10.7.2.0/25** **(3)** |
     | Next hop type | **Virtual appliance** **(4)** |
     | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
