@@ -113,7 +113,7 @@ In this lab, you will perform following tasks:
     | Next hop type | **Virtual appliance** **(4)** |
     | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
-    ![](images/lab4route8.png)
+    ![](images/mgmttoapp.png)
 
 9. Upon completion, your routes in the **MgmtRT** route table should look like the following screenshot:
 
