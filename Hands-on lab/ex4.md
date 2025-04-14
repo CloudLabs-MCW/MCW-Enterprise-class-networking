@@ -75,15 +75,15 @@ In this lab, you will perform following tasks:
     | -- | -- |
     | Route name | **AppToMgmt** **(1)** |
     | Destination type | **IP Addresses** **(2)** |
-    | Destination IP addresses/CIDR ranges | **10.7.0.8/29** **(3)** |
+    | Destination IP addresses/CIDR ranges | **10.7.2.0/25** **(3)** |
     | Next hop type | **Virtual appliance** **(4)** |
     | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
-    ![](images/lab4route6.png)
+    ![](images/apptomgmt2.png)
 
 4. Upon completion, your routes in the **AppRT** route table should look like the following screenshot:
 
-    ![](images/hol-ex4-task2-apprt-route-table.png)
+    ![](images/apptomgmt.png)
 
 5. In the Azure Portal, search for **Route tables** in the search box and select **Route tables**.
 
@@ -109,15 +109,15 @@ In this lab, you will perform following tasks:
     | -- | -- |
     | Route name | **MgmtToApp** **(1)** |
     | Destination type | **IP Addresses** **(2)** |
-    | Destination IP addresses/CIDR ranges | **10.7.2.0/25** **(3)** |
+    | Destination IP addresses/CIDR ranges | **10.8.0.0/25** **(3)** |
     | Next hop type | **Virtual appliance** **(4)** |
     | Next hop address | **10.7.1.4** **(5)** (This is the private IP of Azure Firewall.) |
 
-    ![](images/lab4route8.png)
+    ![](images/mgmttoapp2.png)
 
 9. Upon completion, your routes in the **MgmtRT** route table should look like the following screenshot:
 
-    ![](images/hol-ex4-task2-mgmtrt-route-table.png)
+    ![](images/mgmttoapp1.png)
 
     >**Note:** The route tables and routes you have just created are not associated with any subnets yet, so they are not impacting any traffic flow yet. This will be accomplished later in the lab.
 
