@@ -8,6 +8,7 @@ In this lab, you will perform following tasks:
 
 - Create route tables
 - Add routes to each route table
+- Associate route tables to subnets
   
 ## Estimated timing: 40 minutes
 
@@ -129,10 +130,30 @@ In this lab, you will perform following tasks:
 
 <validation step="a285d069-db50-49bb-a027-8b6962249c52" />
 
+### Task 3: Associate route tables to subnets
+
+1. In the Azure portal, navigate to the blade of the **WGVNetRG2** resource group.
+
+1. Select **AppRT**, followed by **Subnets** and then select **+ Associate**.
+
+    ![In this screenshot, the AppRT - Subnets blade is depicted with Subnets selected on the left and the '+ Associate' button selected.](images/hol-ex6-task3-route-table-associate-button.png "AppRT Route table blade")
+
+1. On the **Associate subnet** blade, select **WGVNet2 (1)** on the **Virtual network** drop down. Select **AppSubnet (2)** on the **Subnet** dropdown and then select **OK (3)** at the bottom of the **Associate subnet** blade.
+
+    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet2' virtual network and 'AppSubnet' subnet selected along with the 'OK' button.](images/e15.png "Associate subnet section for AppRT")
+
+1. Navigate to the blade of the **WGVNetRG1** resource group, and select **MgmtRT**, then **Subnets**.
+
+1. Select **+ Associate**.
+
+1. On the **Associate subnet** blade, select **WGVNet1 (1)** on the **Virtual network** drop down. Select **Management (2)** on the **Subnet** dropdown and then select **OK (3)** at the bottom of the **Associate subnet** blade.
+
+    ![](images/e16.png)
 
 ### Review
 In this lab, you have completed:
 - Created route tables
 - Added routes to each route table
+- Associated route tables to subnets
 
 ## Great job on completing this exercise! You can now proceed to the next one.
