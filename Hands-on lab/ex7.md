@@ -157,7 +157,7 @@ In this lab, you will perform following tasks:
 
 1. In the Azure portal, in the 'Search resources, services, and docs' search box, type **Connections (1)** in the search text box. Select **Connections (2)**.
 
-    ![](images/e24.png)
+    ![](images/connections.png)
 
      >**Note**: Make sure to refer the above screenshot while selecting the **Connections.**
 
