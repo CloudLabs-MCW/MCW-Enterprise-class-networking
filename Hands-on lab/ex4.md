@@ -58,7 +58,7 @@ In this lab, you will perform following tasks:
 
 3. Upon completion, your routes in the **AppRT** route table should look like the following screenshot:
 
-    ![](images/apptomgmt.png)
+    ![](images/rt2.png)
    
     >**Note:** The route tables and routes you have just created are not associated with any subnets yet, so they are not impacting any traffic flow yet. This will be accomplished later in the lab.
 
