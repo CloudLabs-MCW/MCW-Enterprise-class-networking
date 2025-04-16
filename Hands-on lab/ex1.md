@@ -54,10 +54,10 @@ In this task, you will create a Virtual Network (VNet) in Azure, configure its a
     | Setting | Action |
     | -- | -- |
     | **Subnet purpose** | **Virtual Network Gateway** **(1)** |
-    | **Starting address** | **10.7.15.0** **(2)** |
-    | **Size** | **/27 (32 addresses) (3)** |
-
-    ![](images/lab1vnet10a.png)
+    | **Size** | **/27 (32 addresses) (2)** |
+    | **Starting address** | **10.7.15.0** **(3)** |
+    
+    ![](images/sub1.png)
 
 1. Click on the **AzureBastionSubnet**.
 
@@ -68,10 +68,11 @@ In this task, you will create a Virtual Network (VNet) in Azure, configure its a
     | Setting | Action |
     | -- | -- |
     | **Subnet purpose** | **Azure Bastion** **(1)** |
+    | **Size** | **/24 (256 addresses) (2)** |
     | **Starting address** | **10.7.5.0** **(2)** |
-    | **Size** | **/24 (256 addresses) (3)** |
+    
 
-    ![](images/lab1vnet7.png)
+    ![](images/sub5.png)
 
     ![](images/lab1vnet9a.png)
 
@@ -98,10 +99,10 @@ In this task, you will create a Virtual Network (VNet) in Azure, configure its a
     | Setting | Action |
     | -- | -- |
     | **Name** | **Management** **(1)** |
-    | **Starting address** | **10.7.2.0** **(2)** |
-    | **Size** | **/25 (128 addresses) (3)** |
-
-    ![](images/lab1vnet11.png)
+    | **Size** | **/25 (128 addresses) (2)** |
+    | **Starting address** | **10.7.2.0** **(3)** |
+    
+    ![](images/sub3.png)
 
 1. Repeat Step 3, enter the following information for the **Azure Firewall** which we will use to control traffic flow in and out of the Network then click on **Add (3)**.
 
@@ -110,7 +111,7 @@ In this task, you will create a Virtual Network (VNet) in Azure, configure its a
     | **Subnet Purpose** | **Azure Firewall** **(1)** |
     | **Starting address** | **10.7.1.0** **(2)** |
 
-    ![](images/lab1vnet12.png)
+    ![](images/sub4.png)
 
     ![](images/lab1vnet13.png)
 
