@@ -8,7 +8,7 @@ In this lab, you will perform following tasks:
 
 - Provision the Azure firewall
 - Create Firewall Rules
-  
+
 ## Estimated timing: 60 minutes
 
 ### Task 1: Provision the Azure firewall
@@ -148,5 +148,5 @@ We will create firewall rules to allow the inbound and outbound traffic.
 In this lab, you have completed:
 - Provisioned the Azure firewall
 - Created Firewall Rules
-  
+
 ## Great job on completing this exercise! You can now proceed to the next one.
