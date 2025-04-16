@@ -34,9 +34,9 @@ In this lab, you will perform following tasks:
 
     - Allow the peered virtual network to access 'WGVNet1'
     - Allow the peered virtual network to receive forwarded traffic from 'WGVNet1'
-    - Enable 'WGVNet2' to use 'WGVNet1's' remote gateway or route server
+    - Allow the gateway or route server in the peered virtual network to forward traffic to 'WGVNet1'
 
-      ![](images/peer2.png)
+      ![](images/lab1vnet15.png)
 
 1. For **Local virtual network summary** provide the Peering link name as **VNETPeering_WGVNet1-WGVNet2** **(1)**
 

@@ -8,7 +8,7 @@ In this lab, you will perform following tasks:
 
 - Provision the Azure firewall
 - Create Firewall Rules
-    
+
 ## Estimated timing: 60 minutes
 
 ### Task 1: Provision the Azure firewall
@@ -133,18 +133,6 @@ We will create firewall rules to allow the inbound and outbound traffic.
     | Destination ports | **80,443** |
 
     ![](images/lab6fire8.png)
-
-9. Create another rule for Remote Desktop sessions from the Management subnet on WGVNet1. The IP Addresses rules should look like the image below.
-
-    | Setting | Action |
-    | -- | -- |
-    | Rules name (IP Addresses) | **IncomingMgmtRDP** |
-    | Protocol | **TCP** |
-    | Source| **10.7.2.0/25** |
-    | Destination Address | **10.8.0.0/25** |
-    | Destination ports | **3389** |
-
-    ![In this screenshot, the 'IP Addresses' section of the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/e14.png "Azure Firewall IP Addresses section")
 
 10. Select **Add** and wait for 5-7 minutes until the update completes.
 

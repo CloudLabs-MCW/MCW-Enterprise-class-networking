@@ -45,7 +45,7 @@ In this lab, you will perform the following tasks:
 
 1. Click on **Next: Disk >**, then proceed to the networking section by clicking on **Next: Networking >**.
 
-1. On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration and select **Next : Management > (9)**:
+1. On the **Create a virtual machine** blade, on the **Networking** tab, set the following configuration:
 
     | Setting | Action |
     | -- | -- |
@@ -59,10 +59,10 @@ In this lab, you will perform the following tasks:
     | Load balancing options | **None** **(8)** |
 
     ![](images/lab8vm4.png)
-   
-    ![](images/lab8vm5.png)
 
-1. On the **Create a virtual machine** blade, on the **Management** tab, click on **Review+create**.
+1. On the **Create a virtual machine** blade, click on **Review+create (9)**.
+   
+    ![](images/vmcreate.png)
 
 1. Ensure the validation passes, and select **Create**. The virtual machine will take about 5 minutes to provision.
 
@@ -136,8 +136,6 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     ![](images/e32.png)
 
-    >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
-
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
    - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -146,6 +144,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 <validation step="0a679517-f88e-4564-b23c-a4c72b763c6b" />
 
+>**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
 ### Scenario 1: Verifying RDP Access Restriction by Azure Firewall
 

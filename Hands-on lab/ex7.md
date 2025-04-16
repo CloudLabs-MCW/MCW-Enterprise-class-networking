@@ -54,22 +54,21 @@ In this lab, you will perform following tasks:
     | Setting | Action |
     | -- | -- |
     | Subnet Purpose | **Virtual Network Gateway (1)** |
-    | Starting address | **192.168.1.0 (2)** |
-    | Size | **/27 (32 addresses) (3)** |
+    | Size | **/27 (32 addresses) (2)** |
+    | Starting address | **192.168.1.0 (3)** |
+    
 
-    ![](images/e18.png)
+    ![](images/sub7.png)
 
 1. Next, select **+ Subnet** and add the **OnPremManagementSubnet** subnet to the **OnPremVNet**, as shown below in the screenshot:
 
     - Name: **OnPremManagementSubnet (1)**
-
-    - Starting address: **192.168.2.0 (2)**
-
-    - Size: **/27 (32 addresses) (3)**
+    - Size: **/27 (32 addresses) (2)**
+    - Starting address: **192.168.2.0 (3)**
 
     - Leave the rest of the values as their defaults. Select **Add (4)**.
 
-        ![](images/e19.png)
+        ![](images/sub8.png)
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
