@@ -136,8 +136,6 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
     ![](images/e32.png)
 
-    >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
-
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
    - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -146,6 +144,7 @@ When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet
 
 <validation step="0a679517-f88e-4564-b23c-a4c72b763c6b" />
 
+>**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
 ### Scenario 1: Verifying RDP Access Restriction by Azure Firewall
 
