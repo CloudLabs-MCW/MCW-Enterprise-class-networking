@@ -145,7 +145,7 @@ This task will create a network security group with the following rules:
     | Setting | Action |
     | -- | -- |
     | Source | **IP Addresses** **(1)** |
-    | Source IP addresses/CIDR ranges | **10.7.2.0/25, 10.7.5.0/24** **(2)** |
+    | Source IP addresses/CIDR ranges | **10.7.5.0/24** **(2)** |
     | Source port ranges | **\*** **(3)** |
     | Destination | **Any** **(4)** |
     | Destination port ranges | **3389** **(5)** |
@@ -154,12 +154,13 @@ This task will create a network security group with the following rules:
     | Priority | **200** **(8)** |
     | **Name** | **AllowMgmtInboundAny3389** **(9)**|
 
-    ![](images/lab3vnet12.png)
+    ![](images/inbound.png)
+   
     ![](images/lab3vnet13.png)
 
-10. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+11. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-11. On the **Add inbound security rule** blade, enter the following information, and select **Add (11)**:
+12. On the **Add inbound security rule** blade, enter the following information, and select **Add (11)**:
 
     | Setting | Action |
     | -- | -- |
@@ -177,9 +178,9 @@ This task will create a network security group with the following rules:
     ![](images/lab3vnet14.png)
     ![](images/lab3vnet15.png)
 
-12. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
+13. On the **WGAppNSG1 - Inbound security rules** blade, select **Add**.
 
-13. On the **Add inbound security rule** blade, enter the following information, and select **Add (11)**:
+14. On the **Add inbound security rule** blade, enter the following information, and select **Add (11)**:
 
     | Setting | Action |
     | -- | -- |
@@ -197,7 +198,7 @@ This task will create a network security group with the following rules:
     ![](images/lab3vnet16.png)
     ![](images/lab3vnet17.png)
 
-14. On the **WGAppNSG1 - Inbound security rules** blade, go to **Settings** > **Subnets (1)**, click **+ Associate (2)**, select **WGVNet2 (3)** in the **Virtual network** dropdown, choose **AppSubnet (4)** in the **Subnet** dropdown, and click **OK (5)**.
+15. On the **WGAppNSG1 - Inbound security rules** blade, go to **Settings** > **Subnets (1)**, click **+ Associate (2)**, select **WGVNet2 (3)** in the **Virtual network** dropdown, choose **AppSubnet (4)** in the **Subnet** dropdown, and click **OK (5)**.
 
     ![](images/lab3vnet18.png)
 
