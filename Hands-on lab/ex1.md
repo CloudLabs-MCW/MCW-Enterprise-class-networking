@@ -98,22 +98,12 @@ In this task, you will create a Virtual Network (VNet) in Azure, configure its a
 
     | Setting | Action |
     | -- | -- |
-    | **Name** | **Management** **(1)** |
-    | **Size** | **/25 (128 addresses) (2)** |
-    | **Starting address** | **10.7.2.0** **(3)** |
-    
-    ![](images/sub3.png)
-
-1. Repeat Step 3, enter the following information for the **Azure Firewall** which we will use to control traffic flow in and out of the Network then click on **Add (3)**.
-
-    | Setting | Action |
-    | -- | -- |
     | **Subnet Purpose** | **Azure Firewall** **(1)** |
     | **Starting address** | **10.7.1.0** **(2)** |
 
     ![](images/sub4.png)
 
-    ![](images/lab1vnet13.png)
+    ![](images/sub6.png)   
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
       
