@@ -8,7 +8,6 @@ In this lab, you will perform following tasks:
 
 - Provision the Azure firewall
 - Create Firewall Rules
-- Associate route tables to subnets
   
 ## Estimated timing: 60 minutes
 
@@ -135,18 +134,6 @@ We will create firewall rules to allow the inbound and outbound traffic.
 
     ![](images/lab6fire8.png)
 
-9. Create another rule for Remote Desktop sessions from the Management subnet on WGVNet1. The IP Addresses rules should look like the image below.
-
-    | Setting | Action |
-    | -- | -- |
-    | Rules name (IP Addresses) | **IncomingMgmtRDP** |
-    | Protocol | **TCP** |
-    | Source| **10.7.2.0/25** |
-    | Destination Address | **10.8.0.0/25** |
-    | Destination ports | **3389** |
-
-    ![In this screenshot, the 'IP Addresses' section of the 'Add network rule collection' blade of the Azure portal is depicted with the required settings listed above selected.](images/e14.png "Azure Firewall IP Addresses section")
-
 10. Select **Add** and wait for 5-7 minutes until the update completes.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
@@ -157,30 +144,9 @@ We will create firewall rules to allow the inbound and outbound traffic.
 
 <validation step="460b4d7d-dd41-4dcc-822b-d7978c970f3f" />
 
-### Task 3: Associate route tables to subnets
-
-1. In the Azure portal, navigate to the blade of the **WGVNetRG2** resource group.
-
-1. Select **AppRT**, followed by **Subnets** and then select **+ Associate**.
-
-    ![In this screenshot, the AppRT - Subnets blade is depicted with Subnets selected on the left and the '+ Associate' button selected.](images/hol-ex6-task3-route-table-associate-button.png "AppRT Route table blade")
-
-1. On the **Associate subnet** blade, select **WGVNet2 (1)** on the **Virtual network** drop down. Select **AppSubnet (2)** on the **Subnet** dropdown and then select **OK (3)** at the bottom of the **Associate subnet** blade.
-
-    ![In this screenshot, the 'Associate subnet' blade is depicted with the 'WGVNet2' virtual network and 'AppSubnet' subnet selected along with the 'OK' button.](images/e15.png "Associate subnet section for AppRT")
-
-1. Navigate to the blade of the **WGVNetRG1** resource group, and select **MgmtRT**, then **Subnets**.
-
-1. Select **+ Associate**.
-
-1. On the **Associate subnet** blade, select **WGVNet1 (1)** on the **Virtual network** drop down. Select **Management (2)** on the **Subnet** dropdown and then select **OK (3)** at the bottom of the **Associate subnet** blade.
-
-    ![](images/e16.png)
-
 ### Review
 In this lab, you have completed:
 - Provisioned the Azure firewall
 - Created Firewall Rules
-- Associated route tables to subnets
-
+  
 ## Great job on completing this exercise! You can now proceed to the next one.
