@@ -1,0 +1,52 @@
+[
+  {
+    "Name": "MCW - Enterprise Class Networking",
+    "Language": "English",
+    "Files": [
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/Getting-started.md",
+        "Order": 1
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-01.md",
+        "Order": 2
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-02.md",
+        "Order": 3
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-03.md",
+        "Order": 4
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-04.md",
+        "Order": 5
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-05.md",
+        "Order": 6
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-06.md",
+        "Order": 7
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-07.md",
+        "Order": 8
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-08.md",
+        "Order": 9
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-09.md",
+        "Order": 10
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/prod/Hands-on%20lab/ex-10.md",
+        "Order": 11
+      }
+    ]
+  }
+]
