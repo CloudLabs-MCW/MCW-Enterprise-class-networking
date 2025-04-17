@@ -7,8 +7,7 @@ In this exercise, you will validate connectivity from your simulated on-premises
 In this lab, you will perform the following tasks:
 
 - Create a virtual machine to validate connectivity
-- Configure routing for simulated 'on-premises' to Azure traffic
-  
+-   
 ## Estimated timing: 60 minutes
 
 ### Task 1: Create a virtual machine to validate connectivity
@@ -74,81 +73,147 @@ In this lab, you will perform the following tasks:
 
 <validation step="1c761e87-33d3-4520-b0d8-9f9e36ffc395" />
 
-### Task 2: Configure routing for simulated 'on-premises' to Azure traffic
-
-When packets arrive from the simulated 'on-premises' Virtual Network (OnPremVNet) to the 'Azure-side' (WGVNet1), they arrive at the gateway WGVNet1Gateway. This gateway is in a gateway subnet (10.7.15.0/27). For packets to be directed to the Azure firewall, we need another route table and route to be associated with the gateway subnet on the 'Azure-side'.
-
-1. In the search bar of the Azure portal, type **Route tables (1)**. From the search results, select **Route tables (2)**.
-
-    ![](images/lab4route1.png)
-
-2. On the **Route tables** blade, select **+ Create**.
-
-3. On the **Create route table** blade, enter the following information:
-
-    - Subscription: **Select your subscription (1)**.
-
-    - Resource group: Select the drop-down menu, and select **WGVNetRG1 (2)**.
-
-    - Region: **South Central US (3)** (This must match the location in which you created the **WGVNet1** virtual network.)
-
-      > **Note**: Ensure this is created in the **WGVNet1** virtual network.
-
-    - Name: **WGAzureVNetGWRT (4)**
-
-    - Propagate gateway routes: **Yes (5)**
-
-    - Select **Review + create (6)**
-
-        ![](images/e29.png)
-
-4. Then **Create**.
-
-5. Select **Go to resource** to go to the **WGAzureVNetGWRT** route table.
-
-6. Select **Routes (1)** under **Settings** on the left.On the **Routes** blade, select the **+ Add (2)** button. 
-
-   ![](images/e30.png)
-
-7. Enter the following information, and select **Add (6)**:
-
-    | Setting | Action |
-    | -- | -- |
-    | Route name | **OnPremToAppSubnet (1)** |
-    | Destination type | **IP Addresses (2)** |
-    | Destination IP addresses/CIDR ranges | **10.8.0.0/25 (3)** |
-    | Next hop type | **Virtual appliance (4)** |
-    | Next hop address | **10.7.1.4 (5)** |
-
-    ![](images/e31.png)
-
-8. In the search bar of the Azure portal, type **Virtual network (1)**. From the search results, select **Virtual network (2)**.
-
-   ![](images/lab1vnet2.png)
-
-9. Select the **WGVNet1** virtual network.
-
-10. Under the **Settings (1)** section, select **Subnets (2)**. On the **Subnets** blade, select **Gateway Subnet (3)**.
-
-    ![](images/lab8vm6.png)
-
-11. On the **GatewaySubnet** dialog, under the **Route table** drop down, select **WGAzureVNetGWRT (1)**. Then select **Save (2)**.
-
-    ![](images/e32.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-      
-   - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-
-<validation step="0a679517-f88e-4564-b23c-a4c72b763c6b" />
-
 >**Note:** At this point, you have configured your enterprise network. You should be able to test your Enterprise Class Network from one region to another. Your testing can include the following scenarios:
 
-### Scenario 1: Verifying RDP Access Restriction by Azure Firewall
+### Scenario 1: Initiating an RDP Session to WGWEB1 and WGSQL1 via Bastion
 
-In this scenario, you will initiate a Remote Desktop (RDP) session from the **OnPremVM** virtual machine to a virtual machine in the **AppSubnet (10.8.0.0/25)**. However, the connection should fail due to Azure Firewall restrictions. Please follow the below steps:
+In this scenario, you will RDP into **WGWEB1** and **WGSQL1** using an **Azure Bastion** session. Since the traffic is routed through the **Azure Firewall**, access should be successful.
+
+1. In the Azure portal, search for **Virtual Machines** in the search bar and select **Virtual Machines** from the results.
+
+    ![](images/02032025(9).png)
+
+2. On the **Virtual Machines** page, locate and select **WGWEB1**.
+
+    ![](images/02032025(20).png)
+
+3. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
+
+    ![](images/02032025(21).png)
+
+4. Enter the following credentials and click **Connect (3)**:
+
+   - **Username (1):** `demouser`  
+   - **VM Password (2):** `demo@pass123`
+
+    ![](images/02032025(22).png)
+
+5. repeat the same steps mentioned above initiate an RDP session to **WGSQL1** using Bastion.
+
+### Scenario 2: Accessing the Web Application via Bastion in WGWEB1 or WGWEB2 VM
+
+In this scenario, you will access the web application deployed in **WGVNet2** using the private IP address of the **Azure Load Balancer (10.8.0.100)**. This will be done from within **WGWEB1** or **WGWEB2** after establishing a Bastion session. Since the traffic is routed through **Azure Firewall**, access should be successful. 
+
+1. On the Azure portal, type **Virtual Machines (1)** in the search box and select **Virtual Machines (2)** from the results.
+
+    ![](images/02032025(9).png)
+
+1. On the **Virtual Machines** page, find and select **WGWEB1**.
+
+    ![](images/02032025(20).png)
+
+1. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
+
+    ![](images/02032025(21).png)
+
+1. Enter the following credentials and click **Connect (3)**:
+
+   - **Username (1):** `demouser`
+
+   - **VM Password (2):** `demo@pass123`
+
+     ![](images/02032025(22).png)
+
+1. On the desktop, open **Microsoft Edge**, enter **10.8.0.100** (the private IP of the Azure Load Balancer) in the address bar, and press **Enter** to load the web application.
+
+    ![](images/02032025(23).png)
+
+1. The web page should open successfully, confirming that traffic is routed correctly through **Azure Firewall**.
+
+1. Close the RDP session.
+
+Please follow the same steps for **WGWEB2**.
+
+### Scenario 3: Connect to the Load Balancer (WGWEBLB) Using the Firewall Public IP
+
+In this scenario, you will access the web application deployed in **WGVNet2** by connecting to the **Azure Load Balancer** at private IP address **10.8.0.100**. This access will be made from the **JumpBox/LabVM**, by browsing to the **Azure Firewall's Public IP address**. The connection should be successful.
+
+1. In the Azure portal, use the search bar to search for **Firewalls**.
+
+    ![](images/lab6fire1.png)
+
+1. From the search results, select **Firewalls**, then click on the **Firewall** created in the previous exercise.
+
+   ![](images/fw.png)
+
+1. In the Firewall's overview blade, select **Public IP Configuration**, then copy the **public IP address** of the firewall.
+
+   ![](images/fw1.png)
+
+1. On the **JumpBox/LabVM**, open **Microsoft Edge** and paste the copied public IP address into the browser's address bar to access the web application.
+
+   ![](images/fw2.png)
+
+1. You will able to access the loadbalancer by browsing to the **Azure Firewall's** Public IP address.
+
+### Scenario 4: Initiating an RDP Session to WGSQL1 from WGWEB1 via Bastion  
+
+In this scenario, you will establish a **Bastion** session to **WGWEB1** and then initiate a **Remote Desktop (RDP)** connection to **WGSQL1** using its private IP address. The connection should be successful since it is allowed by **Azure Firewall**.
+
+1. On the Azure portal, type **Virtual Machine (1)** in the search box and select **Virtual Machines (2)** from the results.
+
+    ![](images/02032025(9).png)
+
+1. On the **Virtual Machines** page, find and select **WGWEB1**.
+
+    ![](images/02032025(20).png)
+
+1. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
+
+    ![](images/02032025(21).png)
+
+1. Enter the following credentials and click **Connect (3)**:  
+   
+   - **Username (1):** `demouser` 
+
+   - **VM Password (2):** `demo@pass123`
+
+     ![](images/02032025(22).png)
+
+1. Within the **WGWEB1** Bastion session, search for **Remote Desktop Connection** in the Windows search bar and open the application.
+
+    ![](images/02032025(16).png)
+
+1. Enter **10.8.1.4** (the private IP of WGSQL1) in the **Computer** field and click **Connect**.
+
+    ![](images/02032025(24).png)
+
+1. Enter the following credentials and click **Connect (3)**:  
+
+   - **Username (1):** `.\demouser` 
+
+   - **Password (2):** `demo@pass123`
+
+     ![](images/02032025(25).png)
+
+1. If prompted with a security warning, click **Yes** to proceed.
+
+    ![](images/02032025(26).png)
+
+1. The RDP session to **WGSQL1** should be established successfully, confirming that Azure Firewall allows the connection.
+
+This verifies that **WGWEB1** can communicate with **WGSQL1** over **RDP**, as permitted by **Azure Firewall**.
+
+
+
+
+
+
+
+
+
+
+
 
 1. On the Azure portal, type **Virtual Machines (1)** in the search box and select **Virtual Machines (2)** from the results.
 
@@ -214,87 +279,6 @@ In this scenario, you will initiate a Remote Desktop (RDP) session from the **On
 
 This confirms that RDP access to the AppSubnet is blocked by Azure Firewall.
 
-### Scenario 2: Accessing the Web Application via Bastion in WGWEB1 or WGWEB2 VM
-
-In this scenario, you will access the web application deployed in **WGVNet2** using the private IP address of the **Azure Load Balancer (10.8.0.100)**. This will be done from within **WGWEB1** or **WGWEB2** after establishing a Bastion session. Since the traffic is routed through **Azure Firewall**, access should be successful. 
-
-1. On the Azure portal, type **Virtual Machines (1)** in the search box and select **Virtual Machines (2)** from the results.
-
-    ![](images/02032025(9).png)
-
-3. On the **Virtual Machines** page, find and select **WGWEB1**.
-
-    ![](images/02032025(20).png)
-
-4. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
-
-    ![](images/02032025(21).png)
-
-7. Enter the following credentials and click **Connect (3)**:
-
-   - **Username (1):** `demouser`
-
-   - **VM Password (2):** `demo@pass123`
-
-     ![](images/02032025(22).png)
-
-1. On the desktop, open **Microsoft Edge**, enter **10.8.0.100** (the private IP of the Azure Load Balancer) in the address bar, and press **Enter** to load the web application.
-
-    ![](images/02032025(23).png)
-
-1. The web page should open successfully, confirming that traffic is routed correctly through **Azure Firewall**.
-
-1. Close the RDP session.
-
-Please follow the same steps for **WGWEB2**.
-
-### Scenario 3: Initiating an RDP Session to WGSQL1 from WGWEB1 via Bastion  
-
-In this scenario, you will establish a **Bastion** session to **WGWEB1** and then initiate a **Remote Desktop (RDP)** connection to **WGSQL1** using its private IP address. The connection should be successful since it is allowed by **Azure Firewall**.
-
-1. On the Azure portal, type **Virtual Machine (1)** in the search box and select **Virtual Machines (2)** from the results.
-
-    ![](images/02032025(9).png)
-
-1. On the **Virtual Machines** page, find and select **WGWEB1**.
-
-    ![](images/02032025(20).png)
-
-1. Click **Connect (1)** and choose **Connect via Bastion (2)** as the connection method.
-
-    ![](images/02032025(21).png)
-
-1. Enter the following credentials and click **Connect (3)**:  
-   
-   - **Username (1):** `demouser` 
-
-   - **VM Password (2):** `demo@pass123`
-
-     ![](images/02032025(22).png)
-
-1. Within the **WGWEB1** Bastion session, search for **Remote Desktop Connection** in the Windows search bar and open the application.
-
-    ![](images/02032025(16).png)
-
-1. Enter **10.8.1.4** (the private IP of WGSQL1) in the **Computer** field and click **Connect**.
-
-    ![](images/02032025(24).png)
-
-1. Enter the following credentials and click **Connect (3)**:  
-
-   - **Username (1):** `.\demouser` 
-
-   - **Password (2):** `demo@pass123`
-
-     ![](images/02032025(25).png)
-
-1. If prompted with a security warning, click **Yes** to proceed.
-
-    ![](images/02032025(26).png)
-
-1. The RDP session to **WGSQL1** should be established successfully, confirming that Azure Firewall allows the connection.
-
-This verifies that **WGWEB1** can communicate with **WGSQL1** over **RDP**, as permitted by **Azure Firewall**.
 
 ### Review
 In this lab, you have completed:
