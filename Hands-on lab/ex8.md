@@ -98,7 +98,7 @@ In this scenario, you will RDP into **WGWEB1** and **WGSQL1** using an **Azure B
 
     ![](images/02032025(22).png)
 
-5. repeat the same steps mentioned above initiate an RDP session to **WGSQL1** using Bastion.
+5. repeat the same steps mentioned above for initiating an RDP session to **WGSQL1** using Bastion.
 
 ### Scenario 2: Accessing the Web Application via Bastion in WGWEB1 or WGWEB2 VM
 
