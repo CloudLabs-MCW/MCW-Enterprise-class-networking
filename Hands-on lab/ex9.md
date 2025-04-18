@@ -30,14 +30,6 @@ In this lab, you will perform the following tasks:
 
     ![](images/hol-ex9-task1-create-log-analytics-workspace.png)
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-      
-   - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-   - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-
-<validation step="3704e338-98ad-467a-936d-68de0973280d" />
-
 ### Task 2: Configure Network Watcher
 
 1. In the search bar of the Azure portal, type **Network Watcher (1)**. From the search results, select **Network Watcher (2)**.
