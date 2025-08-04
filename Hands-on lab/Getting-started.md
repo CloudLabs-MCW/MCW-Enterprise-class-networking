@@ -44,7 +44,7 @@ The architecture for this lab involves several key components:
  
 Once you're ready to dive in, your virtual machine and **lab guide** will be right at your fingertips within your web browser.
  
-![](images/eg-gg1.png)
+![](images/gs_g_1.png)
 
 ### Virtual Machine & Lab Guide
  
@@ -54,32 +54,32 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-![](images/eg2.png)
+![](images/gs_g_2.png)
  
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
-   ![](images/eg3.png)
+   ![](images/gs_g_4.png)
  
 ## Managing Your Virtual Machine
 
 Feel free to **start, stop, or restart (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
  
-   ![](images/eg5.png)
+   ![](images/gs_g_5.png)
 
 
 ## Lab Guide Zoom In/Zoom Out
  
-To adjust the zoom level for the environment page, click the **A↕ : 100%** icon located next to the timer in the lab environment.
+To adjust the **zoom level (2)** for the environment page, click the **A↕ (1)** icon located next to the timer in the lab environment.
 
-![](images/eg4.png)
+![](images/gs_g_6.png)
  
 ## Login to the Azure Portal
 
 1. In the JumpVM, click on the Azure portal shortcut of the Microsoft Edge browser, which is created on the desktop.
 
-   ![](images/eg-gg2.png)
+   ![](images/gs_g_3.png)
 
 1. On the **Sign in to Microsoft Azure** tab, you will see the login screen. Enter the following email or username, and click on **Next**. 
 
