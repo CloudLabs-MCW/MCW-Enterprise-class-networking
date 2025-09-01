@@ -1,6 +1,6 @@
 # Enterprise-Class Networking in Azure
 
-### Overall Estimated Duration: 8 hours
+### Overall Estimated Duration: 8 Hours
 
 ## Overview
 
@@ -118,3 +118,4 @@ Now, click on **Next** from the lower right corner to move on to the next page.
 ![](images/eg6.png)
 
 ## Happy Learning!!
+
