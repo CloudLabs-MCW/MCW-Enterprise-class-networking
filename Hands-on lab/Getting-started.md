@@ -6,6 +6,18 @@
 
 In this hands-on lab, you will setup and configure virtual networks in a secure hub-and-spoke design. You will also learn how to secure virtual networks by implementing Azure Firewall, network security groups and application security groups, as well as configure route tables on the subnets in your virtual network. Additionally, you will set up access to the virtual network via a jump box and provision a site-to-site VPN connection from another virtual network, providing emulation of hybrid connectivity from an on-premises environment.
 
+## Pre-requisites
+
+Before starting this lab, ensure you have the following:
+
+Azure Knowledge – Basic understanding of Azure networking concepts (VNets, subnets, peering, and routing).
+
+Networking Fundamentals – Familiarity with IP addressing, CIDR notation, and routing principles.
+
+Permissions – Ability to create and configure network resources (VNets, VPN Gateway, NSGs, ASGs, Firewall, Bastion, Route Tables).
+
+Client Machine Access – A local machine with internet access to connect to the Azure Portal and configure VPN connections.
+
 ## Objective
 
 You have been asked by Woodgrove Financial Services to provision a proof of concept deployment that will be used by the Woodgrove team to gain familiarity with a complex Virtual Networking deployment, including all of the components that enable the solution. Specifically, the Woodgrove team will be learning:
@@ -118,4 +130,5 @@ Now, click on **Next** from the lower right corner to move on to the next page.
 ![](images/eg6.png)
 
 ## Happy Learning!!
+
 
