@@ -8,15 +8,15 @@ In this hands-on lab, you will setup and configure virtual networks in a secure 
 
 ## Pre-requisites
 
-Before starting this lab, ensure you have the following:
+- Before starting this lab, ensure you have the following:
 
-Azure Knowledge – Basic understanding of Azure networking concepts (VNets, subnets, peering, and routing).
+- Azure Knowledge – Basic understanding of Azure networking concepts (VNets, subnets, peering, and routing).
 
-Networking Fundamentals – Familiarity with IP addressing, CIDR notation, and routing principles.
+- Networking Fundamentals – Familiarity with IP addressing, CIDR notation, and routing principles.
 
-Permissions – Ability to create and configure network resources (VNets, VPN Gateway, NSGs, ASGs, Firewall, Bastion, Route Tables).
+- Permissions – Ability to create and configure network resources (VNets, VPN Gateway, NSGs, ASGs, Firewall, Bastion, Route Tables).
 
-Client Machine Access – A local machine with internet access to connect to the Azure Portal and configure VPN connections.
+- Client Machine Access – A local machine with internet access to connect to the Azure Portal and configure VPN connections.
 
 ## Objective
 
@@ -130,5 +130,6 @@ Now, click on **Next** from the lower right corner to move on to the next page.
 ![](images/eg6.png)
 
 ## Happy Learning!!
+
 
 
