@@ -14,9 +14,10 @@ $WebClient.DownloadFile("https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Ent
 
 
 Install-PackageProvider -NuGet -MinimunVersion 2.8.5.201 -Force
+
 $WebClient = New-Object System.Net.WebClient 
 # Installing Nuget Manually
-$WebClient.DownloadFile("https://experienceazure.blob.core.windows.net/templates/faiad-april-2025/english/assets/Microsoft.P…,"C:\Program Files\PackageManagement\ProviderAssemblies\nuget\2.8.5.208\Microsoft.PackageManagement.NuGetProvider.dll")
+$WebClient.DownloadFile("https://experienceazure.blob.core.windows.net/templates/faiad-april-2025/english/assets/Microsoft.PackageManagement.NuGetProvider.dll","C:\Program Files\PackageManagement\ProviderAssemblies\nuget\2.8.5.208\Microsoft.PackageManagement.NuGetProvider.dll")
 
 Install-Module -Name SqlServer -Force -AllowClobber
 #Enable Autologon
