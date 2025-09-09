@@ -13,7 +13,11 @@ $WebClient.DownloadFile("https://github.com/Microsoft/sql-server-samples/release
 $WebClient.DownloadFile("https://raw.githubusercontent.com/CloudLabs-MCW/MCW-Enterprise-class-networking/refs/heads/prod/Hands-on%20lab/labfiles/wgsql-logontask.ps1", "C:\LabFiles\logontask.ps1")
 
 
-Install-PackageProvider -NuGet -MinimunVersion 2.8.5.201 -Force
+# Install-PackageProvider -NuGet -MinimunVersion 2.8.5.201 -Force
+
+$WebClient = New-Object System.Net.WebClient 
+# Installing Nuget Manually
+$WebClient.DownloadFile("https://experienceazure.blob.core.windows.net/templates/faiad-april-2025/english/assets/Microsoft.P…,"C:\Program Files\PackageManagement\ProviderAssemblies\nuget\2.8.5.208\Microsoft.PackageManagement.NuGetProvider.dll")
 Install-Module -Name SqlServer -Force -AllowClobber
 #Enable Autologon
 $AutoLogonRegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
