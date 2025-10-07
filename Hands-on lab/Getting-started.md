@@ -89,9 +89,9 @@ To adjust the **zoom level (2)** for the environment page, click the **A↕ (1)*
  
 ## Login to the Azure Portal
 
-1. In the JumpVM, click on the Azure portal shortcut of the Microsoft Edge browser, which is created on the desktop.
+1. On your **virtual machine**, click on the **Azure Portal** icon as shown below:
 
-   ![](images/gs_g_3.png)
+   ![](images/clsse-image1.png)
 
 1. On the **Sign in to Microsoft Azure** tab, you will see the login screen. Enter the following email or username, and click on **Next**. 
 
@@ -103,7 +103,7 @@ To adjust the **zoom level (2)** for the environment page, click the **A↕ (1)*
    
    * **Password**: **<inject key="AzureAdUserPassword"></inject>**
 
-     ![](images/miyagi-image3.png)
+     ![](images/kernel-image2.png)
    
 1. If you see the pop-up **Stay Signed in?**, select **No**.
 
@@ -130,6 +130,7 @@ Now, click on **Next** from the lower right corner to move on to the next page.
 ![](images/eg6.png)
 
 ## Happy Learning!!
+
 
 
 
