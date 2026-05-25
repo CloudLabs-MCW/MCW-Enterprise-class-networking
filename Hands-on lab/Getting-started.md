@@ -2,11 +2,21 @@
 
 ### Overall Estimated Duration: 8 Hours
 
-## Overview
+## 📘 Lab Scenario   
 
-In this hands-on lab, you will setup and configure virtual networks in a secure hub-and-spoke design. You will also learn how to secure virtual networks by implementing Azure Firewall, network security groups and application security groups, as well as configure route tables on the subnets in your virtual network. Additionally, you will set up access to the virtual network via a jump box and provision a site-to-site VPN connection from another virtual network, providing emulation of hybrid connectivity from an on-premises environment.
+Woodgrove Financial Services is building a **secure and scalable enterprise networking environment** in **Microsoft Azure** to support its internal business applications and hybrid connectivity requirements. The organization wants to implement a **hub-and-spoke network architecture** that enables secure communication between application workloads, centralized network security, controlled routing, and connectivity with its on-premises environment.
 
-## Pre-requisites
+The networking team must **design and configure** Azure Virtual Networks, VPN gateways, Azure Firewall, route tables, network security groups, application security groups, load balancers, and monitoring solutions to support secure and highly available application communication across the enterprise network.
+
+To support **administration and operational visibility**, the environment must also provide secure remote access, centralized logging, traffic analytics, and network troubleshooting capabilities.
+
+By the end of this lab, you will have implemented a complete **Enterprise-class Azure networking solution** that demonstrates hybrid connectivity, workload isolation, centralized security, traffic management, high availability, and network monitoring.
+
+## 📖 Overview
+
+In this lab, you will learn how to design and implement an enterprise-class networking solution in Azure that includes a hub-and-spoke architecture, secure connectivity, centralized security controls, traffic management, and monitoring. You will configure Azure Virtual Networks, VPN gateways, Azure Firewall, route tables, network security groups, application security groups, load balancers, and monitoring solutions to support secure and highly available application communication across the enterprise network.
+
+## ⚙️ Pre-requisites
 
 - Before starting this lab, ensure you have the following:
 
@@ -18,9 +28,9 @@ In this hands-on lab, you will setup and configure virtual networks in a secure 
 
 - Client Machine Access – A local machine with internet access to connect to the Azure Portal and configure VPN connections.
 
-## Objective
+## 🎯 Objective
 
-You have been asked by Woodgrove Financial Services to provision a proof of concept deployment that will be used by the Woodgrove team to gain familiarity with a complex Virtual Networking deployment, including all of the components that enable the solution. Specifically, the Woodgrove team will be learning:
+You have been asked by  Woodgrove Financial Services to provision a proof of concept deployment that will be used by the team to gain familiarity with a complex Virtual Networking deployment, including all of the components that enable the solution. Specifically, the team will be learning:
 
 - How to bypass system routing to accomplish custom routing scenarios.
 
@@ -32,15 +42,15 @@ You have been asked by Woodgrove Financial Services to provision a proof of conc
 
 - How to monitor network traffic for proper route configuration and trouble shooting.
 
-## Architecture
+## 🏗️ Architecture
 
 The architecture involves the implementation of a hub-and-spoke network topology in Azure to facilitate secure, scalable, and efficient enterprise-class networking. The hub serves as a central point for connectivity and management, hosting shared services such as Azure Firewall, VPN gateways, and Azure Bastion for secure remote access. The spokes are individual VNets that isolate workloads, applications, or business units while connecting to the hub via VNet peering. Traffic flow is controlled through Azure Route Tables, ensuring optimized communication between resources. Azure Firewall or Network Virtual Appliances (NVAs) provide perimeter security, while hybrid connectivity with on-premises environments is achieved using Azure ExpressRoute or VPN Gateway, creating a robust and manageable cloud network infrastructure.
 
-## Architecture Diagram
+## 🖼️ Architecture Diagram
 
    ![This image represents an entire overview of an environment for the result of this proof of concept. On the left is the OnPremVNetRG resource group, in the middle is the WGVNetRG1 resource group, and on the right is the WGVNetRG2 resource group. In the lower right is the MonitoringRG resource group.](images/hol-architectures-01.png "Solution Architecture")
 
-## Explanation of Components
+## 🔍 Explanation of Components
 
 The architecture for this lab involves several key components:  
 
@@ -52,7 +62,9 @@ The architecture for this lab involves several key components:
 - **Monitoring and Management:** MonitoringRG for centralized performance monitoring and logging.  
 - **Hybrid Connectivity:** Integration of on-premises infrastructure with Azure cloud via secure connectivity.
 
-## Accessing Your Lab Environment
+## 🚀 Getting Started with you Lab
+
+### Accessing Your Lab Environment
  
 Once you're ready to dive in, your virtual machine and **lab guide** will be right at your fingertips within your web browser.
  
@@ -62,17 +74,17 @@ Once you're ready to dive in, your virtual machine and **lab guide** will be rig
  
 Your virtual machine is your workhorse throughout the workshop. The lab guide is your roadmap to success.
  
-## Exploring Your Lab Resources
+### Exploring Your Lab Resources
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-![](images/gs_g_2.png)
+![](images/env-2505.png)
  
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
-   ![](images/gs_g_4.png)
+   ![](images/slipt-2505.png)
  
 ## Managing Your Virtual Machine
 
@@ -81,7 +93,7 @@ Feel free to **start, stop, or restart (2)** your virtual machine as needed from
    ![](images/gs_g_5.png)
 
 
-## Lab Guide Zoom In/Zoom Out
+### Lab Guide Zoom In/Zoom Out
  
 To adjust the **zoom level (2)** for the environment page, click the **A↕ (1)** icon located next to the timer in the lab environment.
 
@@ -114,11 +126,11 @@ To adjust the **zoom level (2)** for the environment page, click the **A↕ (1)*
     ![](images/miyagi-image5.png)
 
 
-   > **For a smoother experience during the hands-on lab, it's important to thoroughly review both the instructions and the accompanying notes. This will help you navigate through the tasks with ease and confidence.**
+   > **`Tip:`** For a smoother experience during the hands-on lab, it's important to thoroughly review both the instructions and the accompanying notes. This will help you navigate through the tasks with ease and confidence.
 
-## Support Contact
+## 📞 Support Contact
 
-The CloudLabs support team is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.
+The **CloudLabs support team** is available 24/7, 365 days a year, via email and live chat to ensure seamless assistance at any time. We offer dedicated support channels tailored specifically for both learners and instructors, ensuring that all your needs are promptly and efficiently addressed.
 
 Learner Support Contacts:
 
